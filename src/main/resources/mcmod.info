@@ -1,0 +1,28 @@
+[
+{
+  "modid": "ProjectX",
+  "name": "§eProjectX",
+  "description": "ProjectX is a open source remake of XyCraft.",
+  "version": "0.0.1",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["KitsuneAlex", "dmaster8", "cricket"],
+  "credits": "dmaster8 for giving me the rights to continue the project !",
+  "logoFile": "/logo.png",
+  "screenshots": [],
+  "dependencies": []
+},
+{
+  "modid": "ProjectXWorld",
+  "name": "§eProjectX World",
+  "version": "0.0.1",
+  "parent": "ProjectX"
+},
+{
+  "modid": "ProjectXMachines",
+  "name": "§eProjectX Machines",
+  "version": "0.0.1",
+  "parent": "ProjectX"
+}
+]
