@@ -1,0 +1,26 @@
+package dca.projectx.core.render;
+
+import dca.projectx.core.render.model.ModelXRelay;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+
+public class RenderXRelay extends TileEntitySpecialRenderer {
+	
+	public static RenderTruncatedIcosahedron irender;
+	public static ModelXRelay model;
+	public static ResourceLocation texture;
+	public float r;
+	public float g;
+	public float b;
+	
+	public RenderXRelay(String color, float r, float g, float b){
+		
+	}
+
+	@Override
+	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
+		
+	}
+
+}

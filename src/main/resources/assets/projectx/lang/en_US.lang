@@ -98,7 +98,13 @@ tile.machineDark.name=Xycronium Void
 tile.machineLight.name=Xycronium Ice
 tile.engineeringTable.name=Engineering Table [WIP]
 tile.fabricator.name=Fabricator [WIP]
+tile.energyNodeT1.name=Energy Node [WIP]
+tile.energyNodeT2.name=Energy Node [WIP]
+tile.energyNodeT3.name=Energy Node [WIP]
+tile.energyRelayT1.name=Energy Relay [WIP]
+tile.energyRelayT2.name=Energy Relay [WIP]
+tile.energyRelayT3.name=Energy Relay [WIP]
 
-item.energyCoreMK1.name=Energy Core (Tier 1) [WIP]
-item.energyCoreMK2.name=Energy Core (Tier 2) [WIP]
-item.energyCoreMK3.name=Energy Core (Tier 3) [WIP]
+item.energyCoreT1.name=Energy Core [WIP]
+item.energyCoreT2.name=Energy Core [WIP]
+item.energyCoreT3.name=Energy Core [WIP]

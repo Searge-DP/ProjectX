@@ -1,0 +1,5 @@
+package dca.projectx.machine.item;
+
+public class XItemEnergyNode {
+
+}

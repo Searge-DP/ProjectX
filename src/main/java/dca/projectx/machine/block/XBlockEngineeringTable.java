@@ -28,11 +28,6 @@ public class XBlockEngineeringTable extends BlockContainer {
 		return new TileEngineeringTable();
 	}
 	
-	@Override
-	public boolean hasTileEntity(){
-		return true;
-	}
-	
     @Override
     @SideOnly(Side.CLIENT)
     public boolean isOpaqueCube() {

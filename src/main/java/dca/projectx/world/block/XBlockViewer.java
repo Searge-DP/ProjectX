@@ -15,7 +15,7 @@ public class XBlockViewer extends XBlockBase {
 
 	public XBlockViewer(Material material, String blockName) {
 		super(material, blockName);
-		this.setHardness(1.0F);
+		this.setHardness(0.5F);
 	}
 	
     @SideOnly(Side.CLIENT)

@@ -1,0 +1,13 @@
+package dca.projectx.machine.item;
+
+import dca.projectx.core.XTabs;
+import net.minecraft.item.Item;
+
+public class XItemEnergyNode extends Item {
+	
+	public XItemEnergyNode(String itemName){
+		this.setUnlocalizedName(itemName);
+		this.setCreativeTab(XTabs.tabProjectXMachines);
+	}
+
+}

@@ -1,0 +1,18 @@
+package dca.projectx.core.render;
+
+import codechicken.lib.vec.Matrix4;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.tileentity.TileEntity;
+
+public abstract class RenderTileX extends TileEntitySpecialRenderer {
+
+	@Override
+	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
+		
+	}
+	
+	public abstract void renderDynamic(TileEntity tile, double x, double y, double z, float f);
+	public abstract void renderStatic(TileEntity tile, Tessellator tess, Matrix4 translationMatrix, Matrix4 rotationMatrix);
+
+}

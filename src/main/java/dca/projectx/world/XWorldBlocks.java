@@ -16,6 +16,7 @@ import dca.projectx.world.block.ctm.XBlockStorageL;
 import dca.projectx.world.block.ctm.XBlockStorageR;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
 
 public class XWorldBlocks {
 	

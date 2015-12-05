@@ -1,0 +1,12 @@
+package dca.projectx.core.render;
+
+import net.minecraft.tileentity.TileEntity;
+
+public abstract class RenderTileDynamic extends RenderTileX {
+	
+	@Override
+	public void renderDynamic(TileEntity tile, double x, double y, double z, float f){
+		
+	}
+
+}

@@ -5,7 +5,11 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 import dca.projectx.util.XLogger;
+import dca.projectx.world.gen.XGenOre;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod
 (modid=ProjectXWorld.MODID, name=ProjectXWorld.NAME, version=ProjectXWorld.VERSION)
@@ -25,11 +29,17 @@ public class ProjectXWorld {
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 		XLogger.info("World Module Initialized !");
+		forgeHooks();
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
 		
+	}
+	
+	public void forgeHooks(){
+		MinecraftForge.addGrassSeed(new ItemStack(XWorldItems.seedCorn), 2);
+		GameRegistry.registerWorldGenerator(new XGenOre(), 0);
 	}
 
 }

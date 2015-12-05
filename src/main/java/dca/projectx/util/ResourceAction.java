@@ -21,5 +21,9 @@ public class ResourceAction {
 	public static void bind(){
 		mc.renderEngine.bindTexture(loc);
 	}
+	
+	public static void bindToModel(){
+		mc.getTextureManager().bindTexture(loc);
+	}
 
 }

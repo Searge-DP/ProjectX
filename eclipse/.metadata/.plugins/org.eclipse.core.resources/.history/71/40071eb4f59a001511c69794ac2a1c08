@@ -1,0 +1,42 @@
+package dca.projectx.core.render.item;
+
+import org.lwjgl.opengl.GL11;
+
+import dca.projectx.core.ProjectX;
+import dca.projectx.core.render.model.ModelXNode;
+import dca.projectx.util.ResourceAction;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.IItemRenderer;
+
+public class IRXNode implements IItemRenderer {
+	
+	public ModelXNode model;
+	public ResourceAction texture;
+	
+	public IRXNode(){
+		this.model = new ModelXNode();
+		this.texture = new ResourceAction(new ResourceLocation(ProjectX.INSTANCE, "textures/models/xNode.png"));
+	}
+
+	@Override
+	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
+		return true;
+	}
+
+	@Override
+	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
+		return true;
+	}
+
+	@Override
+	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+		GL11.glPushMatrix();
+		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
+		GL11.glRotatef(180, 0F, 0F, 1F);
+		texture.bind();
+		model.renderModel(0.0625F);
+		GL11.glPopMatrix();
+	}
+
+}

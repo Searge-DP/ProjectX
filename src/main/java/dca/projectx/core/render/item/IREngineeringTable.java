@@ -33,10 +33,8 @@ public class IREngineeringTable implements IItemRenderer {
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-		if(type==IItemRenderer.ItemRenderType.INVENTORY){
 			GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 			this.renderer.renderTileEntityAt(this.entity, 0D, 0D, 0D, 0F);
-		}
 	}
 
 }

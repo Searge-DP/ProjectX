@@ -1,0 +1,26 @@
+package dca.projectx.util;
+
+import java.util.ArrayList;
+
+import net.minecraftforge.client.model.obj.WavefrontObject;
+
+public abstract class XModelObj {
+	
+	public static ArrayList<XModelObj> existingStaticRenderers = new ArrayList();
+	
+	public final String path;
+	public WavefrontObject model;
+	
+	public XModelObj(String path){
+		this.path = path;
+		this.model = ClientUtils.getModel(path);
+		existingStaticRenderers.add(this);
+	}
+	
+	public WavefrontObject rebindModel()
+	{
+		model = ClientUtils.getModel(path);
+		return model;
+	}
+
+}

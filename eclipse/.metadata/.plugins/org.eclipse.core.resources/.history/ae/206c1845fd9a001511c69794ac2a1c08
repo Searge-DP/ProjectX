@@ -1,0 +1,49 @@
+[04:04:30] [main/INFO]: Setting user: Player388
+[04:04:36] [Client thread/INFO]: LWJGL Version: 2.9.1
+[04:04:46] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:§eProjectX, FMLFileResourcePack:§eProjectX Machines, FMLFileResourcePack:§eProjectX World, FMLFileResourcePack:FoxLib, FMLFileResourcePack:Tails
+[04:04:48] [Sound Library Loader/INFO]: Sound engine started
+[04:04:52] [Client thread/INFO]: Created: 512x512 textures/blocks-atlas
+[04:04:52] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[04:04:53] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:§eProjectX, FMLFileResourcePack:§eProjectX Machines, FMLFileResourcePack:§eProjectX World, FMLFileResourcePack:FoxLib, FMLFileResourcePack:Tails
+[04:04:54] [Client thread/INFO]: Created: 512x512 textures/blocks-atlas
+[04:04:55] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[04:04:55] [Sound Library Loader/INFO]: Sound engine started
+[04:05:19] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[04:05:19] [Server thread/INFO]: Generating keypair
+[04:05:20] [Server thread/INFO]: Preparing start region for level 0
+[04:05:20] [Server thread/INFO]: Changing view distance to 8, from 10
+[04:05:21] [Server thread/INFO]: Player388[local:E:d8bb3077] logged in with entity id 167 at (900.6171509696017, 4.0, -821.619993034921)
+[04:05:21] [Server thread/INFO]: Player388 joined the game
+[04:05:28] [Server thread/INFO]: Player388 has just earned the achievement [Taking Inventory]
+[04:05:28] [Client thread/INFO]: [CHAT] Player388 has just earned the achievement [Taking Inventory]
+[04:05:33] [Server thread/INFO]: [Player388: Given [Energy Node [WIP]] * 1 to Player388]
+[04:05:33] [Client thread/INFO]: [CHAT] Given [Energy Node [WIP]] * 1 to Player388
+[04:05:34] [Server thread/INFO]: [Player388: Given [Energy Node [WIP]] * 1 to Player388]
+[04:05:34] [Client thread/INFO]: [CHAT] Given [Energy Node [WIP]] * 1 to Player388
+[04:05:34] [Server thread/INFO]: [Player388: Given [Energy Node [WIP]] * 1 to Player388]
+[04:05:34] [Client thread/INFO]: [CHAT] Given [Energy Node [WIP]] * 1 to Player388
+[04:05:35] [Server thread/INFO]: [Player388: Given [Energy Relay [WIP]] * 1 to Player388]
+[04:05:35] [Client thread/INFO]: [CHAT] Given [Energy Relay [WIP]] * 1 to Player388
+[04:05:35] [Server thread/INFO]: [Player388: Given [Energy Relay [WIP]] * 1 to Player388]
+[04:05:35] [Client thread/INFO]: [CHAT] Given [Energy Relay [WIP]] * 1 to Player388
+[04:05:36] [Server thread/INFO]: [Player388: Given [Energy Relay [WIP]] * 1 to Player388]
+[04:05:36] [Client thread/INFO]: [CHAT] Given [Energy Relay [WIP]] * 1 to Player388
+[04:05:44] [Server thread/INFO]: [Player388: Given [Dark Xycronium Block] * 64 to Player388]
+[04:05:45] [Client thread/INFO]: [CHAT] Given [Dark Xycronium Block] * 64 to Player388
+[04:05:49] [Server thread/INFO]: [Player388: Given [Diamond Shovel] * 1 to Player388]
+[04:05:49] [Client thread/INFO]: [CHAT] Given [Diamond Shovel] * 1 to Player388
+[04:05:54] [Client thread/INFO]: [CHAT] Day 3. 6:00
+[04:06:45] [Client thread/INFO]: [CHAT] Day 4. 18:00
+[04:06:48] [Client thread/INFO]: [CHAT] Day 5. 6:00
+[04:06:58] [Client thread/INFO]: [CHAT] Saved screenshot as 2015-12-05_04.06.58.png
+[04:06:58] [Server thread/INFO]: Saving and pausing game...
+[04:06:58] [Server thread/INFO]: Saving chunks for level 'Test World I'/Overworld
+[04:06:59] [Server thread/INFO]: Saving chunks for level 'Test World I'/Nether
+[04:06:59] [Server thread/INFO]: Saving chunks for level 'Test World I'/The End
+[04:06:59] [Server thread/INFO]: Stopping server
+[04:06:59] [Server thread/INFO]: Saving players
+[04:06:59] [Server thread/INFO]: Saving worlds
+[04:06:59] [Server thread/INFO]: Saving chunks for level 'Test World I'/Overworld
+[04:06:59] [Server thread/INFO]: Saving chunks for level 'Test World I'/Nether
+[04:06:59] [Server thread/INFO]: Saving chunks for level 'Test World I'/The End
+[04:07:00] [Client thread/INFO]: Stopping!

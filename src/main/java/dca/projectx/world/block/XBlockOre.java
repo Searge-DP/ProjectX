@@ -1,5 +1,6 @@
 package dca.projectx.world.block;
 
+import java.util.ArrayList;
 import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,13 +15,11 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRedstoneOre;
 
 public class XBlockOre extends XBlockBase {
-	
-	public ItemStack gemBlue = new ItemStack(XWorldItems.gem, 1, 0);
-	public ItemStack gemGreen = new ItemStack(XWorldItems.gem, 1, 1);
 
 	public XBlockOre(Material material, String blockName) {
 		super(material, blockName);
@@ -48,21 +47,32 @@ public class XBlockOre extends XBlockBase {
     }
     
     @Override
-    public Item getItemDropped(int i, Random rand, int j)
-    {
-    	Item itemDropped = null;
-    	
-    	if(this==XWorldBlocks.oreBlue){
-    		return ItemUtil.getItemFromStack(this.gemGreen);
-    	}
-    	else
-    		return itemDropped;
+    public Item getItemDropped(int i, Random rand, int j){
+    	return XWorldItems.gem;
     }
     
     @Override
-    public int quantityDropped(Random rand)
-    {
-        return 4;
+    public int damageDropped(int meta){
+    	if(this==XWorldBlocks.oreBlue){
+    		return 0;
+    	}
+    	if(this==XWorldBlocks.oreGreen){
+    		return 1;
+    	}
+    	if(this==XWorldBlocks.oreRed){
+    		return 2;
+    	}
+    	if(this==XWorldBlocks.oreDark){
+    		return 3;
+    	}
+    	if(this==XWorldBlocks.oreLight){
+    		return 4;
+    	}
+    	return meta;
     }
-
+    
+    @Override
+    public int quantityDropped(Random rand){
+    	return 4;
+    }
 }
