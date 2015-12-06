@@ -3,12 +3,16 @@ package dca.projectx.core.proxy;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import dca.projectx.core.ProjectX;
+import dca.projectx.core.render.RenderEnergyPipe;
 import dca.projectx.core.render.RenderEngineeringTable;
+import dca.projectx.core.render.RenderGenerator;
 import dca.projectx.core.render.RenderGlow;
 import dca.projectx.core.render.RenderXNode;
 import dca.projectx.core.render.RenderXRelay;
 import dca.projectx.core.render.item.IREnergyCore;
+import dca.projectx.core.render.item.IREnergyPipe;
 import dca.projectx.core.render.item.IREngineeringTable;
+import dca.projectx.core.render.item.IRGenerator;
 import dca.projectx.core.render.item.IRXNodeT1;
 import dca.projectx.core.render.item.IRXNodeT2;
 import dca.projectx.core.render.item.IRXNodeT3;
@@ -17,7 +21,9 @@ import dca.projectx.core.render.item.IRXRelayT2;
 import dca.projectx.core.render.item.IRXRelayT3;
 import dca.projectx.machine.XMachineBlocks;
 import dca.projectx.machine.XMachineItems;
+import dca.projectx.machine.block.tile.TileEnergyPipe;
 import dca.projectx.machine.block.tile.TileEngineeringTable;
+import dca.projectx.machine.block.tile.TileGenerator;
 import dca.projectx.machine.block.tile.TileXNodeT1;
 import dca.projectx.machine.block.tile.TileXNodeT2;
 import dca.projectx.machine.block.tile.TileXNodeT3;
@@ -371,6 +377,18 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileXRelayT3.class, renderERT3);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyRelayT3), new IRXRelayT3(
 		renderERT3, new TileXRelayT3()));
+		
+		//Energy Pipe's
+		TileEntitySpecialRenderer renderEP = new RenderEnergyPipe();
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEnergyPipe.class, renderEP);
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyPipe), new IREnergyPipe(
+		renderEP, new TileEnergyPipe()));
+		
+		//Generator
+		TileEntitySpecialRenderer renderG = new RenderGenerator();
+		ClientRegistry.bindTileEntitySpecialRenderer(TileGenerator.class, renderG);
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.generator), new IRGenerator(
+		renderG, new TileGenerator()));
 		
 		//Energy Core's
 		MinecraftForgeClient.registerItemRenderer(XMachineItems.energyCoreT1, new IREnergyCore(0F, 1F, 0F));

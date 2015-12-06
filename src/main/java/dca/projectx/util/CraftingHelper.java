@@ -50,5 +50,16 @@ public class CraftingHelper {
 		reg.addShapelessRecipe(new ItemStack(output, 9, outputMeta), new Object[]{new ItemStack(input, 1, inputMeta)});
 		reg.addRecipe(new ItemStack(input, 1, inputMeta), new Object[]{"XXX", "XXX", "XXX", 'X', new ItemStack(output, 1, outputMeta)});
 	}
+	
+	/**
+	 * Method for adding a simple dye-coloring recipe
+	 * @param input
+	 * @param color
+	 * @param output
+	 */
+	public static void addColoring(Block input, int color, Block output){
+		GameRegistry reg = null;
+		reg.addRecipe(new ItemStack(output, 4), new Object[]{" X ", "XCX", " X ", 'X', input, 'C', new ItemStack(Items.dye, 1, color)});
+	}
 
 }

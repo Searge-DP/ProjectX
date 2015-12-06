@@ -1,7 +1,6 @@
 package dca.projectx.core.render;
 
 import org.lwjgl.opengl.GL11;
-
 import dca.projectx.core.ProjectX;
 import dca.projectx.util.ResourceAction;
 import net.minecraft.util.ResourceLocation;
@@ -26,7 +25,6 @@ public class RenderTruncatedIcosahedron {
 	}
 	
 	public static void addIcosahedron(double x, double y, double z, float r, float g, float b){
-		GL11.glDepthMask(false);
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		GL11.glPushMatrix();
@@ -36,7 +34,6 @@ public class RenderTruncatedIcosahedron {
 		model.renderAll();
 		GL11.glPopMatrix();
 		GL11.glDisable(GL11.GL_BLEND);
-		GL11.glDepthMask(true);
 	}
 
 }

@@ -1,7 +1,9 @@
 package dca.projectx.machine;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import dca.projectx.machine.block.XBlockEnergyPipe;
 import dca.projectx.machine.block.XBlockEngineeringTable;
+import dca.projectx.machine.block.XBlockGenerator;
 import dca.projectx.machine.block.XBlockXNodeT1;
 import dca.projectx.machine.block.XBlockXNodeT2;
 import dca.projectx.machine.block.XBlockXNodeT3;
@@ -20,6 +22,8 @@ public class XMachineBlocks {
 	public static Block energyRelayT1;
 	public static Block energyRelayT2;
 	public static Block energyRelayT3;
+	public static Block generator;
+	public static Block energyPipe;
 	
 	public static void preInit(){
 		GameRegistry reg = null;
@@ -30,6 +34,8 @@ public class XMachineBlocks {
 		reg.registerBlock(energyRelayT1 = (new XBlockXRelayT1(Material.iron, "energyRelayT1")), "energyRelayT1");
 		reg.registerBlock(energyRelayT2 = (new XBlockXRelayT2(Material.iron, "energyRelayT2")), "energyRelayT2");
 		reg.registerBlock(energyRelayT3 = (new XBlockXRelayT3(Material.iron, "energyRelayT3")), "energyRelayT3");
+		reg.registerBlock(energyPipe = (new XBlockEnergyPipe(Material.iron, "energyPipe")), "energyPipe");
+		reg.registerBlock(generator = (new XBlockGenerator(Material.iron, "generator")), "generator");
 	}
 
 }
