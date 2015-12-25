@@ -7,11 +7,10 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import dca.projectx.compat.ModuleLoader;
 import dca.projectx.core.proxy.CommonProxy;
-import dca.projectx.util.CraftingManager;
-import dca.projectx.util.RenderTickHandler;
-import dca.projectx.util.XLogger;
+import dca.projectx.lib.XLogger;
+import dca.projectx.lib.render.RenderTickHandler;
+import dca.projectx.world.CraftingManager;
 
 @Mod
 (modid=ProjectX.MODID, name=ProjectX.NAME, version=ProjectX.VERSION)
@@ -51,7 +50,6 @@ public class ProjectX {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
 		proxy.postInit();
-		ModuleLoader.postInit();
 		CraftingManager.postInit();
 	}
 

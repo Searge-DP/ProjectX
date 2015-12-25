@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import dca.projectx.core.ProjectX;
 import dca.projectx.core.block.XBlockBase;
-import dca.projectx.util.CTMUtil;
+import dca.projectx.lib.util.CTMUtil;
 import dca.projectx.world.block.ctm.XBlockStorageB;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;

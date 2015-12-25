@@ -6,9 +6,10 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import dca.projectx.core.ProjectX;
 import dca.projectx.core.block.XBlockBase;
 import dca.projectx.core.proxy.ClientProxy;
-import dca.projectx.util.XColors;
-import dca.projectx.util.XLogger;
+import dca.projectx.lib.XColors;
+import dca.projectx.lib.XLogger;
 import dca.projectx.world.block.XBlockOre;
+import dca.projectx.world.proxy.WClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
@@ -186,7 +187,7 @@ public class RenderGlow implements ISimpleBlockRenderingHandler {
         int meta = world.getBlockMetadata(x, y, z);
         Tessellator tessellator = Tessellator.instance;
 
-        if(ClientProxy.renderPass[renderBlockID] == 0) {
+        if(WClientProxy.renderPass[renderBlockID] == 0) {
             IIcon c = block.getIcon(6, 0);
             float u = c.getMinU();
             float v = c.getMinV();

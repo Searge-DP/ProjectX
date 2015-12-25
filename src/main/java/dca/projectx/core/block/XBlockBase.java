@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import dca.projectx.core.ProjectX;
 import dca.projectx.core.XTabs;
 import dca.projectx.core.proxy.ClientProxy;
+import dca.projectx.world.proxy.WClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -38,13 +39,13 @@ public class XBlockBase extends BlockContainer {
     @Override
     @SideOnly(Side.CLIENT)
     public int getRenderType() {
-        return ClientProxy.renderID[idBlock];
+        return WClientProxy.renderID[idBlock];
     }
     
     @Override
     @SideOnly(Side.CLIENT)
     public boolean canRenderInPass(int pass) {
-        ClientProxy.renderPass[idBlock] = pass;
+        WClientProxy.renderPass[idBlock] = pass;
         return true;
     }
     
