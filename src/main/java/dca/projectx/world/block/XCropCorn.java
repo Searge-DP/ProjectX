@@ -13,13 +13,17 @@ public class XCropCorn extends XCropBase {
 	}
 	
 	@Override
-	public Item getItemDropped(int i, Random rand, int j){
-		return XWorldItems.foodCorn;
+	public Item getItemDropped(int meta, Random rand, int j){
+		if(meta < 5){
+			return XWorldItems.seedCorn;
+		}
+		else
+			return XWorldItems.foodCorn;
 	}
 	
 	@Override
 	public int quantityDropped(Random rand){
-		return 1 + rand.nextInt(2);
+		return 2 + rand.nextInt(2);
 	}
 
 }

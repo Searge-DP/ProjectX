@@ -1,70 +1,86 @@
-package dca.projectx.world;
+package dca.projectx.world.handler;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import dca.projectx.lib.helper.CraftingHelper;
-import dca.projectx.machine.XMachineBlocks;
-import dca.projectx.machine.XMachineItems;
+import dca.projectx.world.XWorldBlocks;
+import dca.projectx.world.XWorldItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-public class CraftingManager {
+public class WorldCraftingHandler {
 	
 	public static GameRegistry reg = null;
 	public static CraftingHelper helper = null;
 	
-	public static void postInit(){
-		helper.addStorageRecipe(XWorldItems.gem, 0, XWorldBlocks.storageBlue);
-		helper.addStorageRecipe(XWorldItems.gem, 1, XWorldBlocks.storageGreen);
-		helper.addStorageRecipe(XWorldItems.gem, 2, XWorldBlocks.storageRed);
-		helper.addStorageRecipe(XWorldItems.gem, 3, XWorldBlocks.storageDark);
-		helper.addStorageRecipe(XWorldItems.gem, 4, XWorldBlocks.storageLight);
+	public static void registerRecipes(){
 		reg.addSmelting(new ItemStack(XWorldItems.gem, 1, 0), new ItemStack(XWorldItems.ingot, 1, 0), 1F);
 		reg.addSmelting(new ItemStack(XWorldItems.gem, 1, 1), new ItemStack(XWorldItems.ingot, 1, 1), 1F);
 		reg.addSmelting(new ItemStack(XWorldItems.gem, 1, 2), new ItemStack(XWorldItems.ingot, 1, 2), 1F);
 		reg.addSmelting(new ItemStack(XWorldItems.gem, 1, 3), new ItemStack(XWorldItems.ingot, 1, 3), 1F);
 		reg.addSmelting(new ItemStack(XWorldItems.gem, 1, 4), new ItemStack(XWorldItems.ingot, 1, 4), 1F);
+		reg.addSmelting(XWorldBlocks.oreAluminum, new ItemStack(XWorldItems.ingot, 1, 5), 1F);
+		
+		helper.addStorageRecipe(XWorldItems.gem, 0, XWorldBlocks.storageBlue);
+		helper.addStorageRecipe(XWorldItems.gem, 1, XWorldBlocks.storageGreen);
+		helper.addStorageRecipe(XWorldItems.gem, 2, XWorldBlocks.storageRed);
+		helper.addStorageRecipe(XWorldItems.gem, 3, XWorldBlocks.storageDark);
+		helper.addStorageRecipe(XWorldItems.gem, 4, XWorldBlocks.storageLight);
+		helper.addStorageRecipe(XWorldItems.ingot, 5, XWorldBlocks.storageAluminum);
+		
+		helper.addNuggetRecipe(XWorldItems.ingot, 0, XWorldItems.nugget, 0);
+		helper.addNuggetRecipe(XWorldItems.ingot, 1, XWorldItems.nugget, 1);
+		helper.addNuggetRecipe(XWorldItems.ingot, 2, XWorldItems.nugget, 2);
+		helper.addNuggetRecipe(XWorldItems.ingot, 3, XWorldItems.nugget, 3);
+		helper.addNuggetRecipe(XWorldItems.ingot, 4, XWorldItems.nugget, 4);
+		helper.addNuggetRecipe(XWorldItems.ingot, 5, XWorldItems.nugget, 5);
+		
+		reg.addSmelting(new ItemStack(XWorldItems.dust, 1, 0), new ItemStack(XWorldItems.ingot, 1, 0), 1F);
+		reg.addSmelting(new ItemStack(XWorldItems.dust, 1, 1), new ItemStack(XWorldItems.ingot, 1, 1), 1F);
+		reg.addSmelting(new ItemStack(XWorldItems.dust, 1, 2), new ItemStack(XWorldItems.ingot, 1, 2), 1F);
+		reg.addSmelting(new ItemStack(XWorldItems.dust, 1, 3), new ItemStack(XWorldItems.ingot, 1, 3), 1F);
+		reg.addSmelting(new ItemStack(XWorldItems.dust, 1, 4), new ItemStack(XWorldItems.ingot, 1, 4), 1F);
+		
 		reg.addSmelting(new ItemStack(XWorldItems.seedCorn, 1), new ItemStack(XWorldItems.popCorn, 1), 3F);
 		reg.addSmelting(new ItemStack(XWorldItems.foodCorn, 1), new ItemStack(XWorldItems.cobOCorn, 1), 3F);
 		reg.addShapelessRecipe(new ItemStack(XWorldItems.seedCorn, 1), new Object[]{new ItemStack(XWorldItems.foodCorn, 1)});
-		reg.addRecipe(new ItemStack(XWorldBlocks.brickBlue, 5), new Object[]{"XCX", "CCC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 0), 'C', Blocks.stonebrick});
-		reg.addRecipe(new ItemStack(XWorldBlocks.brickGreen, 5), new Object[]{"XCX", "CCC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 1), 'C', Blocks.stonebrick});
-		reg.addRecipe(new ItemStack(XWorldBlocks.brickRed, 5), new Object[]{"XCX", "CCC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 2), 'C', Blocks.stonebrick});
-		reg.addRecipe(new ItemStack(XWorldBlocks.brickDark, 5), new Object[]{"XCX", "CCC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 3), 'C', Blocks.stonebrick});
-		reg.addRecipe(new ItemStack(XWorldBlocks.brickLight, 5), new Object[]{"XCX", "CCC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 4), 'C', Blocks.stonebrick});
+		
+		reg.addRecipe(new ItemStack(XWorldBlocks.glassViewer, 4), new Object[]{" X ", "XCX", " X ", 'X', Blocks.glass, 'C', new ItemStack(XWorldItems.ingot, 1, 5)});
+		
+		reg.addRecipe(new ItemStack(XWorldBlocks.brickBlue, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.stonebrick, 'X', new ItemStack(XWorldItems.ingot, 1, 0)});
+		reg.addRecipe(new ItemStack(XWorldBlocks.brickGreen, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.stonebrick, 'X', new ItemStack(XWorldItems.ingot, 1, 1)});
+		reg.addRecipe(new ItemStack(XWorldBlocks.brickRed, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.stonebrick, 'X', new ItemStack(XWorldItems.ingot, 1, 2)});
+		reg.addRecipe(new ItemStack(XWorldBlocks.brickDark, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.stonebrick, 'X', new ItemStack(XWorldItems.ingot, 1, 3)});
+		reg.addRecipe(new ItemStack(XWorldBlocks.brickLight, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.stonebrick, 'X', new ItemStack(XWorldItems.ingot, 1, 4)});
+		
+		reg.addRecipe(new ItemStack(XWorldBlocks.brickSmallBlue, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.brick_block, 'X', new ItemStack(XWorldItems.ingot, 1, 0)});
+		reg.addRecipe(new ItemStack(XWorldBlocks.brickSmallGreen, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.brick_block, 'X', new ItemStack(XWorldItems.ingot, 1, 1)});
+		reg.addRecipe(new ItemStack(XWorldBlocks.brickSmallRed, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.brick_block, 'X', new ItemStack(XWorldItems.ingot, 1, 2)});
+		reg.addRecipe(new ItemStack(XWorldBlocks.brickSmallDark, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.brick_block, 'X', new ItemStack(XWorldItems.ingot, 1, 3)});
+		reg.addRecipe(new ItemStack(XWorldBlocks.brickSmallLight, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.brick_block, 'X', new ItemStack(XWorldItems.ingot, 1, 4)});
+		
 		reg.addRecipe(new ItemStack(XWorldBlocks.strucBlue, 4), new Object[]{"XCX", "CVC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 0), 'C', Blocks.stonebrick, 'V', Items.iron_ingot});
 		reg.addRecipe(new ItemStack(XWorldBlocks.strucGreen, 4), new Object[]{"XCX", "CVC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 1), 'C', Blocks.stonebrick, 'V', Items.iron_ingot});
 		reg.addRecipe(new ItemStack(XWorldBlocks.strucRed, 4), new Object[]{"XCX", "CVC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 2), 'C', Blocks.stonebrick, 'V', Items.iron_ingot});
 		reg.addRecipe(new ItemStack(XWorldBlocks.strucBlack, 4), new Object[]{"XCX", "CVC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 3), 'C', Blocks.stonebrick, 'V', Items.iron_ingot});
 		reg.addRecipe(new ItemStack(XWorldBlocks.strucWhite, 4), new Object[]{"XCX", "CVC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 4), 'C', Blocks.stonebrick, 'V', Items.iron_ingot});
+		
 		reg.addRecipe(new ItemStack(XWorldBlocks.platBlue, 4), new Object[]{"XCX", "CVC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 0), 'C', Blocks.glass, 'V', Items.iron_ingot});
 		reg.addRecipe(new ItemStack(XWorldBlocks.platGreen, 4), new Object[]{"XCX", "CVC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 1), 'C', Blocks.glass, 'V', Items.iron_ingot});
 		reg.addRecipe(new ItemStack(XWorldBlocks.platRed, 4), new Object[]{"XCX", "CVC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 2), 'C', Blocks.glass, 'V', Items.iron_ingot});
 		reg.addRecipe(new ItemStack(XWorldBlocks.platBlack, 4), new Object[]{"XCX", "CVC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 3), 'C', Blocks.glass, 'V', Items.iron_ingot});
 		reg.addRecipe(new ItemStack(XWorldBlocks.platWhite, 4), new Object[]{"XCX", "CVC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 4), 'C', Blocks.glass, 'V', Items.iron_ingot});
+		
 		reg.addRecipe(new ItemStack(XWorldBlocks.shieldBlue, 4), new Object[]{"XCX", "CXC", "XCX", 'X', Items.iron_ingot, 'C', XWorldBlocks.platBlue});
 		reg.addRecipe(new ItemStack(XWorldBlocks.shieldGreen, 4), new Object[]{"XCX", "CXC", "XCX", 'X', Items.iron_ingot, 'C', XWorldBlocks.platGreen});
 		reg.addRecipe(new ItemStack(XWorldBlocks.shieldRed, 4), new Object[]{"XCX", "CXC", "XCX", 'X', Items.iron_ingot, 'C', XWorldBlocks.platRed});
 		reg.addRecipe(new ItemStack(XWorldBlocks.shieldBlack, 4), new Object[]{"XCX", "CXC", "XCX", 'X', Items.iron_ingot, 'C', XWorldBlocks.platBlack});
 		reg.addRecipe(new ItemStack(XWorldBlocks.shieldWhite, 4), new Object[]{"XCX", "CXC", "XCX", 'X', Items.iron_ingot, 'C', XWorldBlocks.platWhite});
-		reg.addRecipe(new ItemStack(XWorldBlocks.glassViewer, 4), new Object[]{" X ", "XCX", " X ", 'X', Blocks.glass, 'C', Items.iron_ingot});
-		reg.addRecipe(new ItemStack(XWorldBlocks.brickSmallBlue, 5), new Object[]{"XCX", "CCC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 0), 'C', Blocks.brick_block});
-		reg.addRecipe(new ItemStack(XWorldBlocks.brickSmallGreen, 5), new Object[]{"XCX", "CCC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 1), 'C', Blocks.brick_block});
-		reg.addRecipe(new ItemStack(XWorldBlocks.brickSmallRed, 5), new Object[]{"XCX", "CCC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 2), 'C', Blocks.brick_block});
-		reg.addRecipe(new ItemStack(XWorldBlocks.brickSmallDark, 5), new Object[]{"XCX", "CCC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 3), 'C', Blocks.brick_block});
-		reg.addRecipe(new ItemStack(XWorldBlocks.brickSmallLight, 5), new Object[]{"XCX", "CCC", "XCX", 'X', new ItemStack(XWorldItems.ingot, 1, 4), 'C', Blocks.brick_block});
 		
-		colorCraftingStruc();
-		colorCraftingPlat();
-		colorCraftingShield();
-	}
-	
-	public static void colorCraftingStruc(){
 		helper.addColoring(XWorldBlocks.strucBlue, 0, XWorldBlocks.strucBlack);
 		helper.addColoring(XWorldBlocks.strucBlue, 1, XWorldBlocks.strucRed);
 		helper.addColoring(XWorldBlocks.strucBlue, 2, XWorldBlocks.strucGreen);
 		helper.addColoring(XWorldBlocks.strucBlue, 3, XWorldBlocks.strucBrown);
-		//helper.addColoring(XWorldBlocks.strucBlue, 4, XWorldBlocks.strucBlue);
 		helper.addColoring(XWorldBlocks.strucBlue, 5, XWorldBlocks.strucPurple);
 		helper.addColoring(XWorldBlocks.strucBlue, 6, XWorldBlocks.strucCyan);
 		helper.addColoring(XWorldBlocks.strucBlue, 7, XWorldBlocks.strucLightGray);
@@ -78,7 +94,6 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.strucBlue, 15, XWorldBlocks.strucWhite);
 		helper.addColoring(XWorldBlocks.strucGreen, 0, XWorldBlocks.strucBlack);
 		helper.addColoring(XWorldBlocks.strucGreen, 1, XWorldBlocks.strucRed);
-		//helper.addColoring(XWorldBlocks.strucGreen, 2, XWorldBlocks.strucGreen);
 		helper.addColoring(XWorldBlocks.strucGreen, 3, XWorldBlocks.strucBrown);
 		helper.addColoring(XWorldBlocks.strucGreen, 4, XWorldBlocks.strucBlue);
 		helper.addColoring(XWorldBlocks.strucGreen, 5, XWorldBlocks.strucPurple);
@@ -93,7 +108,6 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.strucGreen, 14, XWorldBlocks.strucOrange);
 		helper.addColoring(XWorldBlocks.strucGreen, 15, XWorldBlocks.strucWhite);
 		helper.addColoring(XWorldBlocks.strucRed, 0, XWorldBlocks.strucBlack);
-		//helper.addColoring(XWorldBlocks.strucRed, 1, XWorldBlocks.strucRed);
 		helper.addColoring(XWorldBlocks.strucRed, 2, XWorldBlocks.strucGreen);
 		helper.addColoring(XWorldBlocks.strucRed, 3, XWorldBlocks.strucBrown);
 		helper.addColoring(XWorldBlocks.strucRed, 4, XWorldBlocks.strucBlue);
@@ -108,7 +122,6 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.strucRed, 13, XWorldBlocks.strucMagenta);
 		helper.addColoring(XWorldBlocks.strucRed, 14, XWorldBlocks.strucOrange);
 		helper.addColoring(XWorldBlocks.strucRed, 15, XWorldBlocks.strucWhite);
-		//helper.addColoring(XWorldBlocks.strucBlack, 0, XWorldBlocks.strucBlack);
 		helper.addColoring(XWorldBlocks.strucBlack, 1, XWorldBlocks.strucRed);
 		helper.addColoring(XWorldBlocks.strucBlack, 2, XWorldBlocks.strucGreen);
 		helper.addColoring(XWorldBlocks.strucBlack, 3, XWorldBlocks.strucBrown);
@@ -139,15 +152,11 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.strucWhite, 12, XWorldBlocks.strucLightBlue);
 		helper.addColoring(XWorldBlocks.strucWhite, 13, XWorldBlocks.strucMagenta);
 		helper.addColoring(XWorldBlocks.strucWhite, 14, XWorldBlocks.strucOrange);
-		//helper.addColoring(XWorldBlocks.strucWhite, 15, XWorldBlocks.strucWhite);
-	}
-	
-	public static void colorCraftingPlat(){
+		
 		helper.addColoring(XWorldBlocks.platBlue, 0, XWorldBlocks.platBlack);
 		helper.addColoring(XWorldBlocks.platBlue, 1, XWorldBlocks.platRed);
 		helper.addColoring(XWorldBlocks.platBlue, 2, XWorldBlocks.platGreen);
 		helper.addColoring(XWorldBlocks.platBlue, 3, XWorldBlocks.platBrown);
-		//helper.addColoring(XWorldBlocks.platBlue, 4, XWorldBlocks.platBlue);
 		helper.addColoring(XWorldBlocks.platBlue, 5, XWorldBlocks.platPurple);
 		helper.addColoring(XWorldBlocks.platBlue, 6, XWorldBlocks.platCyan);
 		helper.addColoring(XWorldBlocks.platBlue, 7, XWorldBlocks.platLightGray);
@@ -161,7 +170,6 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.platBlue, 15, XWorldBlocks.platWhite);
 		helper.addColoring(XWorldBlocks.platGreen, 0, XWorldBlocks.platBlack);
 		helper.addColoring(XWorldBlocks.platGreen, 1, XWorldBlocks.platRed);
-		//helper.addColoring(XWorldBlocks.platGreen, 2, XWorldBlocks.platGreen);
 		helper.addColoring(XWorldBlocks.platGreen, 3, XWorldBlocks.platBrown);
 		helper.addColoring(XWorldBlocks.platGreen, 4, XWorldBlocks.platBlue);
 		helper.addColoring(XWorldBlocks.platGreen, 5, XWorldBlocks.platPurple);
@@ -176,7 +184,6 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.platGreen, 14, XWorldBlocks.platOrange);
 		helper.addColoring(XWorldBlocks.platGreen, 15, XWorldBlocks.platWhite);
 		helper.addColoring(XWorldBlocks.platRed, 0, XWorldBlocks.platBlack);
-		//helper.addColoring(XWorldBlocks.platRed, 1, XWorldBlocks.platRed);
 		helper.addColoring(XWorldBlocks.platRed, 2, XWorldBlocks.platGreen);
 		helper.addColoring(XWorldBlocks.platRed, 3, XWorldBlocks.platBrown);
 		helper.addColoring(XWorldBlocks.platRed, 4, XWorldBlocks.platBlue);
@@ -191,7 +198,6 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.platRed, 13, XWorldBlocks.platMagenta);
 		helper.addColoring(XWorldBlocks.platRed, 14, XWorldBlocks.platOrange);
 		helper.addColoring(XWorldBlocks.platRed, 15, XWorldBlocks.platWhite);
-		//helper.addColoring(XWorldBlocks.platBlack, 0, XWorldBlocks.platBlack);
 		helper.addColoring(XWorldBlocks.platBlack, 1, XWorldBlocks.platRed);
 		helper.addColoring(XWorldBlocks.platBlack, 2, XWorldBlocks.platGreen);
 		helper.addColoring(XWorldBlocks.platBlack, 3, XWorldBlocks.platBrown);
@@ -222,15 +228,11 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.platWhite, 12, XWorldBlocks.platLightBlue);
 		helper.addColoring(XWorldBlocks.platWhite, 13, XWorldBlocks.platMagenta);
 		helper.addColoring(XWorldBlocks.platWhite, 14, XWorldBlocks.platOrange);
-		//helper.addColoring(XWorldBlocks.platWhite, 15, XWorldBlocks.platWhite);
-	}
-	
-	public static void colorCraftingShield(){
+		
 		helper.addColoring(XWorldBlocks.shieldBlue, 0, XWorldBlocks.shieldBlack);
 		helper.addColoring(XWorldBlocks.shieldBlue, 1, XWorldBlocks.shieldRed);
 		helper.addColoring(XWorldBlocks.shieldBlue, 2, XWorldBlocks.shieldGreen);
 		helper.addColoring(XWorldBlocks.shieldBlue, 3, XWorldBlocks.shieldBrown);
-		//helper.addColoring(XWorldBlocks.shieldBlue, 4, XWorldBlocks.shieldBlue);
 		helper.addColoring(XWorldBlocks.shieldBlue, 5, XWorldBlocks.shieldPurple);
 		helper.addColoring(XWorldBlocks.shieldBlue, 6, XWorldBlocks.shieldCyan);
 		helper.addColoring(XWorldBlocks.shieldBlue, 7, XWorldBlocks.shieldLightGray);
@@ -244,7 +246,6 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.shieldBlue, 15, XWorldBlocks.shieldWhite);
 		helper.addColoring(XWorldBlocks.shieldGreen, 0, XWorldBlocks.shieldBlack);
 		helper.addColoring(XWorldBlocks.shieldGreen, 1, XWorldBlocks.shieldRed);
-		//helper.addColoring(XWorldBlocks.shieldGreen, 2, XWorldBlocks.shieldGreen);
 		helper.addColoring(XWorldBlocks.shieldGreen, 3, XWorldBlocks.shieldBrown);
 		helper.addColoring(XWorldBlocks.shieldGreen, 4, XWorldBlocks.shieldBlue);
 		helper.addColoring(XWorldBlocks.shieldGreen, 5, XWorldBlocks.shieldPurple);
@@ -259,7 +260,6 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.shieldGreen, 14, XWorldBlocks.shieldOrange);
 		helper.addColoring(XWorldBlocks.shieldGreen, 15, XWorldBlocks.shieldWhite);
 		helper.addColoring(XWorldBlocks.shieldRed, 0, XWorldBlocks.shieldBlack);
-		//helper.addColoring(XWorldBlocks.shieldRed, 1, XWorldBlocks.shieldRed);
 		helper.addColoring(XWorldBlocks.shieldRed, 2, XWorldBlocks.shieldGreen);
 		helper.addColoring(XWorldBlocks.shieldRed, 3, XWorldBlocks.shieldBrown);
 		helper.addColoring(XWorldBlocks.shieldRed, 4, XWorldBlocks.shieldBlue);
@@ -274,7 +274,6 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.shieldRed, 13, XWorldBlocks.shieldMagenta);
 		helper.addColoring(XWorldBlocks.shieldRed, 14, XWorldBlocks.shieldOrange);
 		helper.addColoring(XWorldBlocks.shieldRed, 15, XWorldBlocks.shieldWhite);
-		//helper.addColoring(XWorldBlocks.shieldBlack, 0, XWorldBlocks.shieldBlack);
 		helper.addColoring(XWorldBlocks.shieldBlack, 1, XWorldBlocks.shieldRed);
 		helper.addColoring(XWorldBlocks.shieldBlack, 2, XWorldBlocks.shieldGreen);
 		helper.addColoring(XWorldBlocks.shieldBlack, 3, XWorldBlocks.shieldBrown);
@@ -305,7 +304,6 @@ public class CraftingManager {
 		helper.addColoring(XWorldBlocks.shieldWhite, 12, XWorldBlocks.shieldLightBlue);
 		helper.addColoring(XWorldBlocks.shieldWhite, 13, XWorldBlocks.shieldMagenta);
 		helper.addColoring(XWorldBlocks.shieldWhite, 14, XWorldBlocks.shieldOrange);
-		//helper.addColoring(XWorldBlocks.shieldWhite, 15, XWorldBlocks.shieldWhite);
 	}
 
 }

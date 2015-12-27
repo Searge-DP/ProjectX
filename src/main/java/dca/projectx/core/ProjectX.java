@@ -10,7 +10,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import dca.projectx.core.proxy.CommonProxy;
 import dca.projectx.lib.XLogger;
 import dca.projectx.lib.render.RenderTickHandler;
-import dca.projectx.world.CraftingManager;
 
 @Mod
 (modid=ProjectX.MODID, name=ProjectX.NAME, version=ProjectX.VERSION)
@@ -50,7 +49,6 @@ public class ProjectX {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
 		proxy.postInit();
-		CraftingManager.postInit();
 	}
 
 }

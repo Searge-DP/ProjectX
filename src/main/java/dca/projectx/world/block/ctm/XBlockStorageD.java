@@ -3,12 +3,12 @@ package dca.projectx.world.block.ctm;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import dca.projectx.lib.util.CTMUtil;
-import dca.projectx.world.block.XBlockStorage;
+import dca.projectx.world.block.XBlockStorageXycronium;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-public class XBlockStorageD extends XBlockStorage {
+public class XBlockStorageD extends XBlockStorageXycronium {
 
 	public XBlockStorageD(Material material, String blockName) {
 		super(material, blockName);

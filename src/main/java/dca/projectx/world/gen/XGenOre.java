@@ -35,6 +35,7 @@ public class XGenOre implements IWorldGenerator {
 		this.addOreSpawn(XWorldBlocks.oreRed, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), 12, 15, 50);
 		this.addOreSpawn(XWorldBlocks.oreDark, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), 12, 15, 50);
 		this.addOreSpawn(XWorldBlocks.oreLight, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), 12, 15, 50);
+		this.addOreSpawn(XWorldBlocks.oreAluminum, world, rand, i, j, 16, 16, 4 + rand.nextInt(1), 10, 15, 50);
 	}
 	
 	public void generateEnd(World world, Random rand, int i, int j){

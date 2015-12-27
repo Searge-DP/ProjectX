@@ -73,6 +73,8 @@ tile.shieldMagenta.name=Magenta Xycronium Shield
 tile.shieldOrange.name=Orange Xycronium Shield
 tile.shieldWhite.name=White Xycronium Shield
 tile.corn.name=Corn Crop
+tile.oreAluminum.name=Aluminum Ore
+tile.storageAluminum.name=Aluminum Block
 
 item.gem.blue.name=Blue Xycronium Crystal
 item.gem.green.name=Green Xycronium Crystal
@@ -84,10 +86,21 @@ item.ingot.green.name=Green Xycronium Ingot
 item.ingot.red.name=Red Xycronium Ingot
 item.ingot.dark.name=Dark Xycronium Ingot
 item.ingot.light.name=Light Xycronium Ingot
+item.ingot.aluminum.name=Aluminum Ingot
 item.seedCorn.name=Corn Seeds
 item.corn.name=Corn
 item.cobOCorn.name=Cob of Corn
 item.popCorn.name=Popcorn
+item.nugget.blue.name=Blue Xycronium Nugget
+item.nugget.green.name=Green Xycronium Nugget
+item.nugget.red.name=Red Xycronium Nugget
+item.nugget.dark.name=Dark Xycronium Nugget
+item.nugget.light.name=Light Xycronium Nugget
+item.dust.blue.name=Blue Pulverized Xycronium
+item.dust.green.name=Green Pulverized Xycronium
+item.dust.red.name=Red Pulverized Xycronium
+item.dust.dark.name=Dark Pulverized Xycronium
+item.dust.light.name=Pulverized Xycronium
 
 //Machine Module
 

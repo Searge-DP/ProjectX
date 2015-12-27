@@ -9,6 +9,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import dca.projectx.lib.XLogger;
 import dca.projectx.lib.render.RenderTickHandler;
+import dca.projectx.machine.handler.MachineCraftingHandler;
 import dca.projectx.machine.proxy.MCommonProxy;
 
 @Mod
@@ -44,6 +45,7 @@ public class ProjectXMachines {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
 		proxy.postInit();
+		MachineCraftingHandler.registerRecipes();
 	}
 
 }

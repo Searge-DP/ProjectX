@@ -9,9 +9,9 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-public class XBlockStorage extends XBlockBase {
+public class XBlockStorageXycronium extends XBlockBase {
 
-	public XBlockStorage(Material material, String blockName) {
+	public XBlockStorageXycronium(Material material, String blockName) {
 		super(material, blockName);
 		this.setHardness(1.5F);
 	}
@@ -48,7 +48,7 @@ public class XBlockStorage extends XBlockBase {
     @Override
     @SideOnly(Side.CLIENT)
      public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
-        return !(world.getBlock(x, y, z) instanceof XBlockStorage);
+        return !(world.getBlock(x, y, z) instanceof XBlockStorageXycronium);
     }
 
 }

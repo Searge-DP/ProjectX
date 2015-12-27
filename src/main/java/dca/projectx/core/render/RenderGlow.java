@@ -8,7 +8,7 @@ import dca.projectx.core.block.XBlockBase;
 import dca.projectx.core.proxy.ClientProxy;
 import dca.projectx.lib.XColors;
 import dca.projectx.lib.XLogger;
-import dca.projectx.world.block.XBlockOre;
+import dca.projectx.world.block.XBlockOreXycronium;
 import dca.projectx.world.proxy.WClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;

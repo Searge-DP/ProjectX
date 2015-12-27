@@ -19,9 +19,9 @@ import net.minecraft.world.World;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRedstoneOre;
 
-public class XBlockOre extends XBlockBase {
+public class XBlockOreXycronium extends XBlockBase {
 
-	public XBlockOre(Material material, String blockName) {
+	public XBlockOreXycronium(Material material, String blockName) {
 		super(material, blockName);
 		this.setHardness(2.0F);
 	}

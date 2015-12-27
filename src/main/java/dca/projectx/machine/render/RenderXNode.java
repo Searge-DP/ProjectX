@@ -48,14 +48,14 @@ public class RenderXNode extends TileEntitySpecialRenderer {
 		GL11.glTranslated(x + 0.5D, y + 0.5D, z + 0.5D);
 		GL11.glRotatef(RenderTickHandler.getRenderTime(), 0F, 1F, 0F);
 		GL11.glDisable(2884);
-		renderIcosa.render(0.8D, r, g, b, EnumHedronTexture.SPACE);
+		renderIcosa.render(0.9D, r, g, b, EnumHedronTexture.SPACE);
 		GL11.glEnable(2884);
 		GL11.glPopMatrix();
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5D, y + 0.5D, z + 0.5D);
 		GL11.glRotatef(-RenderTickHandler.getRenderTime(), 0F, 1F, 0F);
 		GL11.glDisable(2884);
-		renderIcosa.render(0.55D, r - 0.3F, g - 0.3F, b - 0.3F, EnumHedronTexture.FILL);
+		renderIcosa.render(0.5D, r - 0.3F, g - 0.3F, b - 0.3F, EnumHedronTexture.FILL);
 		GL11.glEnable(2884);
 		GL11.glPopMatrix();
 	}
