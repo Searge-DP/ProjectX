@@ -1,9 +1,10 @@
 package dca.projectx.machine.block.tile;
 
+import dca.projectx.core.block.tile.TileMachineBase;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEnergyPipe extends TileEntity {
+public class TileEnergyPipe extends TileMachineBase {
 	
 	/**
 	 * UP, DOWN, NORTH, EAST, SOUTH, WEST
@@ -20,26 +21,22 @@ public class TileEnergyPipe extends TileEntity {
 	}
 	
 	public void updateConnections(){
-		if(isPipe(xCoord, yCoord+1, zCoord)||(isGenerator(xCoord, yCoord+1, zCoord))||(isRelay(xCoord, yCoord+1, zCoord))) connections[0] = ForgeDirection.UP;
+		if(isPipe(xCoord, yCoord+1, zCoord)||(isRelay(xCoord, yCoord+1, zCoord))) connections[0] = ForgeDirection.UP;
 		else connections[0] = null;
-		if(isPipe(xCoord, yCoord-1, zCoord)||(isGenerator(xCoord, yCoord-1, zCoord))) connections[1] = ForgeDirection.DOWN;
+		if(isPipe(xCoord, yCoord-1, zCoord)) connections[1] = ForgeDirection.DOWN;
 		else connections[1] = null;
 		if(isPipe(xCoord, yCoord, zCoord-1)) connections[2] = ForgeDirection.NORTH;
 		else connections[2] = null;
-		if(isPipe(xCoord+1, yCoord, zCoord)||(isGenerator(xCoord+1, yCoord, zCoord))) connections[3] = ForgeDirection.EAST;
+		if(isPipe(xCoord+1, yCoord, zCoord)) connections[3] = ForgeDirection.EAST;
 		else connections[3] = null;
-		if(isPipe(xCoord, yCoord, zCoord+1)||(isGenerator(xCoord, yCoord, zCoord+1))) connections[4] = ForgeDirection.SOUTH;
+		if(isPipe(xCoord, yCoord, zCoord+1)) connections[4] = ForgeDirection.SOUTH;
 		else connections[4] = null;
-		if(isPipe(xCoord-1, yCoord, zCoord)||(isGenerator(xCoord-1, yCoord, zCoord))) connections[5] = ForgeDirection.WEST;
+		if(isPipe(xCoord-1, yCoord, zCoord)) connections[5] = ForgeDirection.WEST;
 		else connections[5] = null;
 	}
 	
 	public boolean isPipe(int x, int y, int z){
 		return this.worldObj.getTileEntity(x, y, z) instanceof TileEnergyPipe;
-	}
-	
-	public boolean isGenerator(int x, int y, int z){
-		return this.worldObj.getTileEntity(x, y, z) instanceof TileGenerator;
 	}
 	
 	public boolean isRelay(int x, int y, int z){

@@ -75,6 +75,8 @@ tile.shieldWhite.name=White Xycronium Shield
 tile.corn.name=Corn Crop
 tile.oreAluminum.name=Aluminum Ore
 tile.storageAluminum.name=Aluminum Block
+tile.torchSulfur.name=Sulfur Torch
+tile.torchAluminum.name=Aluminum Torch
 
 item.gem.blue.name=Blue Xycronium Crystal
 item.gem.green.name=Green Xycronium Crystal
@@ -96,11 +98,13 @@ item.nugget.green.name=Green Xycronium Nugget
 item.nugget.red.name=Red Xycronium Nugget
 item.nugget.dark.name=Dark Xycronium Nugget
 item.nugget.light.name=Light Xycronium Nugget
+iten.nugget.aluminum.name=Aluminum Nugget
 item.dust.blue.name=Blue Pulverized Xycronium
 item.dust.green.name=Green Pulverized Xycronium
 item.dust.red.name=Red Pulverized Xycronium
 item.dust.dark.name=Dark Pulverized Xycronium
-item.dust.light.name=Pulverized Xycronium
+item.dust.light.name=Light Pulverized Xycronium
+item.dust.aluminum.name=Pulverized Aluminum
 
 //Machine Module
 
@@ -124,3 +128,7 @@ tile.energyPipeT3.name=Energy Pipe
 item.energyCoreT1.name=Energy Core 
 item.energyCoreT2.name=Energy Core 
 item.energyCoreT3.name=Energy Core 
+item.wrench.name=Xycronium Wrench
+item.rfBatteryT1.name=Xycronium RF Battery
+item.rfBatteryT2.name=Xycronium RF Battery
+item.rfBatteryT3.name=Xycronium RF Battery

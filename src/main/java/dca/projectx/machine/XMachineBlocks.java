@@ -28,6 +28,8 @@ public class XMachineBlocks {
 	public static Block energyPipeT2;
 	public static Block energyPipeT3;
 	
+	public static Block tankValve;
+	
 	public static void preInit(){
 		GameRegistry reg = null;
 		reg.registerBlock(engineeringTable = (new XBlockEngineeringTable(Material.iron, "engineeringTable")), "engineeringTable");

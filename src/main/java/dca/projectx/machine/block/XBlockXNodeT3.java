@@ -26,6 +26,7 @@ public class XBlockXNodeT3 extends BlockContainer {
 		this.setCreativeTab(XTabs.tabProjectXMachines);
 		this.setHardness(1.5F);
 		this.setStepSound(Block.soundTypeMetal);
+		this.setBlockTextureName("minecraft:iron_block");
 	}
 
 	@Override

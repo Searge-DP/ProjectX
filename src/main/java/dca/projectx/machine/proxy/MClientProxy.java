@@ -8,7 +8,6 @@ import dca.projectx.machine.block.tile.TileEnergyPipeT1;
 import dca.projectx.machine.block.tile.TileEnergyPipeT2;
 import dca.projectx.machine.block.tile.TileEnergyPipeT3;
 import dca.projectx.machine.block.tile.TileEngineeringTable;
-import dca.projectx.machine.block.tile.TileGenerator;
 import dca.projectx.machine.block.tile.TileXNodeT1;
 import dca.projectx.machine.block.tile.TileXNodeT2;
 import dca.projectx.machine.block.tile.TileXNodeT3;

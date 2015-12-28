@@ -21,6 +21,7 @@ public class XBlockEnergyPipe extends BlockContainer {
 		this.setHardness(0.2F);
 		this.setStepSound(Block.soundTypeMetal);
 		this.setBlockBounds(11*pixel/2, 11*pixel/2, 11*pixel/2, 1-11*pixel/2, 1-11*pixel/2, 1-11*pixel/2);
+		this.setBlockTextureName("minecraft:iron_block");
 	}
 
 	@Override

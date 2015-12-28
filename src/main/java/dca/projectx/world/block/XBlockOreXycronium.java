@@ -6,7 +6,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import dca.projectx.core.ProjectX;
 import dca.projectx.core.block.XBlockBase;
-import dca.projectx.lib.util.ItemUtil;
 import dca.projectx.world.XWorldBlocks;
 import dca.projectx.world.XWorldItems;
 import net.minecraft.block.material.Material;

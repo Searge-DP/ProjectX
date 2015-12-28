@@ -17,7 +17,7 @@ import dca.projectx.lib.render.RenderTickHandler;
 public class ProjectX {
 	
 	public static int idCounter;
-	public static int countBlocks = 69;
+	public static int countBlocks = 70;
 	
 	@SidedProxy
 	(clientSide=ProjectX.CSIDE, serverSide=ProjectX.SSIDE)

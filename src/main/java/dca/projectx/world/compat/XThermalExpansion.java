@@ -32,22 +32,6 @@ public class XThermalExpansion {
 		ThermalExpansionHelper.addPulverizerRecipe(2400, new ItemStack(XWorldItems.ingot, 1, 3), new ItemStack(XWorldItems.dust, 1, 3));
 		ThermalExpansionHelper.addPulverizerRecipe(2400, new ItemStack(XWorldItems.ingot, 1, 4), new ItemStack(XWorldItems.dust, 1, 4));
 		ThermalExpansionHelper.addPulverizerRecipe(2400, new ItemStack(XWorldItems.ingot, 1, 5), new ItemStack(XWorldItems.dust, 1, 5));
-		
-		removeStuff();
-	}
-	
-	public static void removeStuff(){
-		ThermalExpansionHelper.removeSmelterRecipe(new ItemStack(XWorldBlocks.oreBlue), new ItemStack(XWorldItems.ingot, 1, 0));
-		ThermalExpansionHelper.removeSmelterRecipe(new ItemStack(XWorldBlocks.oreGreen), new ItemStack(XWorldItems.ingot, 1, 1));
-		ThermalExpansionHelper.removeSmelterRecipe(new ItemStack(XWorldBlocks.oreRed), new ItemStack(XWorldItems.ingot, 1, 2));
-		ThermalExpansionHelper.removeSmelterRecipe(new ItemStack(XWorldBlocks.oreDark), new ItemStack(XWorldItems.ingot, 1, 3));
-		ThermalExpansionHelper.removeSmelterRecipe(new ItemStack(XWorldBlocks.oreLight), new ItemStack(XWorldItems.ingot, 1, 4));
-		
-		ThermalExpansionHelper.removeFurnaceRecipe(new ItemStack(XWorldBlocks.oreBlue));
-		ThermalExpansionHelper.removeFurnaceRecipe(new ItemStack(XWorldBlocks.oreGreen));
-		ThermalExpansionHelper.removeFurnaceRecipe(new ItemStack(XWorldBlocks.oreRed));
-		ThermalExpansionHelper.removeFurnaceRecipe(new ItemStack(XWorldBlocks.oreDark));
-		ThermalExpansionHelper.removeFurnaceRecipe(new ItemStack(XWorldBlocks.oreLight));
 	}
 
 }
