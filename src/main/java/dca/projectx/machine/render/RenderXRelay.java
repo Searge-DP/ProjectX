@@ -2,12 +2,12 @@ package dca.projectx.machine.render;
 
 import org.lwjgl.opengl.GL11;
 import dca.projectx.core.ProjectX;
-import dca.projectx.core.render.model.ModelXRelay;
 import dca.projectx.lib.render.RenderTickHandler;
 import dca.projectx.machine.block.XBlockXRelayT1;
 import dca.projectx.machine.block.XBlockXRelayT2;
 import dca.projectx.machine.block.XBlockXRelayT3;
 import dca.projectx.machine.render.RenderTruncatedIcosahedron.EnumHedronTexture;
+import dca.projectx.machine.render.model.ModelXRelay;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

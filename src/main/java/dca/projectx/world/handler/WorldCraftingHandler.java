@@ -45,6 +45,46 @@ public class WorldCraftingHandler {
 		reg.addSmelting(new ItemStack(XWorldItems.foodCorn, 1), new ItemStack(XWorldItems.cobOCorn, 1), 3F);
 		reg.addShapelessRecipe(new ItemStack(XWorldItems.seedCorn, 1), new Object[]{new ItemStack(XWorldItems.foodCorn, 1)});
 		
+		helper.addToolset(XWorldItems.ingot, 0,
+				XWorldItems.swordBlue,
+				XWorldItems.pickaxeBlue,
+				XWorldItems.shovelBlue,
+				XWorldItems.axeBlue,
+				XWorldItems.hoeBlue
+		);
+		
+		helper.addToolset(XWorldItems.ingot, 1,
+				XWorldItems.swordGreen,
+				XWorldItems.pickaxeGreen,
+				XWorldItems.shovelGreen,
+				XWorldItems.axeGreen,
+				XWorldItems.hoeGreen
+		);
+		
+		helper.addToolset(XWorldItems.ingot, 2,
+				XWorldItems.swordRed,
+				XWorldItems.pickaxeRed,
+				XWorldItems.shovelRed,
+				XWorldItems.axeRed,
+				XWorldItems.hoeRed
+		);
+		
+		helper.addToolset(XWorldItems.ingot, 3,
+				XWorldItems.swordDark,
+				XWorldItems.pickaxeDark,
+				XWorldItems.shovelDark,
+				XWorldItems.axeDark,
+				XWorldItems.hoeDark
+		);
+		
+		helper.addToolset(XWorldItems.ingot, 4,
+				XWorldItems.swordLight,
+				XWorldItems.pickaxeLight,
+				XWorldItems.shovelLight,
+				XWorldItems.axeLight,
+				XWorldItems.hoeLight
+		);
+		
 		reg.addRecipe(new ItemStack(XWorldBlocks.glassViewer, 4), new Object[]{" X ", "XCX", " X ", 'X', Blocks.glass, 'C', new ItemStack(XWorldItems.ingot, 1, 5)});
 		
 		reg.addRecipe(new ItemStack(XWorldBlocks.brickBlue, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.stonebrick, 'X', new ItemStack(XWorldItems.ingot, 1, 0)});

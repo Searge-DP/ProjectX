@@ -4,10 +4,10 @@ import java.awt.Color;
 
 import org.lwjgl.opengl.GL11;
 import dca.projectx.core.ProjectX;
-import dca.projectx.core.render.model.ModelXNode;
 import dca.projectx.lib.render.RenderTickHandler;
 import dca.projectx.machine.block.tile.TileXNodeT1;
 import dca.projectx.machine.render.RenderTruncatedIcosahedron.EnumHedronTexture;
+import dca.projectx.machine.render.model.ModelXNode;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

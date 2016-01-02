@@ -10,15 +10,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class XBlockXRelayT1 extends BlockContainer {
+public class XBlockXRelayT1 extends XBlockXRelay {
 
 	public XBlockXRelayT1(Material material, String blockName) {
-		super(material);
-		this.setBlockName(blockName);
-		this.setCreativeTab(XTabs.tabProjectXMachines);
-		this.setHardness(1.5F);
-		this.setStepSound(Block.soundTypeMetal);
-		this.setBlockTextureName("minecraft:iron_block");
+		super(material, blockName);
 	}
 
 	@Override
@@ -26,22 +21,4 @@ public class XBlockXRelayT1 extends BlockContainer {
 		return new TileXRelayT1();
 	}
 	
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean isOpaqueCube() {
-        return false;
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderType() {
-        return -1;
-    }
-
 }

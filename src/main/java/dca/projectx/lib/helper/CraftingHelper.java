@@ -61,5 +61,24 @@ public class CraftingHelper {
 		GameRegistry reg = null;
 		reg.addRecipe(new ItemStack(output, 4), new Object[]{" X ", "XCX", " X ", 'X', input, 'C', new ItemStack(Items.dye, 1, color)});
 	}
+	
+	/**
+	 * Adds crafting recipes for a whole toolset !
+	 * @param input
+	 * @param inputMeta
+	 * @param sword
+	 * @param pickaxe
+	 * @param shovel
+	 * @param axe
+	 * @param hoe
+	 */
+	public static void addToolset(Item input, int inputMeta, Item sword, Item pickaxe, Item shovel, Item axe, Item hoe){
+		GameRegistry reg = null;
+		reg.addRecipe(new ItemStack(sword, 1), new Object[]{" X ", " X ", " C ", 'X', new ItemStack(input, 1, inputMeta), 'C', Items.stick});
+		reg.addRecipe(new ItemStack(pickaxe, 1), new Object[]{"XXX", " C ", " C ", 'X', new ItemStack(input, 1, inputMeta), 'C', Items.stick});
+		reg.addRecipe(new ItemStack(shovel, 1), new Object[]{" X ", " C ", " C ", 'X', new ItemStack(input, 1, inputMeta), 'C', Items.stick});
+		reg.addRecipe(new ItemStack(axe, 1), new Object[]{" XX", " CX", " C ", 'X', new ItemStack(input, 1, inputMeta), 'C', Items.stick});
+		reg.addRecipe(new ItemStack(hoe, 1), new Object[]{" XX", " C ", " C ", 'X', new ItemStack(input, 1, inputMeta), 'C', Items.stick});
+	}
 
 }

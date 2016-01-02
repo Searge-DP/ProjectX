@@ -14,9 +14,9 @@ public class RenderTickHandler {
 	
 	public static int renderTime = 0;
 	public static float renderFrame = 0F;
-	public int r = 255;
-	public int g = 0;
-	public int b = 0;
+	public static int r = 255;
+	public static int g = 0;
+	public static int b = 0;
 	
 	@SubscribeEvent
 	public void clientTickEvent(ClientTickEvent event){
@@ -50,6 +50,18 @@ public class RenderTickHandler {
 	
 	public static float getRenderTime(){
 		return renderTime + renderFrame;
+	}
+	
+	public static float getRed(){
+		return (float)r / 255;
+	}
+	
+	public static float getGreen(){
+		return (float)g / 255;
+	}
+	
+	public static float getBlue(){
+		return (float)b / 255;
 	}
 
 }

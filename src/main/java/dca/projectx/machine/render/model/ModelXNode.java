@@ -1,4 +1,4 @@
-package dca.projectx.core.render.model;
+package dca.projectx.machine.render.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

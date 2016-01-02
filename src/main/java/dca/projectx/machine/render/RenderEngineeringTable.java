@@ -2,10 +2,10 @@ package dca.projectx.machine.render;
 
 import org.lwjgl.opengl.GL11;
 import dca.projectx.core.ProjectX;
-import dca.projectx.core.render.model.ModelEngineeringTable;
 import dca.projectx.lib.render.RenderTickHandler;
 import dca.projectx.machine.block.tile.TileEngineeringTable;
 import dca.projectx.machine.render.RenderTruncatedIcosahedron.EnumHedronTexture;
+import dca.projectx.machine.render.model.ModelEngineeringTable;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.Tessellator;
@@ -40,11 +40,14 @@ public class RenderEngineeringTable extends TileEntitySpecialRenderer {
 	}
 	
 	public void renderFX(double x, double y, double z){
+		float r = RenderTickHandler.getRed();
+		float g = RenderTickHandler.getGreen();
+		float b = RenderTickHandler.getBlue();
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5D, y + 0.4D, z + 0.5D);
 		GL11.glRotatef(RenderTickHandler.getRenderTime(), 0F, 1F, 0F);
 		GL11.glDisable(2884);
-		renderIcosa.render(0.73D, 0F, 1F, 0.1F, EnumHedronTexture.SPACE);
+		renderIcosa.render(0.73D, r, g, b, EnumHedronTexture.SPACE);
 		GL11.glEnable(2884);
 		GL11.glPopMatrix();
 	}

@@ -2,9 +2,9 @@ package dca.projectx.machine.render.item;
 
 import org.lwjgl.opengl.GL11;
 import dca.projectx.core.ProjectX;
-import dca.projectx.core.render.model.ModelEngineeringTable;
 import dca.projectx.machine.block.tile.TileEngineeringTable;
 import dca.projectx.machine.render.RenderEngineeringTable;
+import dca.projectx.machine.render.model.ModelEngineeringTable;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;

@@ -8,7 +8,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import dca.projectx.lib.XLogger;
-import dca.projectx.world.compat.ModuleLoader;
 import dca.projectx.world.gen.XGenOre;
 import dca.projectx.world.handler.WorldCraftingHandler;
 import dca.projectx.world.proxy.WCommonProxy;
@@ -50,7 +49,6 @@ public class ProjectXWorld {
 	public void postInit(FMLPostInitializationEvent event){
 		proxy.postInit();
 		WorldCraftingHandler.registerRecipes();
-		ModuleLoader.registerModules();
 	}
 	
 	public void forgeHooks(){

@@ -20,7 +20,7 @@ public class ProjectXMachines {
 	public static final String MODID = "ProjectXMachines";
 	public static final String NAME = "ProjectX Machines";
 	public static final String VERSION = "0.0.1";
-	public static final String DEPS = "after:ProjectXWorld";
+	public static final String DEPS = "after:ProjectXWorld;after:CoFHCore";
 	public static final String SSIDE = "dca.projectx.machine.proxy.MCommonProxy";
 	public static final String CSIDE = "dca.projectx.machine.proxy.MClientProxy";
 	
@@ -28,21 +28,21 @@ public class ProjectXMachines {
 	(serverSide=ProjectXMachines.SSIDE, clientSide=ProjectXMachines.CSIDE)
 	public static MCommonProxy proxy;
 	
-	@EventHandler
+	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		proxy.preInit();
 		XMachineBlocks.preInit();
 		XMachineItems.preInit();
 	}
 	
-	@EventHandler
+	@Mod.EventHandler
 	public void init(FMLInitializationEvent event){
 		proxy.init();
 		XLogger.info("Machine Module Initialized !");
 		FMLCommonHandler.instance().bus().register(new RenderTickHandler());
 	}
 	
-	@EventHandler
+	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event){
 		proxy.postInit();
 		MachineCraftingHandler.registerRecipes();

@@ -9,6 +9,7 @@ import dca.projectx.machine.block.tile.TileXNodeT1;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -18,38 +19,16 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class XBlockXNodeT1 extends BlockContainer {
+public class XBlockXNodeT1 extends XBlockXNode {
 
 	public XBlockXNodeT1(Material material, String blockName) {
-		super(material);
-		this.setBlockName(blockName);
-		this.setCreativeTab(XTabs.tabProjectXMachines);
+		super(material, blockName);
 		this.setHardness(1.5F);
-		this.setStepSound(Block.soundTypeMetal);
-		this.setBlockTextureName("minecraft:iron_block");
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		return new TileXNodeT1();
 	}
-	
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean isOpaqueCube() {
-        return false;
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderType() {
-        return -1;
-    }
     
 }

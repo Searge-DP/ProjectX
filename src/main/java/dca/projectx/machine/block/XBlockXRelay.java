@@ -1,6 +1,7 @@
-package dca.projectx.core.block;
+package dca.projectx.machine.block;
 
 import java.util.ArrayList;
+
 import cofh.api.block.IDismantleable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,38 +17,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class XMachineBlockBase extends BlockContainer implements IDismantleable {
+public class XBlockXRelay extends BlockContainer implements IDismantleable {
 	
-	public XMachineBlockBase(Material material, String blockName){
+	public XBlockXRelay(Material material, String blockName){
 		super(material);
 		this.setBlockName(blockName);
 		this.setCreativeTab(XTabs.tabProjectXMachines);
+		this.setHardness(1.5F);
+		this.setStepSound(Block.soundTypeMetal);
 		this.setBlockTextureName("minecraft:iron_block");
-		adjustSound();
-	}
-	
-	public void adjustSound()
-	{
-		if(this.blockMaterial==Material.anvil)
-			this.stepSound = Block.soundTypeAnvil;
-		else if(this.blockMaterial==Material.carpet||this.blockMaterial==Material.cloth)
-			this.stepSound = Block.soundTypeCloth;
-		else if(this.blockMaterial==Material.glass||this.blockMaterial==Material.ice)
-			this.stepSound = Block.soundTypeGlass;
-		else if(this.blockMaterial==Material.grass||this.blockMaterial==Material.tnt||this.blockMaterial==Material.plants||this.blockMaterial==Material.vine)
-			this.stepSound = Block.soundTypeGrass;
-		else if(this.blockMaterial==Material.ground)
-			this.stepSound = Block.soundTypeGravel;
-		else if(this.blockMaterial==Material.iron)
-			this.stepSound = Block.soundTypeMetal;
-		else if(this.blockMaterial==Material.sand)
-			this.stepSound = Block.soundTypeSand;
-		else if(this.blockMaterial==Material.snow)
-			this.stepSound = Block.soundTypeSnow;
-		else if(this.blockMaterial==Material.rock)
-			this.stepSound = Block.soundTypeStone;
-		else if(this.blockMaterial==Material.wood||this.blockMaterial==Material.cactus)
-			this.stepSound = Block.soundTypeWood;
 	}
 	
 	public TileEntity createNewTileEntity(World world, int meta){
@@ -123,5 +101,6 @@ public class XMachineBlockBase extends BlockContainer implements IDismantleable 
 	    localArrayList.add(localItemStack);
 	    return localArrayList;
 	}
+
 
 }

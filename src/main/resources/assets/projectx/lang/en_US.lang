@@ -75,8 +75,6 @@ tile.shieldWhite.name=White Xycronium Shield
 tile.corn.name=Corn Crop
 tile.oreAluminum.name=Aluminum Ore
 tile.storageAluminum.name=Aluminum Block
-tile.torchSulfur.name=Sulfur Torch
-tile.torchAluminum.name=Aluminum Torch
 
 item.gem.blue.name=Blue Xycronium Crystal
 item.gem.green.name=Green Xycronium Crystal
@@ -105,6 +103,31 @@ item.dust.red.name=Red Pulverized Xycronium
 item.dust.dark.name=Dark Pulverized Xycronium
 item.dust.light.name=Light Pulverized Xycronium
 item.dust.aluminum.name=Pulverized Aluminum
+item.swordBlue.name=Blue Xycronium Sword
+item.pickaxeBlue.name=Blue Xycronium Pickaxe
+item.shovelBlue.name=Blue Xycronium Shovel
+item.axeBlue.name=Blue Xycronium Axe
+item.hoeBlue.name=Blue Xycronium Hoe
+item.swordGreen.name=Green Xycronium Sword
+item.pickaxeGreen.name=Green Xycronium Pickaxe
+item.shovelGreen.name=Green Xycronium Shovel
+item.axeGreen.name=Green Xycronium Axe
+item.hoeGreen.name=Green Xycronium Hoe
+item.swordRed.name=Red Xycronium Sword
+item.pickaxeRed.name=Red Xycronium Pickaxe
+item.shovelRed.name=Red Xycronium Shovel
+item.axeRed.name=Red Xycronium Axe
+item.hoeRed.name=Red Xycronium Hoe
+item.swordDark.name=Dark Xycronium Sword
+item.pickaxeDark.name=Dark Xycronium Pickaxe
+item.shovelDark.name=Dark Xycronium Shovel
+item.axeDark.name=Dark Xycronium Axe
+item.hoeDark.name=Dark Xycronium Hoe
+item.swordLight.name=Light Xycronium Sword
+item.pickaxeLight.name=Light Xycronium Pickaxe
+item.shovelLight.name=Light Xycronium Shovel
+item.axeLight.name=Light Xycronium Axe
+item.hoeLight.name=Light Xycronium Hoe
 
 //Machine Module
 
