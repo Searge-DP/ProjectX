@@ -21,6 +21,12 @@ public class XCropCorn extends XCropBase {
 			return XWorldItems.foodCorn;
 	}
 	
+	@Override //Change Rendertype like in 147
+	public int getRenderType()
+	{
+		return 1;
+	}
+	
 	@Override
 	public int quantityDropped(Random rand){
 		return 2 + rand.nextInt(2);
