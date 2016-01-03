@@ -3,16 +3,19 @@ package dca.projectx.machine.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import dca.projectx.core.ProjectX;
+import dca.projectx.core.XTabs;
 import dca.projectx.core.block.XBlockBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 
 public class XBlockXWater extends XBlockBase {
 
 	public XBlockXWater(Material material, String blockName) {
 		super(material, blockName);
-		this.setHardness(1.5F);
+		this.setHardness(1.2F);
+		this.setCreativeTab(XTabs.tabProjectXMachines);
 	}
 	
     @SideOnly(Side.CLIENT)
@@ -22,8 +25,8 @@ public class XBlockXWater extends XBlockBase {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         icon = new IIcon[3];
-        icon[0] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "machine");
-        icon[1] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "water");
+        icon[0] = iconRegister.registerIcon(ProjectX.INSTANCE + ":machine/" + "machine");
+        icon[1] = iconRegister.registerIcon(ProjectX.INSTANCE + ":machine/" + "water");
         icon[2] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "glow");
     }
     
@@ -35,15 +38,25 @@ public class XBlockXWater extends XBlockBase {
         else if (side == 1)
             return icon[0];
         else if (side == 2)
-            return icon[0];
+            return icon[1];
         else if (side == 3)
-            return icon[0];
+            return icon[1];
         else if (side == 4)
-            return icon[0];
+            return icon[1];
         else if (side == 5)
-            return icon[0];
+            return icon[1];
         else
             return icon[2];
     }
+    
+	@Override
+	public boolean isNormalCube() {
+		return true;
+	}
+	
+	@Override
+	public boolean isNormalCube(IBlockAccess world, int x, int y, int z) {
+		return true;
+	}
 
 }

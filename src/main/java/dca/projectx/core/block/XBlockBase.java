@@ -20,6 +20,7 @@ public class XBlockBase extends BlockContainer {
 		super(material);
 		this.setBlockName(blockName);
 		this.setCreativeTab(XTabs.tabProjectX);
+		this.setHardness(1.2F);
 		adjustSound();
 		this.idBlock = ProjectX.idCounter;
 		ProjectX.idCounter++;

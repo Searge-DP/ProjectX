@@ -10,6 +10,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import dca.projectx.lib.XLogger;
 import dca.projectx.world.gen.XGenOre;
 import dca.projectx.world.handler.WorldCraftingHandler;
+import dca.projectx.world.mod.ModuleLoader;
 import dca.projectx.world.proxy.WCommonProxy;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -21,7 +22,7 @@ public class ProjectXWorld {
 	
 	public static final String MODID = "ProjectXWorld";
 	public static final String NAME = "ProjectX World";
-	public static final String VERSION = "0.0.1";
+	public static final String VERSION = "0.0.1-PRE5";
 	public static final String DEPS = "after:ProjectX";
 	public static final String SSIDE = "dca.projectx.world.proxy.WCommonProxy";
 	public static final String CSIDE = "dca.projectx.world.proxy.WClientProxy";
@@ -49,6 +50,7 @@ public class ProjectXWorld {
 	public void postInit(FMLPostInitializationEvent event){
 		proxy.postInit();
 		WorldCraftingHandler.registerRecipes();
+		ModuleLoader.postInit();
 	}
 	
 	public void forgeHooks(){

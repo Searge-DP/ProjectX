@@ -3,17 +3,17 @@ package dca.projectx.machine.proxy;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import dca.projectx.machine.XMachineBlocks;
 import dca.projectx.machine.XMachineItems;
-import dca.projectx.machine.block.tile.TileEnergyPipe;
-import dca.projectx.machine.block.tile.TileEnergyPipeT1;
-import dca.projectx.machine.block.tile.TileEnergyPipeT2;
-import dca.projectx.machine.block.tile.TileEnergyPipeT3;
+import dca.projectx.machine.block.tile.TilePulsePipe;
+import dca.projectx.machine.block.tile.TilePulsePipeT1;
+import dca.projectx.machine.block.tile.TilePulsePipeT2;
+import dca.projectx.machine.block.tile.TilePulsePipeT3;
 import dca.projectx.machine.block.tile.TileEngineeringTable;
-import dca.projectx.machine.block.tile.TileXNodeT1;
-import dca.projectx.machine.block.tile.TileXNodeT2;
-import dca.projectx.machine.block.tile.TileXNodeT3;
-import dca.projectx.machine.block.tile.TileXRelayT1;
-import dca.projectx.machine.block.tile.TileXRelayT2;
-import dca.projectx.machine.block.tile.TileXRelayT3;
+import dca.projectx.machine.block.tile.TilePulseNodeT1;
+import dca.projectx.machine.block.tile.TilePulseNodeT2;
+import dca.projectx.machine.block.tile.TilePulseNodeT3;
+import dca.projectx.machine.block.tile.TilePulseRelayT1;
+import dca.projectx.machine.block.tile.TilePulseRelayT2;
+import dca.projectx.machine.block.tile.TilePulseRelayT3;
 import dca.projectx.machine.render.RenderEnergyPipe;
 import dca.projectx.machine.render.RenderEngineeringTable;
 import dca.projectx.machine.render.RenderXNode;
@@ -50,51 +50,51 @@ public class MClientProxy extends MCommonProxy {
 		
 		//Energy Node's
 		TileEntitySpecialRenderer renderENT1 = new RenderXNode(0F, 1F, 0F);
-		ClientRegistry.bindTileEntitySpecialRenderer(TileXNodeT1.class, renderENT1);
+		ClientRegistry.bindTileEntitySpecialRenderer(TilePulseNodeT1.class, renderENT1);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyNodeT1), new IRXNodeT1(
-		renderENT1, new TileXNodeT1()));
+		renderENT1, new TilePulseNodeT1()));
 		
 		TileEntitySpecialRenderer renderENT2 = new RenderXNode(0F, 0F, 1F);
-		ClientRegistry.bindTileEntitySpecialRenderer(TileXNodeT2.class, renderENT2);
+		ClientRegistry.bindTileEntitySpecialRenderer(TilePulseNodeT2.class, renderENT2);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyNodeT2), new IRXNodeT2(
-		renderENT2, new TileXNodeT2()));
+		renderENT2, new TilePulseNodeT2()));
 		
 		TileEntitySpecialRenderer renderENT3 = new RenderXNode(1F, 0F, 0F);
-		ClientRegistry.bindTileEntitySpecialRenderer(TileXNodeT3.class, renderENT3);
+		ClientRegistry.bindTileEntitySpecialRenderer(TilePulseNodeT3.class, renderENT3);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyNodeT3), new IRXNodeT3(
-		renderENT3, new TileXNodeT3()));
+		renderENT3, new TilePulseNodeT3()));
 		
 		//Energy Relay's
 		TileEntitySpecialRenderer renderERT1 = new RenderXRelay(0F, 1F, 0F);
-		ClientRegistry.bindTileEntitySpecialRenderer(TileXRelayT1.class, renderERT1);
+		ClientRegistry.bindTileEntitySpecialRenderer(TilePulseRelayT1.class, renderERT1);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyRelayT1), new IRXRelayT1(
-	    renderERT1, new TileXRelayT1()));
+	    renderERT1, new TilePulseRelayT1()));
 		
 		TileEntitySpecialRenderer renderERT2 = new RenderXRelay(0F, 0F, 1F);
-		ClientRegistry.bindTileEntitySpecialRenderer(TileXRelayT2.class, renderERT2);
+		ClientRegistry.bindTileEntitySpecialRenderer(TilePulseRelayT2.class, renderERT2);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyRelayT2), new IRXRelayT2(
-	    renderERT2, new TileXRelayT2()));
+	    renderERT2, new TilePulseRelayT2()));
 		
 		TileEntitySpecialRenderer renderERT3 = new RenderXRelay(1F, 0F, 0F);
-		ClientRegistry.bindTileEntitySpecialRenderer(TileXRelayT3.class, renderERT3);
+		ClientRegistry.bindTileEntitySpecialRenderer(TilePulseRelayT3.class, renderERT3);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyRelayT3), new IRXRelayT3(
-		renderERT3, new TileXRelayT3()));
+		renderERT3, new TilePulseRelayT3()));
 		
 		//Energy Pipe's
 		TileEntitySpecialRenderer renderEPT1 = new RenderEnergyPipe(0F, 1F, 0F);
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEnergyPipeT1.class, renderEPT1);
+		ClientRegistry.bindTileEntitySpecialRenderer(TilePulsePipeT1.class, renderEPT1);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyPipeT1), new IREnergyPipeT1(
-		renderEPT1, new TileEnergyPipeT1()));
+		renderEPT1, new TilePulsePipeT1()));
 		
 		TileEntitySpecialRenderer renderEPT2 = new RenderEnergyPipe(0F, 0F, 1F);
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEnergyPipeT2.class, renderEPT2);
+		ClientRegistry.bindTileEntitySpecialRenderer(TilePulsePipeT2.class, renderEPT2);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyPipeT2), new IREnergyPipeT2(
-		renderEPT2, new TileEnergyPipeT2()));
+		renderEPT2, new TilePulsePipeT2()));
 		
 		TileEntitySpecialRenderer renderEPT3 = new RenderEnergyPipe(1F, 0F, 0F);
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEnergyPipeT3.class, renderEPT3);
+		ClientRegistry.bindTileEntitySpecialRenderer(TilePulsePipeT3.class, renderEPT3);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(XMachineBlocks.energyPipeT3), new IREnergyPipeT3(
-		renderEPT3, new TileEnergyPipeT3()));
+		renderEPT3, new TilePulsePipeT3()));
 		
 		//Energy Core's
 		MinecraftForgeClient.registerItemRenderer(XMachineItems.energyCoreT1, new IREnergyCore(0F, 1F, 0F));

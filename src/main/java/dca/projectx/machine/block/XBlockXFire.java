@@ -3,6 +3,7 @@ package dca.projectx.machine.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import dca.projectx.core.ProjectX;
+import dca.projectx.core.XTabs;
 import dca.projectx.core.block.XBlockBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -18,7 +19,8 @@ public class XBlockXFire extends XBlockBase {
 
 	public XBlockXFire(Material material, String blockName) {
 		super(material, blockName);
-		this.setHardness(1.5F);
+		this.setHardness(1.2F);
+		this.setCreativeTab(XTabs.tabProjectXMachines);
 	}
 	
     @SideOnly(Side.CLIENT)
@@ -27,20 +29,25 @@ public class XBlockXFire extends XBlockBase {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        icon = new IIcon[4];
-        icon[0] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "machine");
-        icon[1] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "fire");
-        icon[2] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "fireActive");
-        icon[3] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "glow");
+        icon = new IIcon[5];
+        icon[0] = iconRegister.registerIcon(ProjectX.INSTANCE + ":machine/" + "fire");
+        icon[1] = iconRegister.registerIcon(ProjectX.INSTANCE + ":machine/" + "machine");
+        icon[2] = iconRegister.registerIcon(ProjectX.INSTANCE + ":machine/" + "fireOff");
+        icon[3] = iconRegister.registerIcon(ProjectX.INSTANCE + ":machine/" + "fireOn");
+        icon[4] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "glow");
     }
     
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         if (side == 0)
-            return icon[0];
+            return icon[1];
         else if (side == 1)
-            return icon[0];
+        	if(meta == 1){
+        		return icon[3];
+        	}
+        	else
+        		return icon[2];
         else if (side == 2)
             return icon[0];
         else if (side == 3)
@@ -50,7 +57,7 @@ public class XBlockXFire extends XBlockBase {
         else if (side == 5)
             return icon[0];
         else
-            return icon[3];
+            return icon[4];
     }
     
 	@Override
@@ -72,7 +79,10 @@ public class XBlockXFire extends XBlockBase {
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		if (world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlock(x, y + 1, z).isReplaceable(world, x, y, z)) {
 			world.setBlock(x, y + 1, z, Blocks.fire);
+			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
 		}
+		else
+			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
 	}
 	
 	@Override

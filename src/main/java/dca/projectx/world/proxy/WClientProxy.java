@@ -302,6 +302,48 @@ public class WClientProxy extends WCommonProxy {
         renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
         XColors.colorWhiteR, XColors.colorWhiteG, XColors.colorWhiteB));
+        
+        //Engineering Bricks
+        renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
+        XColors.colorBlueR, XColors.colorBlueG, XColors.colorBlueB));
+        
+        renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
+        XColors.colorGreenR, XColors.colorGreenG, XColors.colorGreenB));
+        
+        renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
+        XColors.colorRedR, XColors.colorRedG, XColors.colorRedB));
+        
+        renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
+        XColors.colorBlackR, XColors.colorBlackG, XColors.colorBlackB));
+        
+        renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
+        XColors.colorWhiteR, XColors.colorWhiteG, XColors.colorWhiteB));
+        
+        //Elemental Machines
+        renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
+        XColors.colorBlueR, XColors.colorBlueG, XColors.colorBlueB));
+        
+        renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
+        XColors.colorGreenR, XColors.colorGreenG, XColors.colorGreenB));
+        
+        renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
+        XColors.colorRedR, XColors.colorRedG, XColors.colorRedB));
+        
+        renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
+        XColors.colorBlackR, XColors.colorBlackG, XColors.colorBlackB));
+        
+        renderID[ProjectX.idCounter] = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new RenderGlow(renderID[ProjectX.idCounter],
+        XColors.colorWhiteR, XColors.colorWhiteG, XColors.colorWhiteB));
 	}
 	
 	@Override

@@ -2,7 +2,7 @@ package dca.projectx.machine.render;
 
 import org.lwjgl.opengl.GL11;
 import dca.projectx.core.ProjectX;
-import dca.projectx.machine.block.tile.TileEnergyPipe;
+import dca.projectx.machine.block.tile.TilePulsePipe;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -28,7 +28,7 @@ public class RenderEnergyPipe extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
-		TileEnergyPipe pipe = (TileEnergyPipe)tile;
+		TilePulsePipe pipe = (TilePulsePipe)tile;
 		
 		GL11.glTranslated(x, y, z);
 		GL11.glDisable(GL11.GL_LIGHTING);

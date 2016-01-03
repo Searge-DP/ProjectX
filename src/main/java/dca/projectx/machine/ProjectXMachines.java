@@ -7,6 +7,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import dca.projectx.core.ProjectX;
 import dca.projectx.lib.XLogger;
 import dca.projectx.lib.render.RenderTickHandler;
 import dca.projectx.machine.handler.MachineCraftingHandler;
@@ -19,7 +21,7 @@ public class ProjectXMachines {
 	
 	public static final String MODID = "ProjectXMachines";
 	public static final String NAME = "ProjectX Machines";
-	public static final String VERSION = "0.0.1";
+	public static final String VERSION = "0.0.1-PRE5";
 	public static final String DEPS = "after:ProjectXWorld;after:CoFHCore";
 	public static final String SSIDE = "dca.projectx.machine.proxy.MCommonProxy";
 	public static final String CSIDE = "dca.projectx.machine.proxy.MClientProxy";
@@ -27,6 +29,8 @@ public class ProjectXMachines {
 	@SidedProxy
 	(serverSide=ProjectXMachines.SSIDE, clientSide=ProjectXMachines.CSIDE)
 	public static MCommonProxy proxy;
+	
+	public static ProjectXMachines instance;
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event){
