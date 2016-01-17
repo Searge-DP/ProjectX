@@ -4,13 +4,13 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelXNode extends ModelBase
+public class ModelPulseNode extends ModelBase
 {
   //fields
     ModelRenderer base1;
     ModelRenderer conn1;
   
-  public ModelXNode()
+  public ModelPulseNode()
   {
     textureWidth = 64;
     textureHeight = 64;

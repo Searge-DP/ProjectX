@@ -2,6 +2,7 @@ package dca.projectx.world.gen;
 
 import java.util.Random;
 import cpw.mods.fml.common.IWorldGenerator;
+import dca.projectx.lib.XConfig;
 import dca.projectx.world.XWorldBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -30,12 +31,12 @@ public class XGenOre implements IWorldGenerator {
 	}
 	
 	public void generateSurface(World world, Random rand, int i, int j){
-		this.addOreSpawn(XWorldBlocks.oreBlue, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), 12, 15, 50);
-		this.addOreSpawn(XWorldBlocks.oreGreen, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), 12, 15, 50);
-		this.addOreSpawn(XWorldBlocks.oreRed, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), 12, 15, 50);
-		this.addOreSpawn(XWorldBlocks.oreDark, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), 12, 15, 50);
-		this.addOreSpawn(XWorldBlocks.oreLight, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), 12, 15, 50);
-		this.addOreSpawn(XWorldBlocks.oreAluminum, world, rand, i, j, 16, 16, 4 + rand.nextInt(1), 10, 15, 50);
+		this.addOreSpawn(XWorldBlocks.oreBlue, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), XConfig.xOreSpawnChance, 15, 50);
+		this.addOreSpawn(XWorldBlocks.oreGreen, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), XConfig.xOreSpawnChance, 15, 50);
+		this.addOreSpawn(XWorldBlocks.oreRed, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), XConfig.xOreSpawnChance, 15, 50);
+		this.addOreSpawn(XWorldBlocks.oreDark, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), XConfig.xOreSpawnChance, 15, 50);
+		this.addOreSpawn(XWorldBlocks.oreLight, world, rand, i, j, 16, 16, 3 + rand.nextInt(3), XConfig.xOreSpawnChance, 15, 50);
+		this.addOreSpawn(XWorldBlocks.oreAluminum, world, rand, i, j, 16, 16, 4 + rand.nextInt(1), XConfig.aOreSpawnChance, 15, 50);
 	}
 	
 	public void generateEnd(World world, Random rand, int i, int j){

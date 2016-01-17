@@ -7,6 +7,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import dca.projectx.core.XTabs;
 import dca.projectx.core.block.tile.TileMachineBase;
+import dca.projectx.lib.render.PlacementLogic;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -102,6 +103,16 @@ public class XBlockPulseNode extends BlockContainer implements IDismantleable {
 	    ArrayList localArrayList = new ArrayList();
 	    localArrayList.add(localItemStack);
 	    return localArrayList;
+	}
+	
+	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z){
+		return PlacementLogic.isPlacementPossible(world, x, y, z);
+	}
+	
+	@Override
+	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta){
+		return PlacementLogic.getPlacementData(world, x, y, z, side, true);
 	}
 
 }

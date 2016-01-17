@@ -95,6 +95,11 @@ public class XWorldItems {
 		reg.registerItem(shovelLight = (new XShovelBase(XYCRONIUM, "tool/light", "shovelLight")), "shovelLight");
 		reg.registerItem(axeLight = (new XAxeBase(XYCRONIUM, "tool/light", "axeLight")), "axeLight");
 		reg.registerItem(hoeLight = (new XHoeBase(XYCRONIUM, "tool/light", "hoeLight")), "hoeLight");
+		reg.registerItem(swordAluminum = (new XSwordBase(ALUMINUM, "tool/aluminum", "swordAluminum")), "swordAluminum");
+		reg.registerItem(pickaxeAluminum = (new XPickaxeBase(ALUMINUM, "tool/aluminum", "pickaxeAluminum")), "pickaxeAluminum");
+		reg.registerItem(shovelAluminum = (new XShovelBase(ALUMINUM, "tool/aluminum", "shovelAluminum")), "shovelAluminum");
+		reg.registerItem(axeAluminum = (new XAxeBase(ALUMINUM, "tool/aluminum", "axeAluminum")), "axeAluminum");
+		reg.registerItem(hoeAluminum = (new XHoeBase(ALUMINUM, "tool/aluminum", "hoeAluminum")), "hoeAluminum");
 	}
 
 }

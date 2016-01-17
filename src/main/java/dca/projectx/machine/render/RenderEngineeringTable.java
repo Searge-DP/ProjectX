@@ -2,6 +2,7 @@ package dca.projectx.machine.render;
 
 import org.lwjgl.opengl.GL11;
 import dca.projectx.core.ProjectX;
+import dca.projectx.lib.XConfig;
 import dca.projectx.lib.render.RenderTickHandler;
 import dca.projectx.machine.block.tile.TileEngineeringTable;
 import dca.projectx.machine.render.RenderTruncatedIcosahedron.EnumHedronTexture;
@@ -25,7 +26,7 @@ public class RenderEngineeringTable extends TileEntitySpecialRenderer {
 	public RenderEngineeringTable(){
 		modelTable = new ModelEngineeringTable();
 		textureTable = new ResourceLocation(ProjectX.INSTANCE, "textures/models/engineeringTable.png");
-		this.renderIcosa = new RenderTruncatedIcosahedron();
+		renderIcosa = new RenderTruncatedIcosahedron();
 	}
 
 	@Override

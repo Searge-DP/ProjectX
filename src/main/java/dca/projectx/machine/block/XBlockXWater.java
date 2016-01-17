@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class XBlockXWater extends XBlockBase {
 
@@ -56,6 +57,11 @@ public class XBlockXWater extends XBlockBase {
 	
 	@Override
 	public boolean isNormalCube(IBlockAccess world, int x, int y, int z) {
+		return true;
+	}
+	
+	@Override
+	public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side){
 		return true;
 	}
 

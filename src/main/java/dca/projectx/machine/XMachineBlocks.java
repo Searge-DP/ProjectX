@@ -13,9 +13,6 @@ import dca.projectx.machine.block.XBlockXIce;
 import dca.projectx.machine.block.XBlockPulseNodeT1;
 import dca.projectx.machine.block.XBlockPulseNodeT2;
 import dca.projectx.machine.block.XBlockPulseNodeT3;
-import dca.projectx.machine.block.XBlockPulseRelayT1;
-import dca.projectx.machine.block.XBlockPulseRelayT2;
-import dca.projectx.machine.block.XBlockPulseRelayT3;
 import dca.projectx.machine.block.XBlockXSoil;
 import dca.projectx.machine.block.XBlockXVoid;
 import dca.projectx.machine.block.XBlockXWater;
@@ -38,12 +35,13 @@ public class XMachineBlocks {
 	public static Block energyNodeT1;
 	public static Block energyNodeT2;
 	public static Block energyNodeT3;
-	public static Block energyRelayT1;
-	public static Block energyRelayT2;
-	public static Block energyRelayT3;
 	public static Block energyPipeT1;
 	public static Block energyPipeT2;
 	public static Block energyPipeT3;
+	public static Block pulseNodeRelay;
+	public static Block pulseGenerator;
+	public static Block pulseFurnace;
+	public static Block crystalInfuser;
 	
 	public static void preInit(){
 		GameRegistry reg = null;
@@ -61,9 +59,6 @@ public class XMachineBlocks {
 		reg.registerBlock(energyNodeT1 = (new XBlockPulseNodeT1(Material.iron, "energyNodeT1")), "energyNodeT1");
 		reg.registerBlock(energyNodeT2 = (new XBlockPulseNodeT2(Material.iron, "energyNodeT2")), "energyNodeT2");
 		reg.registerBlock(energyNodeT3 = (new XBlockPulseNodeT3(Material.iron, "energyNodeT3")), "energyNodeT3");
-		reg.registerBlock(energyRelayT1 = (new XBlockPulseRelayT1(Material.iron, "energyRelayT1")), "energyRelayT1");
-		reg.registerBlock(energyRelayT2 = (new XBlockPulseRelayT2(Material.iron, "energyRelayT2")), "energyRelayT2");
-		reg.registerBlock(energyRelayT3 = (new XBlockPulseRelayT3(Material.iron, "energyRelayT3")), "energyRelayT3");
 		reg.registerBlock(energyPipeT1 = (new XBlockPulsePipeT1(Material.iron, "energyPipeT1")), "energyPipeT1");
 		reg.registerBlock(energyPipeT2 = (new XBlockPulsePipeT2(Material.iron, "energyPipeT2")), "energyPipeT2");
 		reg.registerBlock(energyPipeT3 = (new XBlockPulsePipeT3(Material.iron, "energyPipeT3")), "energyPipeT3");

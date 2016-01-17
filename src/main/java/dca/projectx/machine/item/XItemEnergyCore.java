@@ -15,6 +15,7 @@ public class XItemEnergyCore extends Item {
 	public XItemEnergyCore(String itemName){
 		this.setUnlocalizedName(itemName);
 		this.setCreativeTab(XTabs.tabProjectXMachines);
+		this.setTextureName("minecraft:apple");
 	}
 	
     @SideOnly(Side.CLIENT)

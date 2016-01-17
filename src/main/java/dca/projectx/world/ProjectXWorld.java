@@ -7,6 +7,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import dca.projectx.lib.XConfig;
 import dca.projectx.lib.XLogger;
 import dca.projectx.world.gen.XGenOre;
 import dca.projectx.world.handler.WorldCraftingHandler;
@@ -54,7 +55,7 @@ public class ProjectXWorld {
 	}
 	
 	public void forgeHooks(){
-		MinecraftForge.addGrassSeed(new ItemStack(XWorldItems.seedCorn), 2);
+		MinecraftForge.addGrassSeed(new ItemStack(XWorldItems.seedCorn), XConfig.cornSeedDropChance);
 		GameRegistry.registerWorldGenerator(new XGenOre(), 0);
 	}
 

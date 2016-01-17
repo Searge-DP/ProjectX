@@ -27,8 +27,8 @@ public class XBlockXIce extends XBlockBase {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         icon = new IIcon[3];
-        icon[0] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "machine");
-        icon[1] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "ice");
+        icon[0] = iconRegister.registerIcon(ProjectX.INSTANCE + ":machine/" + "machine");
+        icon[1] = iconRegister.registerIcon(ProjectX.INSTANCE + ":machine/" + "ice");
         icon[2] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "glow");
     }
     
@@ -40,13 +40,13 @@ public class XBlockXIce extends XBlockBase {
         else if (side == 1)
             return icon[0];
         else if (side == 2)
-            return icon[0];
+            return icon[1];
         else if (side == 3)
-            return icon[0];
+            return icon[1];
         else if (side == 4)
-            return icon[0];
+            return icon[1];
         else if (side == 5)
-            return icon[0];
+            return icon[1];
         else
             return icon[2];
     }

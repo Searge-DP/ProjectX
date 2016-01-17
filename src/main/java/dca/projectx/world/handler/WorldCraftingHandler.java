@@ -85,6 +85,14 @@ public class WorldCraftingHandler {
 				XWorldItems.hoeLight
 		);
 		
+		helper.addToolset(XWorldItems.ingot, 5,
+				XWorldItems.swordAluminum,
+				XWorldItems.pickaxeAluminum,
+				XWorldItems.shovelAluminum,
+				XWorldItems.axeAluminum,
+				XWorldItems.hoeAluminum
+		);
+		
 		reg.addRecipe(new ItemStack(XWorldBlocks.glassViewer, 4), new Object[]{" X ", "XCX", " X ", 'X', Blocks.glass, 'C', new ItemStack(XWorldItems.ingot, 1, 5)});
 		
 		reg.addRecipe(new ItemStack(XWorldBlocks.brickBlue, 5), new Object[]{"XCX", "CCC", "XCX", 'C', Blocks.stonebrick, 'X', new ItemStack(XWorldItems.ingot, 1, 0)});

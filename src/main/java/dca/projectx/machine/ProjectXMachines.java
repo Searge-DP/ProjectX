@@ -12,6 +12,7 @@ import dca.projectx.core.ProjectX;
 import dca.projectx.lib.XLogger;
 import dca.projectx.lib.render.RenderTickHandler;
 import dca.projectx.machine.handler.MachineCraftingHandler;
+import dca.projectx.machine.handler.MachineGuiHandler;
 import dca.projectx.machine.proxy.MCommonProxy;
 
 @Mod
@@ -44,6 +45,7 @@ public class ProjectXMachines {
 		proxy.init();
 		XLogger.info("Machine Module Initialized !");
 		FMLCommonHandler.instance().bus().register(new RenderTickHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new MachineGuiHandler());
 	}
 	
 	@Mod.EventHandler

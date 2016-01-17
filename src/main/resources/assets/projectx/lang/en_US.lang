@@ -128,6 +128,11 @@ item.pickaxeLight.name=Light Xycronium Pickaxe
 item.shovelLight.name=Light Xycronium Shovel
 item.axeLight.name=Light Xycronium Axe
 item.hoeLight.name=Light Xycronium Hoe
+item.swordAluminum.name=Aluminum Sword
+item.pickaxeAluminum.name=Aluminum Pickaxe
+item.shovelAluminum.name=Aluminum Shovel
+item.axeAluminum.name=Aluminum Axe
+item.hoeAluminum.name=Aluminum Hoe
 
 //Machine Module
 
@@ -146,9 +151,6 @@ tile.fabricator.name=Fabricator
 tile.energyNodeT1.name=Energy Node 
 tile.energyNodeT2.name=Energy Node 
 tile.energyNodeT3.name=Energy Node 
-tile.energyRelayT1.name=Energy Relay 
-tile.energyRelayT2.name=Energy Relay 
-tile.energyRelayT3.name=Energy Relay 
 tile.energyPipeT1.name=Energy Pipe 
 tile.energyPipeT2.name=Energy Pipe 
 tile.energyPipeT3.name=Energy Pipe 

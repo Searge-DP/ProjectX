@@ -2,6 +2,7 @@ package dca.projectx.machine.render;
 
 import org.lwjgl.opengl.GL11;
 import dca.projectx.core.ProjectX;
+import dca.projectx.lib.XConfig;
 import dca.projectx.machine.block.tile.TilePulsePipe;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -14,13 +15,12 @@ public class RenderEnergyPipe extends TileEntitySpecialRenderer {
 	public static ResourceLocation texture;
 	public static float pixel = 1F/16F;
 	public static float texturePixel = 1F/32F;
-	public static boolean drawInside = true;
 	public float r;
 	public float g;
 	public float b;
 	
 	public RenderEnergyPipe(float r, float g, float b){
-		this.texture = new ResourceLocation(ProjectX.INSTANCE, "textures/models/pipe.png");
+		this.texture = new ResourceLocation(ProjectX.INSTANCE, "textures/models/pulsePipe.png");
 		this.r = r;
 		this.g = g;
 		this.b = b;
@@ -99,7 +99,7 @@ public class RenderEnergyPipe extends TileEntitySpecialRenderer {
 		tess.addVertexWithUV(1-11*pixel/2, 11*pixel/2, 11*pixel/2, 0*texturePixel, 0*texturePixel);
 		tess.addVertexWithUV(1-11*pixel/2, 11*pixel/2, 1-11*pixel/2, 0*texturePixel, 5*texturePixel);
 		
-		if(drawInside = true){
+		if(XConfig.fancyPipes = true){
 			tess.addVertexWithUV(11*pixel/2, 11*pixel/2, 1-11*pixel/2, 0*texturePixel, 5*texturePixel);
 			tess.addVertexWithUV(11*pixel/2, 1-11*pixel/2, 1-11*pixel/2, 0*texturePixel, 0*texturePixel);
 			tess.addVertexWithUV(1-11*pixel/2, 1-11*pixel/2, 1-11*pixel/2, 5*texturePixel, 0*texturePixel);
@@ -182,7 +182,7 @@ public class RenderEnergyPipe extends TileEntitySpecialRenderer {
 		tess.addVertexWithUV(11*pixel/2, 1, 11*pixel/2, 10*texturePixel, 0*texturePixel);
 		tess.addVertexWithUV(11*pixel/2, 1-11*pixel/2, 11*pixel/2, 5*texturePixel, 0*texturePixel);
 		
-		if(drawInside = true){
+		if(XConfig.fancyPipes = true){
 			tess.addVertexWithUV(11*pixel/2, 1-11*pixel/2, 1-11*pixel/2, 5*texturePixel, 0*texturePixel);
 			tess.addVertexWithUV(11*pixel/2, 1, 1-11*pixel/2, 10*texturePixel, 0*texturePixel);
 			tess.addVertexWithUV(1-11*pixel/2, 1, 1-11*pixel/2, 10*texturePixel, 5*texturePixel);
@@ -264,7 +264,7 @@ public class RenderEnergyPipe extends TileEntitySpecialRenderer {
 		tess.addVertexWithUV(11*pixel/2, 1, 11*pixel/2, 26*texturePixel, 0*texturePixel);
 		tess.addVertexWithUV(11*pixel/2, 0, 11*pixel/2, 10*texturePixel, 0*texturePixel);
 		
-		if(drawInside = true){
+		if(XConfig.fancyPipes = true){
 			tess.addVertexWithUV(11*pixel/2, 0, 1-11*pixel/2, 10*texturePixel, 0*texturePixel);
 			tess.addVertexWithUV(11*pixel/2, 1, 1-11*pixel/2, 26*texturePixel, 0*texturePixel);
 			tess.addVertexWithUV(1-11*pixel/2, 1, 1-11*pixel/2, 26*texturePixel, 5*texturePixel);

@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import dca.projectx.core.proxy.CommonProxy;
+import dca.projectx.lib.XConfig;
 import dca.projectx.lib.XLogger;
 import dca.projectx.lib.render.RenderTickHandler;
 
@@ -38,6 +39,7 @@ public class ProjectX {
 	public void preInit(FMLPreInitializationEvent event){
 		proxy.preInit();
 		XLogger.debug("ProjectX Debugging...");
+		XConfig.preInit(event);
 	}
 	
 	@EventHandler

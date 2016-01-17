@@ -29,7 +29,7 @@ public class XBlockXVoid extends XBlockBase {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         icon = new IIcon[2];
-        icon[0] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "void");
+        icon[0] = iconRegister.registerIcon(ProjectX.INSTANCE + ":machine/" + "void");
         icon[1] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "glow");
     }
     

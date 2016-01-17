@@ -1,9 +1,7 @@
 package dca.projectx.machine.render;
 
 import java.awt.Color;
-
 import org.lwjgl.opengl.GL11;
-
 import codechicken.lib.vec.Vector3;
 import dca.projectx.core.ProjectX;
 import net.minecraft.client.Minecraft;
@@ -30,8 +28,7 @@ public class RenderTruncatedIcosahedron {
 		}
 	}
 	
-	  public static void render(double size, float r, float g, float b, EnumHedronTexture type)
-	  {
+	  public static void render(double size, float r, float g, float b, EnumHedronTexture type){
 	    GL11.glDisable(2896);
 	    GL11.glDisable(16384);
 	    GL11.glDisable(16385);
@@ -54,8 +51,7 @@ public class RenderTruncatedIcosahedron {
 	    GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	  }
 	
-	  public static void generate()
-	  {
+	  public static void generate(){
 	    int[] s = { 1, -1 };
 	    for (int i = 0; i < 4; i++) {
 	      verts[i] = new Vector3(0.0D, s[(i / 2)], s[(i % 2)] * 3 * 1.618034D);
@@ -95,8 +91,7 @@ public class RenderTruncatedIcosahedron {
 	    GL11.glEndList();
 	  }
 	  
-	  public static void renderShape(Vector3[] verts, boolean reverse)
-	  {
+	  public static void renderShape(Vector3[] verts, boolean reverse){
 	    Vector3 center = new Vector3();
 	    for (int i = 0; i < verts.length; i++) {
 	      center.add(verts[i]);
@@ -119,8 +114,7 @@ public class RenderTruncatedIcosahedron {
 	    }
 	  }
 	  
-	  public static void hexagon1(int rot, int i)
-	  {
+	  public static void hexagon1(int rot, int i){
 	    Vector3[] hexagon = new Vector3[6];
 	    hexagon[0] = verts[(rot * 20 + i / 2)];
 	    hexagon[1] = verts[((rot * 20 + i + 44) % 60)];
@@ -131,8 +125,7 @@ public class RenderTruncatedIcosahedron {
 	    renderShape(hexagon, (i == 0) || (i == 3));
 	  }
 	  
-	  public static void hexagon2(int i)
-	  {
+	  public static void hexagon2(int i){
 	    Vector3[] hexagon = new Vector3[6];
 	    hexagon[0] = verts[(4 + i)];
 	    hexagon[1] = verts[(12 + i)];
@@ -143,8 +136,7 @@ public class RenderTruncatedIcosahedron {
 	    renderShape(hexagon, (i % 3 != 0) && (i != 5));
 	  }
 	  
-	  public static void pentagon(int rot, int i)
-	  {
+	  public static void pentagon(int rot, int i){
 	    Vector3[] pentagon = new Vector3[5];
 	    pentagon[0] = verts[(rot * 20 + i)];
 	    pentagon[1] = verts[((rot * 20 + 2 * i + 44) % 60)];
