@@ -9,12 +9,6 @@ public class ModuleLoader {
 	public static final String LOG = "[Compat] ";
 	
 	public static void postInit(){
-		if(Loader.isModLoaded("CoFHCore")){
-			XLogger.info(LOG + "CoFHCore found !");
-		}
-		else
-			XLogger.info(LOG + "CoFHCore not found...");
-		
 		if(Loader.isModLoaded("ThermalFoundation") && (XConfig.tfSupport = true)){
 			XLogger.info(LOG + "Thermal Foundation found !");
 			XThermalFoundation.init();

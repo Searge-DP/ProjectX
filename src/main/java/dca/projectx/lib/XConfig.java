@@ -9,16 +9,16 @@ public class XConfig {
 	public static String CAT_MACHINES = "machines config";
 	public static String CAT_MISC = "misc config";
 	
-	public static boolean tfSupport;
-	public static boolean teSupport;
-	public static boolean eioSupport;
+	public static boolean tfSupport = true;
+	public static boolean teSupport = true;
+	public static boolean eioSupport = true;
 	
-	public static boolean fancyPipes;
-	public static boolean experimentalFunctions;
+	public static boolean fancyPipes = true;
+	public static boolean experimentalFunctions = false;
 	
-	public static int xOreSpawnChance;
-	public static int aOreSpawnChance;
-	public static int cornSeedDropChance;
+	public static int xOreSpawnChance = 12;
+	public static int aOreSpawnChance = 10;
+	public static int cornSeedDropChance = 2;
 	
 	public static void preInit(FMLPreInitializationEvent event){
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
