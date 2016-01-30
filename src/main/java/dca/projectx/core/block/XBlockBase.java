@@ -2,15 +2,15 @@ package dca.projectx.core.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dca.projectx.core.ProjectX;
-import dca.projectx.core.XTabs;
-import dca.projectx.core.proxy.ClientProxy;
-import dca.projectx.world.proxy.WClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.XTabs;
+import snowpaw.projectx.core.proxy.ClientProxy;
+import snowpaw.projectx.world.proxy.WClientProxy;
 
 public class XBlockBase extends BlockContainer {
 	
@@ -37,6 +37,7 @@ public class XBlockBase extends BlockContainer {
         return false;
     }
     
+    /**
     @Override
     @SideOnly(Side.CLIENT)
     public int getRenderType() {
@@ -49,6 +50,7 @@ public class XBlockBase extends BlockContainer {
         WClientProxy.renderPass[idBlock] = pass;
         return true;
     }
+    */
     
     @Override
     @SideOnly(Side.CLIENT)

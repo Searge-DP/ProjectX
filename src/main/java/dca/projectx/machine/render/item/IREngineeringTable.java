@@ -1,7 +1,7 @@
 package dca.projectx.machine.render.item;
 
 import org.lwjgl.opengl.GL11;
-import dca.projectx.core.ProjectX;
+
 import dca.projectx.machine.block.tile.TileEngineeringTable;
 import dca.projectx.machine.render.RenderEngineeringTable;
 import dca.projectx.machine.render.model.ModelEngineeringTable;
@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+import snowpaw.projectx.core.ProjectX;
 
 public class IREngineeringTable implements IItemRenderer {
 	

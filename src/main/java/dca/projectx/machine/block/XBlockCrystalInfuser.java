@@ -1,12 +1,12 @@
 package dca.projectx.machine.block;
 
-import dca.projectx.core.XTabs;
 import dca.projectx.machine.block.tile.TileCrystalInfuser;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import snowpaw.projectx.core.XTabs;
 
 public class XBlockCrystalInfuser extends BlockContainer {
 

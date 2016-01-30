@@ -1,14 +1,15 @@
 package dca.projectx.machine.render;
 
 import org.lwjgl.opengl.GL11;
-import dca.projectx.core.ProjectX;
-import dca.projectx.lib.XConfig;
+
 import dca.projectx.machine.block.tile.TilePulsePipe;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.ForgeDirection;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.XConfig;
 
 public class RenderEnergyPipe extends TileEntitySpecialRenderer {
 	

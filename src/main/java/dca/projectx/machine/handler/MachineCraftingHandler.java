@@ -3,10 +3,10 @@ package dca.projectx.machine.handler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import dca.projectx.machine.XMachineBlocks;
 import dca.projectx.machine.XMachineItems;
-import dca.projectx.world.XWorldItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import snowpaw.projectx.world.XWorldItems;
 
 public class MachineCraftingHandler {
 	

@@ -1,8 +1,8 @@
 package dca.projectx.machine.block;
 
-import dca.projectx.core.XTabs;
 import dca.projectx.core.block.XBlockBase;
 import net.minecraft.block.material.Material;
+import snowpaw.projectx.core.XTabs;
 
 public class XBlockPulseFurnace extends XBlockBase {
 

@@ -2,8 +2,8 @@ package dca.projectx.world.block;
 
 import java.util.Random;
 import dca.projectx.core.block.XCropBase;
-import dca.projectx.world.XWorldItems;
 import net.minecraft.item.Item;
+import snowpaw.projectx.world.XWorldItems;
 import net.minecraft.block.BlockCrops;
 
 public class XCropCorn extends XCropBase {

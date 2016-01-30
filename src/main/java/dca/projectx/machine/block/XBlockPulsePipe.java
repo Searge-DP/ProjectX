@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import cofh.api.block.IDismantleable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dca.projectx.core.XTabs;
 import dca.projectx.core.block.tile.TileMachineBase;
 import dca.projectx.machine.block.tile.TilePulsePipe;
 import net.minecraft.block.Block;
@@ -17,6 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import snowpaw.projectx.core.XTabs;
 
 public class XBlockPulsePipe extends BlockContainer implements IDismantleable {
 

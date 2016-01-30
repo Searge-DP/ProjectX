@@ -1,8 +1,8 @@
 package dca.projectx.core.item;
 
-import dca.projectx.core.ProjectX;
-import dca.projectx.core.XTabs;
 import net.minecraft.item.ItemHoe;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.XTabs;
 
 public class XHoeBase extends ItemHoe {
 

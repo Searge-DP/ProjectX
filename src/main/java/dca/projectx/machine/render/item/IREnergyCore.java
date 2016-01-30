@@ -1,8 +1,7 @@
 package dca.projectx.machine.render.item;
 
 import org.lwjgl.opengl.GL11;
-import dca.projectx.core.ProjectX;
-import dca.projectx.lib.render.RenderTickHandler;
+
 import dca.projectx.machine.render.RenderTruncatedIcosahedron;
 import dca.projectx.machine.render.RenderTruncatedIcosahedron.EnumHedronTexture;
 import net.minecraft.client.Minecraft;
@@ -11,6 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.render.RenderTickHandler;
 
 public class IREnergyCore implements IItemRenderer {
 	

@@ -3,9 +3,9 @@ package dca.projectx.machine.render;
 import java.awt.Color;
 import org.lwjgl.opengl.GL11;
 import codechicken.lib.vec.Vector3;
-import dca.projectx.core.ProjectX;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
+import snowpaw.projectx.core.ProjectX;
 
 public class RenderTruncatedIcosahedron {
 	

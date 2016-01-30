@@ -1,8 +1,7 @@
 package dca.projectx.machine.render.item;
 
 import org.lwjgl.opengl.GL11;
-import dca.projectx.core.ProjectX;
-import dca.projectx.lib.render.RenderTickHandler;
+
 import dca.projectx.machine.render.RenderTruncatedIcosahedron;
 import dca.projectx.machine.render.RenderTruncatedIcosahedron.EnumHedronTexture;
 import dca.projectx.machine.render.model.ModelPulseNode;
@@ -12,6 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.render.RenderTickHandler;
 
 public class IRPulseNodeT3 implements IItemRenderer {
 	

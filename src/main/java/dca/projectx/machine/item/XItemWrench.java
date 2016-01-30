@@ -8,8 +8,6 @@ import cofh.lib.util.helpers.ServerHelper;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dca.projectx.core.ProjectX;
-import dca.projectx.core.XTabs;
 import dca.projectx.machine.ProjectXMachines;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -21,6 +19,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.XTabs;
 
 public class XItemWrench extends Item implements IToolHammer {
 	

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dca.projectx.core.ProjectX;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockFarmland;
@@ -18,6 +17,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import snowpaw.projectx.core.ProjectX;
 
 public class XCropBase extends BlockBush implements IGrowable {
 	

@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import cofh.api.block.IDismantleable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dca.projectx.core.XTabs;
 import dca.projectx.core.block.tile.TileMachineBase;
-import dca.projectx.lib.render.PlacementLogic;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -19,6 +17,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import snowpaw.projectx.core.XTabs;
+import snowpaw.projectx.lib.render.PlacementLogic;
 
 public class XBlockPulseNode extends BlockContainer implements IDismantleable {
 	

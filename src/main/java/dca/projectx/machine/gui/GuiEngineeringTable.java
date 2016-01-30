@@ -1,6 +1,5 @@
 package dca.projectx.machine.gui;
 
-import dca.projectx.core.ProjectX;
 import dca.projectx.machine.block.tile.TileEngineeringTable;
 import dca.projectx.machine.container.ContainerEngineeringTable;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -8,6 +7,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
+import snowpaw.projectx.core.ProjectX;
 
 public class GuiEngineeringTable extends GuiContainer {
 	

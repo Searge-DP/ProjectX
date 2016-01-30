@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import cofh.api.block.IDismantleable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dca.projectx.core.ProjectX;
-import dca.projectx.core.XTabs;
 import dca.projectx.core.block.tile.TileMachineBase;
-import dca.projectx.core.proxy.ClientProxy;
 import dca.projectx.machine.XMachineBlocks;
 import dca.projectx.machine.block.tile.TileEngineeringTable;
 import net.minecraft.block.Block;
@@ -19,6 +16,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.XTabs;
+import snowpaw.projectx.core.proxy.ClientProxy;
 
 public class XBlockEngineeringTable extends BlockContainer implements IDismantleable {
 

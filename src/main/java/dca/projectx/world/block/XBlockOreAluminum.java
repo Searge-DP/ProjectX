@@ -2,12 +2,12 @@ package dca.projectx.world.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dca.projectx.core.ProjectX;
-import dca.projectx.core.XTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.XTabs;
 
 public class XBlockOreAluminum extends Block {
 

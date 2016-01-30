@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dca.projectx.core.ProjectX;
 import dca.projectx.core.block.XBlockBase;
-import dca.projectx.world.XWorldBlocks;
-import dca.projectx.world.XWorldItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Items;
@@ -15,6 +12,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.world.XWorldBlocks;
+import snowpaw.projectx.world.XWorldItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRedstoneOre;
 
@@ -50,6 +50,7 @@ public class XBlockOreXycronium extends XBlockBase {
     	return XWorldItems.gem;
     }
     
+    /**
     @Override
     public int damageDropped(int meta){
     	if(this==XWorldBlocks.oreBlue){
@@ -69,6 +70,7 @@ public class XBlockOreXycronium extends XBlockBase {
     	}
     	return meta;
     }
+    */
     
     @Override
     public int quantityDropped(Random rand){

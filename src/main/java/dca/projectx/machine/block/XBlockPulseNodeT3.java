@@ -3,7 +3,6 @@ package dca.projectx.machine.block;
 import java.util.List;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dca.projectx.core.XTabs;
 import dca.projectx.machine.block.tile.TilePulseNodeT1;
 import dca.projectx.machine.block.tile.TilePulseNodeT3;
 import net.minecraft.block.Block;
@@ -18,6 +17,7 @@ import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import snowpaw.projectx.core.XTabs;
 
 public class XBlockPulseNodeT3 extends XBlockPulseNode {
 

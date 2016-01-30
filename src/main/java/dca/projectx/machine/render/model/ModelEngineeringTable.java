@@ -37,9 +37,10 @@ public class ModelEngineeringTable extends ModelBase
     plate.render(f5);
   }
   
-  public void renderModel(float f){
-	base.render(f);
-	plate.render(f);
+  public void renderModel(){
+	  float f = 0.0625F;
+	  base.render(f);
+	  plate.render(f);
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)

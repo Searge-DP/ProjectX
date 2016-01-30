@@ -1,9 +1,7 @@
 package dca.projectx.machine.render;
 
 import org.lwjgl.opengl.GL11;
-import dca.projectx.core.ProjectX;
-import dca.projectx.lib.XConfig;
-import dca.projectx.lib.render.RenderTickHandler;
+
 import dca.projectx.machine.block.tile.TileEngineeringTable;
 import dca.projectx.machine.render.RenderTruncatedIcosahedron.EnumHedronTexture;
 import dca.projectx.machine.render.model.ModelEngineeringTable;
@@ -16,6 +14,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.XConfig;
+import snowpaw.projectx.core.render.RenderTickHandler;
 
 public class RenderEngineeringTable extends TileEntitySpecialRenderer {
 	
@@ -35,7 +36,7 @@ public class RenderEngineeringTable extends TileEntitySpecialRenderer {
 		GL11.glTranslatef((float)x + 0.5F, (float)y + 1.5F, (float)z + 0.5F);
 		GL11.glRotatef(180, 0F, 0F, 1F);
 		this.bindTexture(textureTable);
-		modelTable.renderModel(0.0625F);
+		modelTable.renderModel();
 		GL11.glPopMatrix();
 		renderFX(x, y, z);
 	}

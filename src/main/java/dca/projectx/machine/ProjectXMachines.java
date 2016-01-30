@@ -8,12 +8,12 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import dca.projectx.core.ProjectX;
-import dca.projectx.lib.XLogger;
-import dca.projectx.lib.render.RenderTickHandler;
 import dca.projectx.machine.handler.MachineCraftingHandler;
 import dca.projectx.machine.handler.MachineGuiHandler;
 import dca.projectx.machine.proxy.MCommonProxy;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.XLogger;
+import snowpaw.projectx.core.render.RenderTickHandler;
 
 @Mod
 (modid=ProjectXMachines.MODID, name=ProjectXMachines.NAME, version=ProjectXMachines.VERSION, dependencies=ProjectXMachines.DEPS)

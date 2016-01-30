@@ -2,9 +2,7 @@ package dca.projectx.machine.render;
 
 import java.awt.Color;
 import org.lwjgl.opengl.GL11;
-import dca.projectx.core.ProjectX;
-import dca.projectx.lib.render.PlacementLogic;
-import dca.projectx.lib.render.RenderTickHandler;
+
 import dca.projectx.machine.block.tile.TilePulseNode;
 import dca.projectx.machine.block.tile.TilePulseNodeT1;
 import dca.projectx.machine.render.RenderTruncatedIcosahedron.EnumHedronTexture;
@@ -15,6 +13,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import snowpaw.projectx.core.ProjectX;
+import snowpaw.projectx.core.render.RenderTickHandler;
+import snowpaw.projectx.lib.render.PlacementLogic;
 
 public class RenderPulseNode extends TileEntitySpecialRenderer {
 	
