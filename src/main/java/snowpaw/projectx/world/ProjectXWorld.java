@@ -12,7 +12,7 @@ import net.minecraftforge.common.MinecraftForge;
 import snowpaw.projectx.compat.ModuleLoader;
 import snowpaw.projectx.core.XConfig;
 import snowpaw.projectx.core.XLogger;
-import snowpaw.projectx.world.generate.XGenOre;
+import snowpaw.projectx.world.generate.XWorldGenerator;
 import snowpaw.projectx.world.proxy.WCommonProxy;
 
 @Mod
@@ -55,7 +55,7 @@ public class ProjectXWorld {
 	
 	public void forgeHooks(){
 		MinecraftForge.addGrassSeed(new ItemStack(XWorldItems.seedCorn), XConfig.cornSeedDropChance);
-		GameRegistry.registerWorldGenerator(new XGenOre(), 0);
+		GameRegistry.registerWorldGenerator(new XWorldGenerator(), 0);
 	}
 
 }

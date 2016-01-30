@@ -1,6 +1,6 @@
 package snowpaw.projectx.world.item;
 
-import dca.projectx.core.item.XItemBase;
+import snowpaw.projectx.lib.item.XItemBase;
 
 public class XItemGem extends XItemBase {
 

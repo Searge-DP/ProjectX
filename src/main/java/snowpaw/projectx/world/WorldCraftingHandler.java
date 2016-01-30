@@ -1,10 +1,10 @@
 package snowpaw.projectx.world;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import dca.projectx.lib.helper.CraftingHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import snowpaw.projectx.lib.helper.CraftingHelper;
 
 public class WorldCraftingHandler {
 	

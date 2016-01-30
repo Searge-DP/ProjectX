@@ -1,16 +1,16 @@
 package snowpaw.projectx.world;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import dca.projectx.core.item.XAxeBase;
-import dca.projectx.core.item.XFoodBase;
-import dca.projectx.core.item.XHoeBase;
-import dca.projectx.core.item.XPickaxeBase;
-import dca.projectx.core.item.XSeedBase;
-import dca.projectx.core.item.XShovelBase;
-import dca.projectx.core.item.XSwordBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
+import snowpaw.projectx.lib.item.XAxeBase;
+import snowpaw.projectx.lib.item.XFoodBase;
+import snowpaw.projectx.lib.item.XHoeBase;
+import snowpaw.projectx.lib.item.XPickaxeBase;
+import snowpaw.projectx.lib.item.XSeedBase;
+import snowpaw.projectx.lib.item.XShovelBase;
+import snowpaw.projectx.lib.item.XSwordBase;
 import snowpaw.projectx.world.item.XItemDust;
 import snowpaw.projectx.world.item.XItemGem;
 import snowpaw.projectx.world.item.XItemIngot;

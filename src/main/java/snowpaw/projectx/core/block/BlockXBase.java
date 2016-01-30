@@ -7,15 +7,18 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import snowpaw.projectx.core.ProjectX;
 import snowpaw.projectx.core.XTabs;
 
-public class BlockXBase extends Block {
+public class BlockXBase extends BlockContainer {
 	
 	public String blockName;
 	public String[] subNames;
@@ -38,6 +41,11 @@ public class BlockXBase extends Block {
 	{
 		for(int i=0; i<subNames.length; i++)
 			list.add(new ItemStack(item, 1, i));
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(World world, int meta){
+		return null;
 	}
 
 }
