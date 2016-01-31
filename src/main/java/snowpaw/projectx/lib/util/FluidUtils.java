@@ -16,16 +16,11 @@ import net.minecraftforge.oredict.OreDictionary;
 import snowpaw.projectx.lib.block.ExtendedBlock;
 import snowpaw.projectx.lib.vec.Vector3i;
 import snowpaw.projectx.machine.tile.TileXTankValve;
-
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import dca.projectx.core.ProjectX;
-import dca.projectx.machine.block.tile.TileTankFrame;
-import dca.projectx.machine.block.tile.TileValve;
 
 
 public class FluidUtils {

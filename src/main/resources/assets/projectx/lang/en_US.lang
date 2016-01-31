@@ -154,6 +154,10 @@ tile.energyPipeT1.name=Energy Pipe
 tile.energyPipeT2.name=Energy Pipe 
 tile.energyPipeT3.name=Energy Pipe 
 
+tile.projectx.tankValve.name=Tank Valve 
+tile.projectx.tankFrame.name=Ghost Block (DO NOT USE !)
+tile.projectx.fluidDetector.name=Fluid Detector [WIP]
+
 item.energyCoreT1.name=Energy Core 
 item.energyCoreT2.name=Energy Core 
 item.energyCoreT3.name=Energy Core 

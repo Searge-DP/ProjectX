@@ -1,9 +1,12 @@
 package snowpaw.projectx.machine.proxy;
 
+import codechicken.core.featurehack.FeatureHack;
 import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 import snowpaw.projectx.machine.XMachineBlocks;
 import snowpaw.projectx.machine.XMachineItems;
 import snowpaw.projectx.machine.render.IREnergyCore;
@@ -14,9 +17,12 @@ import snowpaw.projectx.machine.render.IREngineeringTable;
 import snowpaw.projectx.machine.render.IRPulseNodeT1;
 import snowpaw.projectx.machine.render.IRPulseNodeT2;
 import snowpaw.projectx.machine.render.IRPulseNodeT3;
+import snowpaw.projectx.machine.render.IconRegistry;
 import snowpaw.projectx.machine.render.RenderEnergyPipe;
 import snowpaw.projectx.machine.render.RenderEngineeringTable;
 import snowpaw.projectx.machine.render.RenderPulseNode;
+import snowpaw.projectx.machine.render.RenderTankFrame;
+import snowpaw.projectx.machine.render.RenderTankOverlay;
 import snowpaw.projectx.machine.tile.TileEngineeringTable;
 import snowpaw.projectx.machine.tile.TilePulseNodeT1;
 import snowpaw.projectx.machine.tile.TilePulseNodeT2;
@@ -27,6 +33,8 @@ import snowpaw.projectx.machine.tile.TilePulsePipeT2;
 import snowpaw.projectx.machine.tile.TilePulsePipeT3;
 
 public class MClientProxy extends MCommonProxy {
+	
+	public static int tankFrameRenderId;
 	
 	@Override
 	public void preInit(){
@@ -77,6 +85,12 @@ public class MClientProxy extends MCommonProxy {
 		MinecraftForgeClient.registerItemRenderer(XMachineItems.energyCoreT1, new IREnergyCore(0F, 1F, 0F));
 		MinecraftForgeClient.registerItemRenderer(XMachineItems.energyCoreT2, new IREnergyCore(0F, 0F, 1F));
 		MinecraftForgeClient.registerItemRenderer(XMachineItems.energyCoreT3, new IREnergyCore(1F, 0F, 0F));
+		
+		tankFrameRenderId = RenderingRegistry.getNextAvailableRenderId();
+		IconRegistry.addIcon("overlayTank");
+		FeatureHack.enableRenderHook();
+		MinecraftForge.EVENT_BUS.register(new RenderTankOverlay());
+		RenderingRegistry.registerBlockHandler(new RenderTankFrame());
 	}
 	
 	@Override

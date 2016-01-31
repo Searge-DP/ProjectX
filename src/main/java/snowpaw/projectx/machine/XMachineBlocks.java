@@ -3,7 +3,10 @@ package snowpaw.projectx.machine;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import snowpaw.projectx.machine.block.XBlockEngineeringBrick;
+import snowpaw.projectx.core.block.ItemBlockXBase;
+import snowpaw.projectx.machine.block.BlockXFluidDetector;
+import snowpaw.projectx.machine.block.BlockXTankFrame;
+import snowpaw.projectx.machine.block.BlockXTankValve;
 import snowpaw.projectx.machine.block.XBlockEngineeringTable;
 import snowpaw.projectx.machine.block.XBlockPulseNodeT1;
 import snowpaw.projectx.machine.block.XBlockPulseNodeT2;
@@ -12,11 +15,6 @@ import snowpaw.projectx.machine.block.XBlockPulsePipe;
 import snowpaw.projectx.machine.block.XBlockPulsePipeT1;
 import snowpaw.projectx.machine.block.XBlockPulsePipeT2;
 import snowpaw.projectx.machine.block.XBlockPulsePipeT3;
-import snowpaw.projectx.machine.block.XBlockXFire;
-import snowpaw.projectx.machine.block.XBlockXIce;
-import snowpaw.projectx.machine.block.XBlockXSoil;
-import snowpaw.projectx.machine.block.XBlockXVoid;
-import snowpaw.projectx.machine.block.XBlockXWater;
 
 public class XMachineBlocks {
 	
@@ -56,6 +54,11 @@ public class XMachineBlocks {
 		reg.registerBlock(xycroniumVoid = (new XBlockXVoid(Material.iron, "xycroniumVoid")), "xycroniumVoid");
 		reg.registerBlock(xycroniumIce = (new XBlockXIce(Material.iron, "xycroniumIce")), "xycroniumIce");
 		*/
+		
+		tankValve = new BlockXTankValve("tankValve", Material.iron, ItemBlockXBase.class);
+		tankFrame = new BlockXTankFrame("tankFrame", Material.iron, ItemBlockXBase.class);
+		fluidDetector = new BlockXFluidDetector("fluidDetector", Material.iron, ItemBlockXBase.class);
+		
 		reg.registerBlock(engineeringTable = (new XBlockEngineeringTable(Material.iron, "engineeringTable")), "engineeringTable");
 		reg.registerBlock(energyNodeT1 = (new XBlockPulseNodeT1(Material.iron, "energyNodeT1")), "energyNodeT1");
 		reg.registerBlock(energyNodeT2 = (new XBlockPulseNodeT2(Material.iron, "energyNodeT2")), "energyNodeT2");

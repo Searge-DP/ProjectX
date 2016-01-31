@@ -4,24 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-
+import cpw.mods.fml.common.Optional;
+import buildcraft.api.transport.IPipeConnection;
+import buildcraft.api.transport.IPipeConnection.ConnectOverride;
+import buildcraft.api.transport.IPipeTile;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 import snowpaw.projectx.core.ProjectX;
 import snowpaw.projectx.lib.block.ExtendedBlock;
 import snowpaw.projectx.lib.util.FluidUtils;
 import snowpaw.projectx.lib.vec.Vector3i;
+import snowpaw.projectx.machine.ProjectXMachines;
 import snowpaw.projectx.machine.XMachineBlocks;
 import snowpaw.projectx.machine.block.BlockXTankFrame;
 
-public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHandler {
+@Optional.Interface(iface = "buildcraft.api.transport.IPipeConnection", modid = "BuildCraftAPI|Transport")
+public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHandler, IPipeConnection {
 	
     private final int maxSize = 13;
     protected int mbPerVirtualTank = 16000;
@@ -81,24 +96,6 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
     public void updateEntity() {
         if(worldObj.isRemote)
             return;
-
-        if(needsUpdate) {
-            getMaster().markForUpdate(true);
-            needsUpdate = false;
-
-            if(fluidIntake != 0) {
-                ProjectX.analytics.event(FluidAnalytics.Category.TANK, FluidAnalytics.Event.FLUID_INTAKE, fluidIntake);
-                fluidIntake = 0;
-            }
-            if(fluidOuttake != 0) {
-                ProjectX.analytics.event(FluidAnalytics.Category.TANK, FluidAnalytics.Event.FLUID_OUTTAKE, fluidOuttake);
-                fluidOuttake = 0;
-            }
-            if(rainIntake != 0) {
-                ProjectX.analytics.event(FluidAnalytics.Category.TANK, FluidAnalytics.Event.RAIN_INTAKE, rainIntake);
-                rainIntake = 0;
-            }
-        }
 
         if(initiated) {
             if (isMaster()) {
@@ -237,7 +234,7 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
 
                         frameBurnability = 0;
 
-                        if(ProjectX.instance.SET_WORLD_ON_FIRE)
+                        if(ProjectXMachines.instance.SET_WORLD_ON_FIRE)
                             worldObj.playSoundEffect(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D, ProjectX.MODID + ":fire", 1.0F, worldObj.rand.nextFloat() * 0.1F + 0.9F);
                     }
                 }
@@ -512,7 +509,7 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
         }
         
         List<TileXTankValve> valves = new ArrayList<TileXTankValve>();
-        List<TileXFluidDetector> liquidDetectors = new ArrayList<>();
+        List<TileXFluidDetector> liquidDetectors = new ArrayList<TileXFluidDetector>();
         for (Map.Entry<Vector3i, ExtendedBlock> insideFrameCheck : maps[1].entrySet()) {
             pos = insideFrameCheck.getKey();
             ExtendedBlock check = insideFrameCheck.getValue();
@@ -575,9 +572,9 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
         for (Map.Entry<Vector3i, ExtendedBlock> setTiles : maps[0].entrySet()) {
             pos = setTiles.getKey();
             TileXTankFrame tankFrame;
-            if (setTiles.getValue().getBlock() != XMachineBlocks.blockTankFrame) {
+            if (setTiles.getValue().getBlock() != XMachineBlocks.tankFrame) {
 
-                worldObj.setBlock(pos.getX(), pos.getY(), pos.getZ(), XMachineBlocks.blockTankFrame, setTiles.getValue().getMetadata(), 3);
+                worldObj.setBlock(pos.getX(), pos.getY(), pos.getZ(), XMachineBlocks.tankFrame, setTiles.getValue().getMetadata(), 3);
                 tankFrame = (TileXTankFrame) worldObj.getTileEntity(pos.getX(), pos.getY(), pos.getZ());
                 tankFrame.initialize(this, setTiles.getValue());
             } else {
@@ -621,6 +618,472 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
 
         isValid = true;
         return true;
+    }
+    
+    public void breakTank(TileEntity frame) {
+        if (worldObj.isRemote)
+            return;
+
+        if(!isMaster() && getMaster() != null) {
+            if(getMaster() != this)
+                getMaster().breakTank(frame);
+
+            return;
+        }
+
+        setValid(false);
+
+        for(TileXTankValve valve : otherValves) {
+            valve.fluidStack = getFluid();
+            valve.updateFluidTemperature();
+            valve.master = null;
+            valve.setValid(false);
+            valve.updateBlockAndNeighbors();
+        }
+        
+        
+
+        for(TileXTankFrame tankFrame : tankFrames) {
+            if(frame == tankFrame)
+                continue;
+
+            tankFrame.breakFrame();
+        }
+        tankFrames.clear();
+        otherValves.clear();
+        allLiquidDetectors.clear();
+
+        this.updateBlockAndNeighbors();
+    }
+    
+    public void setValid(boolean isValid) {
+        this.isValid = isValid;
+    }
+
+    public boolean isValid() {
+        return getMaster() != null && getMaster().isValid;
+    }
+
+    public void updateBlockAndNeighbors() {
+        updateBlockAndNeighbors(false);
+    }
+    
+    private void markForUpdate(boolean onlyThis) {
+        if(!onlyThis || this.lastComparatorOut != getComparatorOutput()) {
+            this.lastComparatorOut = getComparatorOutput();
+            for (TileXTankValve valve : otherValves) {
+                valve.updateBlockAndNeighbors();
+            }
+        }
+        if (!onlyThis) {
+            for (TileXTankFrame frame : tankFrames) {
+                frame.markForUpdate();
+            }
+            for (TileXFluidDetector liquidDetector: allLiquidDetectors)
+            {
+            	liquidDetector.markForUpdate();
+            }
+        }
+        worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+    }
+    
+    public void updateBlockAndNeighbors(boolean onlyThis) {
+        if(worldObj.isRemote)
+            return;
+
+        this.markForUpdate(onlyThis);
+
+        if(otherValves != null) {
+            for(TileXTankValve otherValve : otherValves) {
+                otherValve.isValid = isValid;
+                otherValve.markForUpdate(true);
+            }
+        }
+
+        ForgeDirection outside = getInside().getOpposite();
+        TileEntity outsideTile = worldObj.getTileEntity(xCoord + outside.offsetX, yCoord + outside.offsetY, zCoord + outside.offsetZ);
+        if (outsideTile != null) {
+            if(ProjectXMachines.proxy.BUILDCRAFT_LOADED) {
+                if(outsideTile instanceof IPipeTile)
+                    ((IPipeTile) outsideTile).scheduleNeighborChange();
+            }
+        }
+        
+        worldObj.notifyBlockChange(xCoord, yCoord, zCoord, XMachineBlocks.tankValve);
+        worldObj.markBlockForUpdate(xCoord + outside.offsetX, yCoord + outside.offsetY, zCoord + outside.offsetZ);
+    }
+    
+    public boolean isMaster() {
+        return isMaster;
+    }
+
+    public TileXTankValve getMaster() {
+        if(isMaster())
+            return this;
+
+        if(masterValvePos != null) {
+            TileEntity tile = worldObj.getTileEntity(masterValvePos.getX(), masterValvePos.getY(), masterValvePos.getZ());
+            master = tile instanceof TileXTankValve ? (TileXTankValve) tile : null;
+        }
+
+        return master;
+    }
+    
+    public void setMasterPos(Vector3i masterValvePos) {
+        this.masterValvePos = masterValvePos;
+        this.master = null;
+    }
+
+    public boolean getAutoOutput() {
+        return isValid() && this.autoOutput;
+    }
+
+    public void setAutoOutput(boolean autoOutput) {
+        this.autoOutput = autoOutput;
+        updateBlockAndNeighbors(true);
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound tag) {
+        super.readFromNBT(tag);
+
+        isValid = tag.getBoolean("isValid");
+        inside = ForgeDirection.getOrientation(tag.getInteger("inside"));
+
+        isMaster = tag.getBoolean("master");
+        if(isMaster()) {
+            if(tag.getBoolean("hasFluid")) {
+                if(tag.hasKey("fluidID"))
+                    fluidStack = new FluidStack(FluidRegistry.getFluid(tag.getInteger("fluidID")), tag.getInteger("fluidAmount"));
+                else if(tag.hasKey("fluidName"))
+                    fluidStack = new FluidStack(FluidRegistry.getFluid(tag.getString("fluidName")), tag.getInteger("fluidAmount"));
+                updateFluidTemperature();
+            }
+            else {
+                fluidStack = null;
+            }
+
+            tankHeight = tag.getInteger("tankHeight");
+            fluidCapacity = tag.getInteger("fluidCapacity");
+        }
+        else {
+            if(getMaster() == null && tag.hasKey("masterValve")) {
+                int[] masterValveP = tag.getIntArray("masterValve");
+                setMasterPos(new Vector3i(masterValveP[0], masterValveP[1], masterValveP[2]));
+            }
+        }
+
+        autoOutput = tag.getBoolean("autoOutput");
+        if(tag.hasKey("valveName"))
+            setValveName(tag.getString("valveName"));
+        else
+            setValveName(FluidUtils.getUniqueValveName(this));
+
+        if(tag.hasKey("bottomDiagF")) {
+            int[] bottomDiagF = tag.getIntArray("bottomDiagF");
+            int[] topDiagF = tag.getIntArray("topDiagF");
+            bottomDiagFrame = new Vector3i(bottomDiagF[0], bottomDiagF[1], bottomDiagF[2]);
+            topDiagFrame = new Vector3i(topDiagF[0], topDiagF[1], topDiagF[2]);
+        }
+    }
+    
+    @Override
+    public void writeToNBT(NBTTagCompound tag) {
+        tag.setBoolean("isValid", isValid);
+        tag.setInteger("inside", inside.ordinal());
+
+        tag.setBoolean("master", isMaster());
+        if(isMaster()) {
+            tag.setBoolean("hasFluid", fluidStack != null);
+            if(fluidStack != null) {
+                tag.setString("fluidName", FluidRegistry.getFluidName(fluidStack));
+                tag.setInteger("fluidAmount", fluidStack.amount);
+            }
+
+            tag.setInteger("tankHeight", tankHeight);
+            tag.setInteger("fluidCapacity", fluidCapacity);
+        }
+        else {
+            if(getMaster() != null) {
+                int[] masterPos = new int[]{getMaster().xCoord, getMaster().yCoord, getMaster().zCoord};
+                tag.setIntArray("masterValve", masterPos);
+            }
+        }
+
+        tag.setBoolean("autoOutput", autoOutput);
+        if(!getValveName().isEmpty())
+            tag.setString("valveName", getValveName());
+
+        if(bottomDiagFrame != null && topDiagFrame != null) {
+            tag.setIntArray("bottomDiagF", new int[]{bottomDiagFrame.getX(), bottomDiagFrame.getY(), bottomDiagFrame.getZ()});
+            tag.setIntArray("topDiagF", new int[]{topDiagFrame.getX(), topDiagFrame.getY(), topDiagFrame.getZ()});
+        }
+
+        super.writeToNBT(tag);
+    }
+    
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+        readFromNBT(pkt.func_148857_g());
+    }
+
+    @Override
+    public Packet getDescriptionPacket() {
+        NBTTagCompound tag = new NBTTagCompound();
+        writeToNBT(tag);
+        return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, tag);
+    }
+
+    @Override
+    public AxisAlignedBB getRenderBoundingBox() {
+        if(bottomDiagFrame == null || topDiagFrame == null)
+            return super.getRenderBoundingBox();
+
+        return AxisAlignedBB.getBoundingBox(bottomDiagFrame.getX(), bottomDiagFrame.getY(), bottomDiagFrame.getZ(), topDiagFrame.getX(), topDiagFrame.getY(), topDiagFrame.getZ());
+    }
+    
+    public int getFluidLuminosity() {
+        FluidStack fstack = getFluid();
+        if(fstack == null)
+            return 0;
+
+        Fluid fluid = fstack.getFluid();
+        if(fluid == null)
+            return 0;
+
+        return fluid.getLuminosity(fstack);
+    }
+
+    public void updateFluidTemperature() {
+        FluidStack fstack = fluidStack;
+        if(fstack == null)
+            return;
+
+        Fluid fluid = fstack.getFluid();
+        if(fluid == null)
+            return;
+
+        this.fluidTemperature = fluid.getTemperature(fstack);
+    }
+    
+    @Override
+    public FluidStack getFluid() {
+        if(!isValid())
+            return null;
+
+        return getMaster() == this ? fluidStack : getMaster().fluidStack;
+    }
+
+    @Override
+    public int getFluidAmount() {
+        if(getFluid() == null)
+            return 0;
+
+        return getFluid().amount;
+    }
+
+    @Override
+    public int getCapacity() {
+        if(!isValid())
+            return 0;
+            
+        return getMaster() == this ? fluidCapacity : getMaster().fluidCapacity;
+    }
+
+    @Override
+    public FluidTankInfo getInfo() {
+        if(!isValid())
+            return null;
+
+        return new FluidTankInfo(getMaster());
+    }
+    
+    @Override
+    public int fill(FluidStack resource, boolean doFill) {
+        if(getMaster() == this) {
+            if (!isValid() || fluidStack != null && !fluidStack.isFluidEqual(resource))
+                return 0;
+
+            if (getFluidAmount() >= getCapacity()) {
+                for(TileXTankValve valve : getAllValves()) {
+                    if (valve == this)
+                        continue;
+
+                    ForgeDirection outside = valve.getInside().getOpposite();
+                    TileEntity tile = worldObj.getTileEntity(valve.xCoord + outside.offsetX, valve.yCoord + outside.offsetY, valve.zCoord + outside.offsetZ);
+                    if (tile != null && tile instanceof TileXTankValve) {
+                        return ((TileXTankValve) tile).fill(getInside(), resource, doFill);
+                    }
+                }
+            }
+
+            if (!doFill)
+            {
+                if (fluidStack == null) {
+                    return Math.min(fluidCapacity, resource.amount);
+                }
+
+                return Math.min(fluidCapacity - fluidStack.amount, resource.amount);
+            }
+
+            if (fluidStack == null)
+            {
+                fluidStack = new FluidStack(resource, Math.min(fluidCapacity, resource.amount));
+                updateFluidTemperature();
+                setNeedsUpdate();
+                fluidIntake += fluidStack.amount;
+                return fluidStack.amount;
+            }
+
+            int filled = fluidCapacity - fluidStack.amount;
+            if (resource.amount < filled) {
+                fluidStack.amount += resource.amount;
+                filled = resource.amount;
+            }
+            else {
+                fluidStack.amount = fluidCapacity;
+            }
+
+            fluidIntake += filled;
+
+            getMaster().setNeedsUpdate();
+
+            return filled;
+        }
+        else
+            return getMaster().fill(resource, doFill);
+    }
+    
+    @Override
+    public FluidStack drain(int maxDrain, boolean doDrain) {
+        if(getMaster() == this) {
+            if(!isValid() || fluidStack == null)
+                return null;
+
+            int drained = maxDrain;
+            if (fluidStack.amount < drained) {
+                drained = fluidStack.amount;
+            }
+
+            FluidStack stack = new FluidStack(fluidStack, drained);
+            if (doDrain) {
+                fluidStack.amount -= drained;
+                if (fluidStack.amount <= 0) {
+                    fluidStack = null;
+                    updateFluidTemperature();
+                }
+                fluidOuttake += drained;
+                getMaster().setNeedsUpdate();
+            }
+            return stack;
+        }
+        else
+            return getMaster().drain(maxDrain, doDrain);
+    }
+    
+    public double getFillPercentage() {
+        if(getFluid() == null)
+            return 0;
+
+        return Math.floor((double) getFluidAmount() / (double) getCapacity() * 100);
+    }
+
+    public int fillFromContainer(ForgeDirection from, FluidStack resource, boolean doFill) {
+        if(!canFillIncludingContainers(from, resource.getFluid()))
+            return 0;
+
+        return getMaster() == this ? fill(resource, doFill) : getMaster().fill(resource, doFill);
+    }
+
+    @Override
+    public int fill(ForgeDirection from, FluidStack resource, boolean doFill) {
+        if(!canFill(from, resource.getFluid()))
+            return 0;
+
+        return getMaster() == this ? fill(resource, doFill) : getMaster().fill(resource, doFill);
+    }
+    
+    @Override
+    public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain) {
+        return getMaster() == this ? drain(resource.amount, doDrain) : getMaster().drain(resource.amount, doDrain);
+    }
+
+    @Override
+    public FluidStack drain(ForgeDirection from, int maxDrain, boolean doDrain) {
+        return getMaster() == this ? drain(maxDrain, doDrain) : getMaster().drain(maxDrain, doDrain);
+    }
+    
+    public boolean canFillIncludingContainers(ForgeDirection from, Fluid fluid) {
+        if (!isValid())
+            return false;
+
+        if (getFluid() != null && getFluid().getFluid() != fluid)
+            return false;
+
+        if (getFluidAmount() >= getCapacity()) {
+            for (TileXTankValve valve : getAllValves()) {
+                if (valve == this)
+                    continue;
+
+                if (valve.valveHeightPosition > getTankHeight()) {
+                    ForgeDirection outside = valve.getInside().getOpposite();
+                    TileEntity tile = worldObj.getTileEntity(valve.xCoord + outside.offsetX, valve.yCoord + outside.offsetY, valve.zCoord + outside.offsetZ);
+                    if (tile != null && tile instanceof TileXTankValve) {
+                        return ((TileXTankValve) tile).canFill(valve.getInside(), fluid);
+                    }
+                }
+            }
+            return false;
+        }
+
+        return true;
+    }
+    
+    @Override
+    public boolean canFill(ForgeDirection from, Fluid fluid) {
+        if(!canFillIncludingContainers(from, fluid))
+            return false;
+
+        return !getAutoOutput() || valveHeightPosition > getTankHeight() || valveHeightPosition + 0.5f >= getTankHeight() * getFillPercentage();
+
+    }
+
+    @Override
+    public boolean canDrain(ForgeDirection from, Fluid fluid) {
+        if(!isValid())
+            return false;
+
+        if(getFluid() == null)
+            return false;
+
+        return getFluid().getFluid() == fluid && getFluidAmount() > 0;
+    }
+    
+    @Override
+    public FluidTankInfo[] getTankInfo(ForgeDirection from) {
+        if(!isValid())
+            return null;
+
+        return getMaster() == this ? new FluidTankInfo[]{ getInfo() } : getMaster().getTankInfo(from);
+    }
+
+    @Optional.Method(modid = "BuildCraftAPI|Transport")
+    @Override
+    public ConnectOverride overridePipeConnection(IPipeTile.PipeType pipeType, ForgeDirection from) {
+        if(!isValid())
+            return ConnectOverride.DISCONNECT;
+
+        return ConnectOverride.CONNECT;
+    }
+    
+    public String[] methodNames() {
+        return new String[]{"getFluidName", "getFluidAmount", "getFluidCapacity", "setAutoOutput", "doesAutoOutput"};
+    }
+
+  
+   
+    public int getComparatorOutput() {
+        return MathHelper.floor_float(((float) this.getFluidAmount() / this.getCapacity()) * 14.0F);
     }
 
 }

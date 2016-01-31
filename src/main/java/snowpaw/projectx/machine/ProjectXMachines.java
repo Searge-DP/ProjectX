@@ -11,6 +11,8 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import snowpaw.projectx.core.ProjectX;
 import snowpaw.projectx.core.XLogger;
 import snowpaw.projectx.core.render.RenderTickHandler;
+import snowpaw.projectx.machine.network.MachineGuiHandler;
+import snowpaw.projectx.machine.network.NetworkHandler;
 import snowpaw.projectx.machine.proxy.MCommonProxy;
 
 @Mod
@@ -45,12 +47,15 @@ public class ProjectXMachines {
 		proxy.preInit();
 		XMachineBlocks.preInit();
 		XMachineItems.preInit();
+		NetworkRegistry.INSTANCE.registerGuiHandler("ProjectXMachines", new MachineGuiHandler());
+		NetworkHandler.registerChannels(event.getSide());
 	}
 	
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event){
 		proxy.init();
 		XLogger.info("Machine Module Initialized !");
+		XMachineTiles.init();
 		FMLCommonHandler.instance().bus().register(new RenderTickHandler());
 	}
 	

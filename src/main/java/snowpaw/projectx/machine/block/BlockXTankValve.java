@@ -1,26 +1,31 @@
 package snowpaw.projectx.machine.block;
 
+import java.util.Random;
+
 import codechicken.lib.colour.ColourRGBA;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.Explosion;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 import snowpaw.projectx.core.XTabs;
 import snowpaw.projectx.core.block.BlockXGlow;
 import snowpaw.projectx.core.block.ItemBlockXBase;
+import snowpaw.projectx.lib.util.FluidUtils;
+import snowpaw.projectx.machine.XMachineBlocks;
 import snowpaw.projectx.machine.tile.TileXTankValve;
 
-public class BlockXTankValve extends BlockXGlow {
+public class BlockXTankValve extends BlockXMachineBase {
 
 	public BlockXTankValve(String blockName, Material material, Class<? extends ItemBlockXBase> itemBlock, String... subNames) {
 		super(blockName, material, itemBlock, subNames);
-		this.setCreativeTab(XTabs.tabProjectXMachines);
-		this.setStepSound(Block.soundTypeMetal);
-		this.setHardness(1.3F);
 	}
 	
 	@Override
@@ -76,21 +81,18 @@ public class BlockXTankValve extends BlockXGlow {
             if(FluidUtils.isFluidContainer(player.getHeldItem()))
                 return FluidUtils.fluidContainerHandler(world, x, y, z, valve, player);
 
-            player.openGui("ProjectX", 0, world, x, y, z);
+            player.openGui("ProjectXMachines", 0, world, x, y, z);
             return true;
         }
         else {
             valve.buildTank(ForgeDirection.getOrientation(side).getOpposite());
-            if(valve.isValid()) {
-                ProjectX.analytics.event(FluidAnalytics.Category.TANK, FluidAnalytics.Event.TANK_BUILD);
-            }
         }
         return true;
     }
     
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return Item.getItemFromBlock(XMachineBlocks.blockValve);
+        return Item.getItemFromBlock(XMachineBlocks.tankValve);
     }
     
     @Override
@@ -106,6 +108,11 @@ public class BlockXTankValve extends BlockXGlow {
             return valve.getComparatorOutput();
         }
         return 0;
+    }
+    
+    @Override
+    public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
+        return false;
     }
 
 }
