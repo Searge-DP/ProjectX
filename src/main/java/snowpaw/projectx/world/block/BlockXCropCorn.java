@@ -22,7 +22,7 @@ public class BlockXCropCorn extends BlockXCropBase {
 			return XWorldItems.foodCorn;
 	}
 	
-	@Override //Change Rendertype like in 147
+	@Override //Change Rendertype like in 1.4.7
 	public int getRenderType()
 	{
 		return 1;

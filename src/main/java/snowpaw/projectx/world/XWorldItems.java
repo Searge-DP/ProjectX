@@ -1,9 +1,11 @@
 package snowpaw.projectx.world;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
+
 import snowpaw.projectx.lib.item.XAxeBase;
 import snowpaw.projectx.lib.item.XFoodBase;
 import snowpaw.projectx.lib.item.XHoeBase;

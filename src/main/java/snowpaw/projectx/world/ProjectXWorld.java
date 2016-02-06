@@ -7,8 +7,10 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+
 import snowpaw.projectx.compat.ModuleLoader;
 import snowpaw.projectx.core.XConfig;
 import snowpaw.projectx.core.XLogger;

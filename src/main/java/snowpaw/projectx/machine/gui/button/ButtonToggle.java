@@ -1,4 +1,4 @@
-package snowpaw.projectx.machine.gui;
+package snowpaw.projectx.machine.gui.button;
 
 import org.lwjgl.opengl.GL11;
 

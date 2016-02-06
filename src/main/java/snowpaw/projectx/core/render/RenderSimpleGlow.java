@@ -15,6 +15,8 @@ import net.minecraft.world.IBlockAccess;
 import snowpaw.projectx.core.block.BlockXGlow;
 import snowpaw.projectx.core.proxy.ClientProxy;
 import snowpaw.projectx.lib.render.RenderBlock;
+import snowpaw.projectx.world.XWorldBlocks;
+import snowpaw.projectx.world.block.BlockXOre;
 
 public class RenderSimpleGlow extends RenderBlock implements ISimpleBlockRenderingHandler {
 	

@@ -63,5 +63,17 @@ public class RenderTickHandler {
 	public static float getBlue(){
 		return (float)b / 255;
 	}
+	
+	public static double getRedD(){
+		return (double)r / 255;
+	}
+	
+	public static double getGreenD(){
+		return (double)g / 255;
+	}
+	
+	public static double getBlueD(){
+		return (double)b / 255;
+	}
 
 }

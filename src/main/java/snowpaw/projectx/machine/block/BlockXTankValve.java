@@ -26,6 +26,7 @@ public class BlockXTankValve extends BlockXMachineBase {
 
 	public BlockXTankValve(String blockName, Material material, Class<? extends ItemBlockXBase> itemBlock, String... subNames) {
 		super(blockName, material, itemBlock, subNames);
+		this.setCreativeTab(XTabs.tabProjectXMachines);
 	}
 	
 	@Override

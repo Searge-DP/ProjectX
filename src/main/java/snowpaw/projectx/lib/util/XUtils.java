@@ -222,7 +222,7 @@ public class XUtils {
                 tagCompound.getInteger(name + "_z"), null);
     }
 
-    public static void writePulsePylonsArrayToNBT(NBTTagCompound tagCompound, String name, ArrayList<PulseNode> pylons) {
+    public static void writePulseNodesArrayToNBT(NBTTagCompound tagCompound, String name, ArrayList<PulseNode> pylons) {
         int nodesX[];
         int nodesY[];
         int nodesZ[];
@@ -254,7 +254,7 @@ public class XUtils {
         tagCompound.setIntArray(name + "_master", nodesMaster);
     }
 
-    public static ArrayList<PulseNode> readPulsePylonsArrayFromNBT(NBTTagCompound tagCompound, String name) {
+    public static ArrayList<PulseNode> readPulseNodesArrayFromNBT(NBTTagCompound tagCompound, String name) {
         ArrayList<PulseNode> pylons = new ArrayList<PulseNode>();
         int nodesX[];
         int nodesY[];

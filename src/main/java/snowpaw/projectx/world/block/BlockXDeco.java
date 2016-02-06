@@ -1,6 +1,7 @@
 package snowpaw.projectx.world.block;
 
 import codechicken.lib.colour.ColourRGBA;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -41,6 +42,15 @@ public class BlockXDeco extends BlockXGlow {
     	}
     	else if(this == XWorldBlocks.xycroniumShield){
     		return BlockColorHelper.setColor16(meta);
+    	}
+    	else if(this == XWorldBlocks.xycroniumBrickDark){
+    		return BlockColorHelper.setColor5(meta);
+    	}
+    	else if(this == XWorldBlocks.xycroniumBrickLight){
+    		return BlockColorHelper.setColor5(meta);
+    	}
+    	else if(this == XWorldBlocks.xycroniumStone){
+    		return BlockColorHelper.setColor5(meta);
     	}
     	else
     		return null;

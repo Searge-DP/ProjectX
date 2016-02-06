@@ -14,6 +14,7 @@ import net.minecraft.util.ResourceLocation;
 import snowpaw.projectx.core.ProjectX;
 import snowpaw.projectx.lib.render.FluidRenderHelper;
 import snowpaw.projectx.lib.util.FluidUtils;
+import snowpaw.projectx.machine.gui.button.ButtonToggle;
 import snowpaw.projectx.machine.network.NetworkHandler;
 import snowpaw.projectx.machine.network.packet.FluidPacket;
 import snowpaw.projectx.machine.tile.TileXTankValve;

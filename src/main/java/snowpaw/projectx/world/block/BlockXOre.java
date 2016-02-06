@@ -8,6 +8,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import snowpaw.projectx.core.ProjectX;
@@ -20,8 +21,6 @@ import snowpaw.projectx.lib.helper.BlockColorHelper;
 import snowpaw.projectx.world.XWorldItems;
 
 public class BlockXOre extends BlockXGlow {
-	
-	public IIcon animationIcon = ClientProxy.animationFX.texture;
 
 	public BlockXOre(String blockName, Material material, Class<? extends ItemBlockXBase> itemBlock, String... subNames) {
 		super(blockName, material, itemBlock, subNames);
@@ -30,12 +29,11 @@ public class BlockXOre extends BlockXGlow {
 		this.setHardness(1.2F);
 		this.setBlockTextureName(ProjectX.INSTANCE + ":" + "ore");
 	}
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public ColourRGBA setBlockColor(int meta){
-    	return BlockColorHelper.setColor5(meta);
-    }
+	
+	@Override
+	public ColourRGBA setBlockColor(int meta){
+		return BlockColorHelper.setColor5(meta);
+	}
     
     @Override
     public Item getItemDropped(int i, Random rand, int j){

@@ -3,8 +3,11 @@ package snowpaw.projectx.machine;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.world.World;
 import snowpaw.projectx.core.block.ItemBlockXBase;
 import snowpaw.projectx.machine.block.BlockXFluidDetector;
+import snowpaw.projectx.machine.block.BlockXPulseFurnace;
+import snowpaw.projectx.machine.block.BlockXPulseGenerator;
 import snowpaw.projectx.machine.block.BlockXTankFrame;
 import snowpaw.projectx.machine.block.BlockXTankValve;
 import snowpaw.projectx.machine.block.XBlockEngineeringTable;
@@ -40,6 +43,11 @@ public class XMachineBlocks {
 	public static Block tankFrame;
 	public static Block fluidDetector;
 	
+	public static Block pulseGenerator;
+	public static Block pulseFurnace;
+	
+	public static Block pulseNodeBase;
+	
 	public static void preInit(){
 		GameRegistry reg = null;
 		/**
@@ -55,9 +63,12 @@ public class XMachineBlocks {
 		reg.registerBlock(xycroniumIce = (new XBlockXIce(Material.iron, "xycroniumIce")), "xycroniumIce");
 		*/
 		
-		tankValve = new BlockXTankValve("tankValve", Material.iron, ItemBlockXBase.class);
-		tankFrame = new BlockXTankFrame("tankFrame", Material.iron, ItemBlockXBase.class);
-		fluidDetector = new BlockXFluidDetector("fluidDetector", Material.iron, ItemBlockXBase.class);
+		//tankValve = new BlockXTankValve("tankValve", Material.iron, ItemBlockXBase.class);
+		//tankFrame = new BlockXTankFrame("tankFrame", Material.iron, ItemBlockXBase.class);
+		//fluidDetector = new BlockXFluidDetector("fluidDetector", Material.iron, ItemBlockXBase.class);
+		
+		//pulseGenerator = new BlockXPulseGenerator("pulseGenerator", Material.iron, ItemBlockXBase.class);
+		//pulseFurnace = new BlockXPulseFurnace("pulseFurnace", Material.iron, ItemBlockXBase.class);
 		
 		reg.registerBlock(engineeringTable = (new XBlockEngineeringTable(Material.iron, "engineeringTable")), "engineeringTable");
 		reg.registerBlock(energyNodeT1 = (new XBlockPulseNodeT1(Material.iron, "energyNodeT1")), "energyNodeT1");
@@ -67,5 +78,24 @@ public class XMachineBlocks {
 		reg.registerBlock(energyPipeT2 = (new XBlockPulsePipeT2(Material.iron, "energyPipeT2")), "energyPipeT2");
 		reg.registerBlock(energyPipeT3 = (new XBlockPulsePipeT3(Material.iron, "energyPipeT3")), "energyPipeT3");
 	}
+	
+    public static void updateMachineState(int status, World world, int x, int y, int z) {
+        int meta = world.getBlockMetadata(x, y, z);
+
+        if (status == 1 && meta < 4)
+            meta = meta + 4;
+        else if (status == 1 && meta >= 8)
+            meta = meta - 4;
+        else if (status == 0 && meta >= 4 && meta < 8)
+            meta = meta - 4;
+        else if (status == 0 && meta >= 8)
+            meta = meta - 8;
+        else if (status == 2 && meta < 4)
+            meta = meta + 8;
+        else if (status == 2 && meta >= 4 && meta < 8)
+            meta = meta + 4;
+
+        world.setBlockMetadataWithNotify(x, y, z, meta, 2);
+    }
 
 }
