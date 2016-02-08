@@ -23,8 +23,10 @@ public class BlockXCropBase extends BlockBush implements IGrowable {
 	
 	public String blockName;
 	public String[] subNames;
-	public final IIcon[] icons;
-	
+	public static IIcon[] icons;
+	public static IIcon overlayIcon;
+
+
 	public BlockXCropBase(String blockName, String... subNames){
 		this.setTickRandomly(true);
 		this.blockName = blockName;
@@ -67,6 +69,7 @@ public class BlockXCropBase extends BlockBush implements IGrowable {
 	{
 		for(int i=0;i<subNames.length;i++)
 			icons[i] = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "crop/" + blockName + "/" + blockName + "_" + subNames[i]);
+		overlayIcon = iconRegister.registerIcon(ProjectX.INSTANCE + ":" + "machine/tankValve_Overlay");
 	}
 	
 	@Override

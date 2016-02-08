@@ -5,13 +5,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
+import snowpaw.projectx.core.XTabs;
 import snowpaw.projectx.core.block.ItemBlockXBase;
-import snowpaw.projectx.world.block.BlockXDeco;
-import snowpaw.projectx.world.block.BlockXGlassViewer;
-import snowpaw.projectx.world.block.BlockXOre;
-import snowpaw.projectx.world.block.BlockXOreAluminum;
-import snowpaw.projectx.world.block.BlockXQuartzCrystal;
-import snowpaw.projectx.world.block.BlockXStorageAluminum;
+import snowpaw.projectx.world.block.*;
 
 public class XWorldBlocks {
 	
@@ -29,10 +25,17 @@ public class XWorldBlocks {
 	public static Block storageAluminum;
 	public static Block glassViewer;
 	public static Block glassThick;
-	
+	public static Block cropCorn;
+	public static Block elementalWater;
+	public static Block elementalSoil;
+	public static Block elementalFire;
+	public static Block elementalLiquidVoid;
+	public static Block elementalIce;
+	public static Block engineeringBrick;
 	public static Block quartzCrystal;
 	
 	public static void preInit(){
+		GameRegistry reg = null;
 		xycroniumOre = new BlockXOre("ore", Material.rock, ItemBlockXBase.class, "blue", "green", "red", "black", "white");
 		xycroniumStorage = new BlockXDeco("storage", Material.iron, ItemBlockXBase.class, "blue", "green", "red", "black", "white");
 		xycroniumBrick = new BlockXDeco("brick", Material.iron, ItemBlockXBase.class, "blue", "green", "red", "black", "white");
@@ -47,7 +50,15 @@ public class XWorldBlocks {
 		storageAluminum = new BlockXStorageAluminum("storage_aluminum", Material.iron, ItemBlockXBase.class);
 		glassViewer = new BlockXGlassViewer("glass_viewer", Material.glass, ItemBlockXBase.class);
 		glassThick = new BlockXGlassViewer("glass_thick", Material.glass, ItemBlockXBase.class);
-		
+		reg.registerBlock(cropCorn = (new BlockXCropCorn("corn", "0B", "1B", "2B", "3B", "4B", "0T")), "corn");
+		engineeringBrick = new BlockEngineeringBrick("engineeringBrick", Material.iron, ItemBlockXBase.class, "blue", "green", "red", "black", "white").setCreativeTab(XTabs.tabProjectXMachines);
+		elementalWater = new BlockXElementalWater("elementalWater", Material.rock, ItemBlockXBase.class, "elementalWater");
+		elementalSoil = new BlockXElementalSoil("elementalSoil",Material.rock, ItemBlockXBase.class, "elementalSoil");
+		elementalFire = new BlockXElementalFire("elementalFire",Material.rock, ItemBlockXBase.class, "elementalFire");
+		elementalLiquidVoid = new BlockXElementalVoid("elementalLiquidVoid", Material.rock, ItemBlockXBase.class, "elementalLiquidVoid");
+		elementalIce = new BlockXElementalIce("elementalIce",Material.rock, ItemBlockXBase.class, "elementalIce");
+
+
 		//quartzCrystal = new BlockXQuartzCrystal("quartzCrystal", Material.glass, ItemBlockXBase.class);
 	}
 

@@ -52,6 +52,8 @@ public class BlockXDeco extends BlockXGlow {
     	else if(this == XWorldBlocks.xycroniumStone){
     		return BlockColorHelper.setColor5(meta);
     	}
+		else if(this == XWorldBlocks.engineeringBrick)
+			return BlockColorHelper.setColor5(meta);
     	else
     		return null;
     }

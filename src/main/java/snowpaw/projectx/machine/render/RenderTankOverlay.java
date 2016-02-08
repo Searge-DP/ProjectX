@@ -1,6 +1,10 @@
 package snowpaw.projectx.machine.render;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import net.minecraft.block.BlockFire;
+import net.minecraft.util.ChatComponentText;
 import org.lwjgl.opengl.GL11;
 import codechicken.lib.render.RenderUtils;
 import codechicken.lib.vec.BlockCoord;
@@ -16,9 +20,11 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.DrawBlockHighlightEvent;
+import snowpaw.projectx.core.ProjectX;
 import snowpaw.projectx.core.XLogger;
 import snowpaw.projectx.lib.block.BlockXCropBase;
 import snowpaw.projectx.machine.tile.TileXTankFrame;
+import snowpaw.projectx.world.block.BlockXOreAluminum;
 
 public class RenderTankOverlay {
 	
@@ -26,12 +32,13 @@ public class RenderTankOverlay {
 	@SideOnly(Side.CLIENT)
 	public void onDrawBlockHighlight(DrawBlockHighlightEvent event)
 	{
+
 		MovingObjectPosition target = event.target;
 		World world = Minecraft.getMinecraft().theWorld;
 		if(target.typeOfHit == MovingObjectType.BLOCK)
 		{
 			TileEntity curTile = world.getTileEntity(target.blockX, target.blockY, target.blockZ);
-			//XLogger.debug("Hallo ich bins Thorsten von AutoKlaus");
+			BlockCoord lookedBlock = new BlockCoord(target.blockX, target.blockY, target.blockZ);
 			if(curTile instanceof TileXTankFrame)
 			{
 				EntityPlayer player = event.player;
@@ -40,53 +47,33 @@ public class RenderTankOverlay {
 				double interpPosY = player.lastTickPosY + (player.posY - player.lastTickPosY) * event.partialTicks;
 				double interpPosZ = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * event.partialTicks;
 				GL11.glTranslated(-interpPosX, -interpPosY, -interpPosZ);
-				renderOverlay((TileXTankFrame)curTile, new BlockCoord(target.blockX, target.blockY, target.blockZ));
+				renderOverlay((TileXTankFrame)curTile, lookedBlock);
 				GL11.glPopMatrix();
 			}
 		}
 	}
 	
-	public ArrayList<BlockCoord> getTankBlocks(TileXTankFrame frame)
+
+	public void renderOverlay(TileXTankFrame entity, BlockCoord coord)
 	{
-		if(frame.getValve().isValid)
-		{
-			return new ArrayList<BlockCoord>();
-			//return (ArrayList<BlockCoord>) frame.getValve().tankFrameCoords;
-		}
-		return new ArrayList<BlockCoord>();
+		List<BlockCoord> blocksToRender = entity.getValve().tankFrameCoords;
 		
-	}
-	
-	public void renderOverlay(TileXTankFrame entity, BlockCoord target)
-	{
-		ArrayList<BlockCoord> fullBlockList = getTankBlocks(entity);
-		ArrayList<BlockCoord> blocksToRender = new ArrayList<BlockCoord>();
-		blocksToRender = fullBlockList;
-		
-		/**
+
 		Tessellator tess = Tessellator.instance;
-		IIcon texture = BlockXCropBase.overlayIcon;
+		IIcon icon = BlockXCropBase.icons[0];
 		BlockCoord copy = new BlockCoord();
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		GL11.glDepthMask(false);
 		tess.startDrawingQuads();
 		tess.setColorRGBA_F(1.0f, 1.0f, 1.0f, 0.25f);
-		for(int blockSize = 0; blockSize < blocksToRender.size(); blockSize++ )
-		{
-			for(int side = 0; side < 6; side++)
-			{
-				RenderUtils.renderBlockOverlaySide(blocksToRender.get(blockSize).x, blocksToRender.get(blockSize).y, blocksToRender.get(blockSize).z, side, texture.getMinU(), texture.getMaxU(), texture.getMinV(), texture.getMaxV());
-			}
-			//blocksToRender.remove(blockSize);
-			XLogger.debug(fullBlockList);
-		}
-		
-		
-		
-		tess.draw();
-		*/
-		
-	}
+		ProjectX.serverMgr.sendChatMsg(new ChatComponentText("Looked@tank"));
 
+		for(int side = 0; side < 6; side++)
+		{
+			RenderUtils.renderBlockOverlaySide(coord.x, coord.y, coord.z, side, icon.getMinU(), icon.getMaxU(), icon.getMinV(), icon.getMaxV());
+		}
+
+		tess.draw();
+	}
 }

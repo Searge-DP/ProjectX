@@ -11,6 +11,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -23,6 +24,8 @@ import snowpaw.projectx.machine.XMachineBlocks;
 import snowpaw.projectx.machine.tile.TileXTankValve;
 
 public class BlockXTankValve extends BlockXMachineBase {
+
+
 
 	public BlockXTankValve(String blockName, Material material, Class<? extends ItemBlockXBase> itemBlock, String... subNames) {
 		super(blockName, material, itemBlock, subNames);

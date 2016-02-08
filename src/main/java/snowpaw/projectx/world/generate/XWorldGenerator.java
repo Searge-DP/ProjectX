@@ -32,7 +32,11 @@ public class XWorldGenerator implements IWorldGenerator {
 	}
 	
 	public void generateSurface(World world, Random rand, int i, int j){
-		
+		addOreWithMeta(XWorldBlocks.xycroniumOre,0, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
+		addOreWithMeta(XWorldBlocks.xycroniumOre,1, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
+		addOreWithMeta(XWorldBlocks.xycroniumOre,2, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
+		addOreWithMeta(XWorldBlocks.xycroniumOre,3, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
+		addOreWithMeta(XWorldBlocks.xycroniumOre,4, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
 	}
 	
 	public void generateEnd(World world, Random rand, int i, int j){
@@ -72,5 +76,18 @@ public class XWorldGenerator implements IWorldGenerator {
 			(new WorldGenMinable(block, metadata, maxVeinSize, Blocks.netherrack)).generate(world, random, posX, posY, posZ);
 		}
 	}
+
+	private void addOreWithMeta(Block block, int meta, Block blockSpawn, Random random, World world, int posX, int posZ, int minY, int maxY, int minVeinSize, int maxVeinSize, int spawnChance) {
+		for (int i = 0; i < spawnChance; i++) {
+			int defaultChunkSize = 16;
+
+			int xPos = posX + random.nextInt(defaultChunkSize);
+			int yPos = minY + random.nextInt(maxY - minY);
+			int zPos = posZ + random.nextInt(defaultChunkSize);
+
+			new WorldGenMinable(block, meta, (minVeinSize + random.nextInt(maxVeinSize - minVeinSize)), blockSpawn).generate(world, random, xPos, yPos, zPos);
+		}
+	}
+
 
 }

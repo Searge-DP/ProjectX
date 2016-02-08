@@ -6,6 +6,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
+import net.minecraftforge.oredict.OreDictionary;
 import snowpaw.projectx.lib.helper.CraftingHelper;
 
 public class WorldCraftingHandler {
@@ -84,6 +85,29 @@ public class WorldCraftingHandler {
 				XWorldItems.axeAluminum,
 				XWorldItems.hoeAluminum
 		);
+
+		for(int ix = 0; ix < 5; ix++)
+		{
+			helper.addStorageRecipe(new ItemStack(XWorldItems.ingot, 1, ix), new ItemStack(XWorldBlocks.xycroniumStorage,1,ix));
+			reg.addRecipe(new ItemStack(XWorldBlocks.xycroniumBrick, 4, ix), new Object[]{"XAX","AAA","XAX", 'X' , new ItemStack(XWorldItems.ingot, 1, ix), 'A', Blocks.stonebrick});
+			reg.addRecipe(new ItemStack(XWorldBlocks.engineeringBrick, 4, ix), new Object[]{"isi","srs","isi", 'i', new ItemStack(XWorldItems.ingot,1,ix), 's', Blocks.stonebrick, 'r', Items.redstone
+			});
+			reg.addRecipe(new ItemStack(XWorldBlocks.xycroniumBrickSmall, 4,ix), new Object[]{"XX","XX", 'X', new ItemStack(XWorldBlocks.xycroniumBrick,1,ix)});
+		}
+		for(int zy = 0; zy < 16; zy++)
+		{
+			reg.addRecipe(new ItemStack(XWorldBlocks.xycroniumPlatform, 4, zy), new Object[]{"YXY","ODO", "YXY", 'Y', new ItemStack(XWorldItems.ingot,1, OreDictionary.WILDCARD_VALUE), 'X', Blocks.stonebrick, 'O', Blocks.obsidian, 'D', new ItemStack(Items.dye,1,zy)});
+			reg.addRecipe(new ItemStack(XWorldBlocks.xycroniumStructure, 4, zy), new Object[]{"IXI","XDX","IXI", 'I', new ItemStack(XWorldItems.ingot,1, OreDictionary.WILDCARD_VALUE), 'D', new ItemStack(Items.dye, 1,zy), 'X', Blocks.stonebrick});
+			reg.addRecipe(new ItemStack(XWorldBlocks.xycroniumShield, 4, zy), new Object[]{"XAX","AXA","XAX", 'A', Items.iron_ingot, 'X', new ItemStack(XWorldBlocks.xycroniumStructure, 1, zy)});
+		}
+
+		reg.addRecipe(new ItemStack(XWorldBlocks.elementalWater,2,0), new Object[]{"ese","sws","ese", 'e', new ItemStack(XWorldBlocks.engineeringBrick), 's', Blocks.stone, 'w', Items.water_bucket});
+		reg.addRecipe(new ItemStack(XWorldBlocks.elementalSoil,2,0), new Object[]{"ese","sis", "ese", 'e', new ItemStack(XWorldBlocks.engineeringBrick, 1, 1), 'i', Items.iron_ingot, 's', Blocks.sapling});
+		reg.addRecipe(new ItemStack(XWorldBlocks.elementalFire,1,0), new Object[]{"ebe","sgs","ese", 'e', new ItemStack(XWorldBlocks.engineeringBrick, 1, 2), 'b', Blocks.iron_bars, 'g', Items.gunpowder, 's', Blocks.stone});
+		reg.addRecipe(new ItemStack(XWorldBlocks.elementalFire,2,0), new Object[]{"ebe","sgs","ese", 'e', new ItemStack(XWorldBlocks.engineeringBrick, 1, 2), 'b', Blocks.iron_bars, 'g', Items.lava_bucket, 's', Blocks.stone});
+		reg.addRecipe(new ItemStack(XWorldBlocks.elementalLiquidVoid,2,0), new Object[]{"ese","sws","ese", 'e', new ItemStack(XWorldBlocks.engineeringBrick, 1,3), 's', Blocks.stone, 'w', /*Items.milk_bucket*/Items.bucket});
+		reg.addRecipe(new ItemStack(XWorldBlocks.elementalIce,2,0), new Object[]{"ese","sws","ese", 'e', new ItemStack(XWorldBlocks.engineeringBrick, 1, 4), 's', Blocks.stone, 'w', Items.snowball});
+
 		
 	}
 

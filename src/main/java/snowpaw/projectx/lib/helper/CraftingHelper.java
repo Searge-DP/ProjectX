@@ -25,6 +25,12 @@ public class CraftingHelper {
 		reg.addRecipe(new ItemStack(output, 1, 0), new Object[]{"XXX", "XXX", "XXX", 'X', new ItemStack(input, 1, inputMeta)});
 		reg.addShapelessRecipe(new ItemStack(input, 9, inputMeta), new Object[]{new ItemStack(output, 1, 0)});
 	}
+
+	public static void addStorageRecipe(ItemStack input, ItemStack output)
+	{
+		GameRegistry reg = null;
+		reg.addRecipe(output, new Object[]{"XXX","XXX","XXX", 'X',input});
+	}
 	
 	/**
 	 * Adds a gear recipe 
@@ -37,6 +43,8 @@ public class CraftingHelper {
 		GameRegistry reg = null;
 		reg.addRecipe(new ItemStack(output, 1, outputMeta), new Object[]{" X ", "CXC", " X ", 'X', new ItemStack(material, 1, matMeta), 'C', Items.iron_ingot});
 	}
+
+
 	
 	/**
 	 * Adds a nugget storage recipe (with reversed crafting !)

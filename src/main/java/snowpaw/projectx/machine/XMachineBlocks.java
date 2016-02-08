@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
+import snowpaw.projectx.core.XTabs;
 import snowpaw.projectx.core.block.ItemBlockXBase;
 import snowpaw.projectx.machine.block.BlockXFluidDetector;
 import snowpaw.projectx.machine.block.BlockXPulseFurnace;
@@ -63,13 +64,15 @@ public class XMachineBlocks {
 		reg.registerBlock(xycroniumIce = (new XBlockXIce(Material.iron, "xycroniumIce")), "xycroniumIce");
 		*/
 		
-		//tankValve = new BlockXTankValve("tankValve", Material.iron, ItemBlockXBase.class);
-		//tankFrame = new BlockXTankFrame("tankFrame", Material.iron, ItemBlockXBase.class);
+		tankValve = new BlockXTankValve("tankValve", Material.iron, ItemBlockXBase.class).setCreativeTab(XTabs.tabProjectXMachines);
+		tankFrame = new BlockXTankFrame("tankFrame", Material.iron, ItemBlockXBase.class).setCreativeTab(XTabs.tabProjectXMachines);
 		//fluidDetector = new BlockXFluidDetector("fluidDetector", Material.iron, ItemBlockXBase.class);
 		
-		//pulseGenerator = new BlockXPulseGenerator("pulseGenerator", Material.iron, ItemBlockXBase.class);
-		//pulseFurnace = new BlockXPulseFurnace("pulseFurnace", Material.iron, ItemBlockXBase.class);
-		
+		pulseGenerator = new BlockXPulseGenerator("pulseGenerator", Material.iron, ItemBlockXBase.class).setCreativeTab(XTabs.tabProjectXMachines);
+		pulseFurnace = new BlockXPulseFurnace("pulseFurnace", Material.iron, ItemBlockXBase.class).setCreativeTab(XTabs.tabProjectXMachines);
+
+
+
 		reg.registerBlock(engineeringTable = (new XBlockEngineeringTable(Material.iron, "engineeringTable")), "engineeringTable");
 		reg.registerBlock(energyNodeT1 = (new XBlockPulseNodeT1(Material.iron, "energyNodeT1")), "energyNodeT1");
 		reg.registerBlock(energyNodeT2 = (new XBlockPulseNodeT2(Material.iron, "energyNodeT2")), "energyNodeT2");

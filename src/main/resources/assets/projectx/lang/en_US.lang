@@ -147,16 +147,16 @@ item.hoeAluminum.name=Aluminum Hoe
 
 //Machine Module
 
-tile.eBrickBlue.name=Blue Engineering Brick
-tile.eBrickGreen.name=Green Engineering Brick
-tile.eBrickRed.name=Red Engineering Brick
-tile.eBrickDark.name=Dark Engineering Brick
-tile.eBrickLight.name=Light Engineering Brick
-tile.xycroniumWater.name=Xycronium Water
-tile.xycroniumSoil.name=Xycronium Soil
-tile.xycroniumFire.name=Xycronium Fire
-tile.xycroniumVoid.name=Xycronium Void
-tile.xycroniumIce.name=Xycronium Ice
+tile.projectx.engineeringBrick.blue.name=Blue Engineering Brick
+tile.projectx.engineeringBrick.green.name=Green Engineering Brick
+tile.projectx.engineeringBrick.red.name=Red Engineering Brick
+tile.projectx.engineeringBrick.black.name=Dark Engineering Brick
+tile.projectx.engineeringBrick.white.name=Light Engineering Brick
+tile.elementalWater.elementalWater.name=Xycronium Water
+tile.elementalSoil.elementalSoil.name=Xycronium Soil
+tile.elementalFire.elementalFire.name=Xycronium Fire
+tile.elementalLiquidVoid.elementalLiquidVoid.name=Xycronium Void
+tile.elementalIce.elementalIce.name=Xycronium Ice
 tile.engineeringTable.name=Engineering Table 
 tile.fabricator.name=Fabricator 
 tile.energyNodeT1.name=Energy Node 

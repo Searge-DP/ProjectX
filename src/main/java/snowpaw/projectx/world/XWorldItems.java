@@ -13,10 +13,7 @@ import snowpaw.projectx.lib.item.XPickaxeBase;
 import snowpaw.projectx.lib.item.XSeedBase;
 import snowpaw.projectx.lib.item.XShovelBase;
 import snowpaw.projectx.lib.item.XSwordBase;
-import snowpaw.projectx.world.item.XItemDust;
-import snowpaw.projectx.world.item.XItemGem;
-import snowpaw.projectx.world.item.XItemIngot;
-import snowpaw.projectx.world.item.XItemNugget;
+import snowpaw.projectx.world.item.*;
 
 public class XWorldItems {
 	
@@ -58,7 +55,8 @@ public class XWorldItems {
 	public static Item shovelAluminum;
 	public static Item axeAluminum;
 	public static Item hoeAluminum;
-	
+	public static Item itemCustom;
+
 	public static ToolMaterial XYCRONIUM = EnumHelper.addToolMaterial("XYCRONIUM", 3, 250, 2, 4, 30);
 	public static ToolMaterial ALUMINUM = EnumHelper.addToolMaterial("ALUMINUM", 2, 200, 2, 3, 30);
 	
@@ -68,10 +66,11 @@ public class XWorldItems {
 		reg.registerItem(ingot = (new XItemIngot("ingot", 64, "blue", "green", "red", "dark", "light", "aluminum")), "ingot");
 		reg.registerItem(nugget = (new XItemNugget("nugget", 64, "blue", "green", "red", "dark", "light", "aluminum")), "nugget");
 		reg.registerItem(dust = (new XItemDust("dust", 64, "blue", "green", "red", "dark", "light", "aluminum")), "dust");
-		//reg.registerItem(seedCorn = (new XSeedBase(XWorldBlocks.cropCorn, "seedCorn", 64)), "seedCorn");
+		reg.registerItem(seedCorn = (new XSeedBase(XWorldBlocks.cropCorn, "seedCorn", 64)), "seedCorn");
 		reg.registerItem(foodCorn = (new XFoodBase("corn", 4, 0.5F, false)), "foodCorn");
 		reg.registerItem(cobOCorn = (new XFoodBase("cobOCorn", 8, 1.0F, false)), "cobOCorn");
 		reg.registerItem(popCorn = (new XFoodBase("popCorn", 6, 0.8F, false)), "popcorn");
+		reg.registerItem(itemCustom = (new XItemCustom("itemcustom", 64, "seedFlax", "silkyLeaf", "silkyString", "sulfurGoo")),"itemcustom");
 		reg.registerItem(swordBlue = (new XSwordBase(XYCRONIUM, "tool/blue", "swordBlue")), "swordBlue");
 		reg.registerItem(pickaxeBlue = (new XPickaxeBase(XYCRONIUM, "tool/blue", "pickaxeBlue")), "pickaxeBlue");
 		reg.registerItem(shovelBlue = (new XShovelBase(XYCRONIUM, "tool/blue", "shovelBlue")), "shovelBlue");
@@ -102,6 +101,7 @@ public class XWorldItems {
 		reg.registerItem(shovelAluminum = (new XShovelBase(ALUMINUM, "tool/aluminum", "shovelAluminum")), "shovelAluminum");
 		reg.registerItem(axeAluminum = (new XAxeBase(ALUMINUM, "tool/aluminum", "axeAluminum")), "axeAluminum");
 		reg.registerItem(hoeAluminum = (new XHoeBase(ALUMINUM, "tool/aluminum", "hoeAluminum")), "hoeAluminum");
+
 	}
 
 }

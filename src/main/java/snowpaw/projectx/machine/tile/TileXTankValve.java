@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
+import codechicken.lib.vec.BlockCoord;
 import cpw.mods.fml.common.Optional;
 import buildcraft.api.transport.IPipeConnection;
 import buildcraft.api.transport.IPipeConnection.ConnectOverride;
@@ -65,6 +67,8 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
 
     private TileXTankValve master;
     public List<TileXTankFrame> tankFrames;
+    public List<BlockCoord> tankFrameCoords;
+
     public List<TileXFluidDetector> allLiquidDetectors;
     public List<TileXTankValve> otherValves;
     
@@ -81,6 +85,7 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
     
     public TileXTankValve() {
         tankFrames = new ArrayList<TileXTankFrame>();
+        tankFrameCoords = new ArrayList<BlockCoord>();
         allLiquidDetectors = new ArrayList<TileXFluidDetector>();
         otherValves = new ArrayList<TileXTankValve>();
     }
@@ -364,6 +369,7 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
 
         fluidCapacity = 0;
         tankFrames.clear();
+        tankFrameCoords.clear();
         otherValves.clear();
 
         if(inside != null)
@@ -446,6 +452,7 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
         
         otherValves = new ArrayList<TileXTankValve>();
         tankFrames = new ArrayList<TileXTankFrame>();
+        tankFrameCoords = new ArrayList<BlockCoord>();
 
         Vector3i pos = new Vector3i(xCoord, yCoord, zCoord);
         valveHeightPosition = Math.abs(bottomDiagFrame.getDistance(pos).getY());
@@ -582,6 +589,8 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
                 tankFrame.setValvePos(new Vector3i(xCoord, yCoord, zCoord));
             }
             tankFrames.add(tankFrame);
+            BlockCoord coord = new BlockCoord(pos.getX(), pos.getY(), pos.getZ());
+            tankFrameCoords.add(coord);
         }
 
         for (Map.Entry<Vector3i, ExtendedBlock> setTiles : maps[1].entrySet()) {
@@ -598,6 +607,8 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
                 else if (tile instanceof TileXTankFrame) {
                     ((TileXTankFrame) tile).setValvePos(new Vector3i(xCoord, yCoord, zCoord));
                     tankFrames.add((TileXTankFrame) tile);
+                    BlockCoord coord = new BlockCoord(pos.getX(), pos.getY(), pos.getZ());
+                    tankFrameCoords.add(coord);
                 }
                 else if (FluidUtils.isTileEntityAcceptable(setTiles.getValue().getBlock(), tile)) {
 
@@ -606,6 +617,8 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
                     TileXTankFrame tankFrame = (TileXTankFrame) worldObj.getTileEntity(pos.getX(), pos.getY(), pos.getZ());
                     tankFrame.initialize(this, setTiles.getValue());
                     tankFrames.add(tankFrame);
+                    BlockCoord coord = new BlockCoord(pos.getX() ,pos.getY() ,pos.getZ());
+                    tankFrameCoords.add(coord);
                 }
             } else {
          
@@ -613,6 +626,8 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
                 TileXTankFrame tankFrame = (TileXTankFrame) worldObj.getTileEntity(pos.getX(), pos.getY(), pos.getZ());
                 tankFrame.initialize(this, setTiles.getValue());
                 tankFrames.add(tankFrame);
+                BlockCoord coord = new BlockCoord(pos.getX(), pos.getY(), pos.getZ());
+                tankFrameCoords.add(coord);
             }
         }
 
@@ -650,6 +665,7 @@ public class TileXTankValve extends TileEntity implements IFluidTank, IFluidHand
             tankFrame.breakFrame();
         }
         tankFrames.clear();
+        tankFrameCoords.clear();
         otherValves.clear();
         allLiquidDetectors.clear();
 
