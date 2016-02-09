@@ -32,11 +32,11 @@ public class XWorldGenerator implements IWorldGenerator {
 	}
 	
 	public void generateSurface(World world, Random rand, int i, int j){
-		addOreWithMeta(XWorldBlocks.xycroniumOre,0, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
+		/*addOreWithMeta(XWorldBlocks.xycroniumOre,0, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
 		addOreWithMeta(XWorldBlocks.xycroniumOre,1, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
 		addOreWithMeta(XWorldBlocks.xycroniumOre,2, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
 		addOreWithMeta(XWorldBlocks.xycroniumOre,3, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
-		addOreWithMeta(XWorldBlocks.xycroniumOre,4, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);
+		addOreWithMeta(XWorldBlocks.xycroniumOre,4, Blocks.stone, rand, world, i, j, 20, 60, 3, 6, 7);*/
 	}
 	
 	public void generateEnd(World world, Random rand, int i, int j){

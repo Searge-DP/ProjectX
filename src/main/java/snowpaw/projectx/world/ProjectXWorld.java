@@ -57,6 +57,7 @@ public class ProjectXWorld {
 	
 	public void forgeHooks(){
 		MinecraftForge.addGrassSeed(new ItemStack(XWorldItems.seedCorn), XConfig.cornSeedDropChance);
+		MinecraftForge.addGrassSeed(new ItemStack(XWorldItems.itemCustom,1,2), XConfig.cornSeedDropChance);
 		GameRegistry.registerWorldGenerator(new XWorldGenerator(), 0);
 	}
 

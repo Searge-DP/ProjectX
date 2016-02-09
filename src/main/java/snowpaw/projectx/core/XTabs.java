@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import snowpaw.projectx.machine.XMachineBlocks;
 import snowpaw.projectx.world.XWorldBlocks;
+import snowpaw.projectx.world.XWorldItems;
 
 public class XTabs {
 	
@@ -14,7 +15,14 @@ public class XTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem(){
-			return Item.getItemFromBlock(XWorldBlocks.xycroniumOre);
+			return (XWorldItems.gem);
+		}
+
+		@Override
+		@SideOnly(Side.CLIENT)
+		public int func_151243_f()
+		{
+			return 1;
 		}
 	};
 	

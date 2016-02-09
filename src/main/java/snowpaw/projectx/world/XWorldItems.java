@@ -70,7 +70,7 @@ public class XWorldItems {
 		reg.registerItem(foodCorn = (new XFoodBase("corn", 4, 0.5F, false)), "foodCorn");
 		reg.registerItem(cobOCorn = (new XFoodBase("cobOCorn", 8, 1.0F, false)), "cobOCorn");
 		reg.registerItem(popCorn = (new XFoodBase("popCorn", 6, 0.8F, false)), "popcorn");
-		reg.registerItem(itemCustom = (new XItemCustom("itemcustom", 64, "seedFlax", "silkyLeaf", "silkyString", "sulfurGoo")),"itemcustom");
+		reg.registerItem(itemCustom = (new XItemCustom("itemcustom", 64, "seedFlax", "silkyLeaf", "silkyString").setCropBlock(XWorldBlocks.flaxCrop)),"itemcustom");
 		reg.registerItem(swordBlue = (new XSwordBase(XYCRONIUM, "tool/blue", "swordBlue")), "swordBlue");
 		reg.registerItem(pickaxeBlue = (new XPickaxeBase(XYCRONIUM, "tool/blue", "pickaxeBlue")), "pickaxeBlue");
 		reg.registerItem(shovelBlue = (new XShovelBase(XYCRONIUM, "tool/blue", "shovelBlue")), "shovelBlue");

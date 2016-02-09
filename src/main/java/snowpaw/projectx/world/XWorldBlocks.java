@@ -10,8 +10,13 @@ import snowpaw.projectx.core.block.ItemBlockXBase;
 import snowpaw.projectx.world.block.*;
 
 public class XWorldBlocks {
-	
-	public static Block xycroniumOre;
+
+	public static Block blockCustomGlow;
+	public static Block xycroniumOreBlue;
+	public static Block xycroniumOreGreen;
+	public static Block xycroniumOreRed;
+	public static Block xycroniumOreBlack;
+	public static Block xycroniumOreWhite;
 	public static Block xycroniumStorage;
 	public static Block xycroniumBrick;
 	public static Block xycroniumBrickSmall;
@@ -33,10 +38,15 @@ public class XWorldBlocks {
 	public static Block elementalIce;
 	public static Block engineeringBrick;
 	public static Block quartzCrystal;
-	
+	public static Block flaxCrop;
+
 	public static void preInit(){
 		GameRegistry reg = null;
-		xycroniumOre = new BlockXOre("ore", Material.rock, ItemBlockXBase.class, "blue", "green", "red", "black", "white");
+		xycroniumOreBlue = new BlockXOre(Material.rock, "oreBlue");
+		xycroniumOreGreen = new BlockXOre(Material.rock, "oreGreen");
+		xycroniumOreRed = new BlockXOre(Material.rock, "oreRed");
+		xycroniumOreBlack = new BlockXOre(Material.rock, "oreBlack");
+		xycroniumOreWhite = new BlockXOre(Material.rock, "oreWhite");
 		xycroniumStorage = new BlockXDeco("storage", Material.iron, ItemBlockXBase.class, "blue", "green", "red", "black", "white");
 		xycroniumBrick = new BlockXDeco("brick", Material.iron, ItemBlockXBase.class, "blue", "green", "red", "black", "white");
 		xycroniumBrickSmall = new BlockXDeco("brick_small", Material.iron, ItemBlockXBase.class, "blue", "green", "red", "black", "white");
@@ -57,7 +67,7 @@ public class XWorldBlocks {
 		elementalFire = new BlockXElementalFire("elementalFire",Material.rock, ItemBlockXBase.class, "elementalFire");
 		elementalLiquidVoid = new BlockXElementalVoid("elementalLiquidVoid", Material.rock, ItemBlockXBase.class, "elementalLiquidVoid");
 		elementalIce = new BlockXElementalIce("elementalIce",Material.rock, ItemBlockXBase.class, "elementalIce");
-
+		flaxCrop = new BlockXCropFlax();
 
 		//quartzCrystal = new BlockXQuartzCrystal("quartzCrystal", Material.glass, ItemBlockXBase.class);
 	}

@@ -107,7 +107,7 @@ public class WorldCraftingHandler {
 		reg.addRecipe(new ItemStack(XWorldBlocks.elementalFire,2,0), new Object[]{"ebe","sgs","ese", 'e', new ItemStack(XWorldBlocks.engineeringBrick, 1, 2), 'b', Blocks.iron_bars, 'g', Items.lava_bucket, 's', Blocks.stone});
 		reg.addRecipe(new ItemStack(XWorldBlocks.elementalLiquidVoid,2,0), new Object[]{"ese","sws","ese", 'e', new ItemStack(XWorldBlocks.engineeringBrick, 1,3), 's', Blocks.stone, 'w', /*Items.milk_bucket*/Items.bucket});
 		reg.addRecipe(new ItemStack(XWorldBlocks.elementalIce,2,0), new Object[]{"ese","sws","ese", 'e', new ItemStack(XWorldBlocks.engineeringBrick, 1, 4), 's', Blocks.stone, 'w', Items.snowball});
-
+		reg.addShapelessRecipe(new ItemStack(Items.string,1,0), new Object[]{new ItemStack(XWorldItems.itemCustom,1,2),  new ItemStack(XWorldItems.itemCustom,1,2)});
 		
 	}
 

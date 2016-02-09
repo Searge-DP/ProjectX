@@ -1,13 +1,13 @@
 [
 {
   "modid": "ProjectX",
-  "name": "§eProjectX",
+  "name": "ï¿½eProjectX",
   "description": "ProjectX is a open source remake of XyCraft.",
   "version": "0.0.1",
   "mcversion": "1.7.10",
   "url": "http://minecraft.curseforge.com/projects/projectx-rewrote",
   "updateUrl": "http://minecraft.curseforge.com/projects/projectx-rewrote/files",
-  "authorList": ["KitsuneAlex", "BeastLe9genD"],
+  "authorList": ["KitsuneAlex", "BeastLe9enD"],
   "credits": "dmaster8 for giving me the rights to continue the project !",
   "logoFile": "/logo.png",
   "screenshots": [],
@@ -15,13 +15,13 @@
 },
 {
   "modid": "ProjectXWorld",
-  "name": "§eProjectX World",
+  "name": "ï¿½eProjectX World",
   "version": "0.0.1",
   "parent": "ProjectX"
 },
 {
   "modid": "ProjectXMachines",
-  "name": "§eProjectX Machines",
+  "name": "ï¿½eProjectX Machines",
   "version": "0.0.1",
   "parent": "ProjectX"
 }

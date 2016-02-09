@@ -3,11 +3,11 @@ itemGroup.tabProjectXMachines=ProjectX Machinery
 
 //World Module
 
-tile.projectx.ore.blue.name=Blue Xycronium Ore
-tile.projectx.ore.green.name=Green Xycronium Ore
-tile.projectx.ore.red.name=Red Xycronium Ore
-tile.projectx.ore.black.name=Dark Xycronium Ore
-tile.projectx.ore.white.name=Light Xycronium Ore
+tile.oreBlue.name=Blue Xycronium Ore
+tile.oreGreen.name=Green Xycronium Ore
+tile.oreRed.name=Red Xycronium Ore
+tile.oreBlack.name=Dark Xycronium Ore
+tile.oreWhite.name=Light Xycronium Ore
 tile.projectx.storage.blue.name=Blue Xycronium Block
 tile.projectx.storage.green.name=Green Xycronium Block
 tile.projectx.storage.red.name=Red Xycronium Block
@@ -174,3 +174,11 @@ item.energyCoreT1.name=Energy Core
 item.energyCoreT2.name=Energy Core 
 item.energyCoreT3.name=Energy Core 
 item.wrench.name=Xycronium Wrench
+
+
+//Some unimportant world stuff :D by Legend the bossXDdee
+
+item.itemcustom.seedFlax.name=Flax Seeds
+item.itemcustom.silkyString.name=Silky String
+item.itemcustom.silkyLeaf.name=Silky Leaf
+item.itemcustom.sulfurGoo.name=Sulfur Goo
